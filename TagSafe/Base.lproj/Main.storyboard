@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,91 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TagSafe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5s-4s-OdN">
+                                <rect key="frame" x="0.0" y="742" width="375" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27r-Kk-kC1" userLabel="settings">
+                                        <rect key="frame" x="285" y="17" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="gc6-PM-7iM"/>
+                                            <constraint firstAttribute="height" constant="30" id="qg4-JG-3NV"/>
+                                        </constraints>
+                                        <state key="normal" image="login"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAU-gM-OPD" userLabel="files">
+                                        <rect key="frame" x="60" y="17" width="36" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="BcX-0G-yUm"/>
+                                            <constraint firstAttribute="width" constant="36" id="aR4-xG-ITl"/>
+                                        </constraints>
+                                        <state key="normal" image="folder"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="rAU-gM-OPD" firstAttribute="leading" secondItem="k5s-4s-OdN" secondAttribute="leading" constant="60" id="Qbx-nb-9JB"/>
+                                    <constraint firstItem="rAU-gM-OPD" firstAttribute="top" secondItem="k5s-4s-OdN" secondAttribute="top" constant="17" id="da2-Rv-PYu"/>
+                                    <constraint firstAttribute="height" constant="70" id="lb5-dn-WDE"/>
+                                    <constraint firstItem="27r-Kk-kC1" firstAttribute="top" secondItem="k5s-4s-OdN" secondAttribute="top" constant="17" id="mo2-26-fdi"/>
+                                    <constraint firstAttribute="trailing" secondItem="27r-Kk-kC1" secondAttribute="trailing" constant="60" id="xBN-Kg-8jO"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="acx-KA-Rwn" userLabel="takeNote">
+                                <rect key="frame" x="220" y="684" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="takeNote"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YhQ-Q7-sHo" userLabel="recordVideo">
+                                <rect key="frame" x="162" y="648" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="recordVideo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kbB-qD-Ppi" userLabel="recordAudio">
+                                <rect key="frame" x="105" y="684" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="recordAudio"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tl0-by-Afz" userLabel="addButton">
+                                <rect key="frame" x="155" y="713" width="65" height="65"/>
+                                <state key="normal" image="addicon"/>
+                                <connections>
+                                    <action selector="addButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kiT-1G-6Rj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="k5s-4s-OdN" secondAttribute="bottom" id="9H4-D3-KCK"/>
+                            <constraint firstItem="k5s-4s-OdN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KBn-Uy-8gZ"/>
+                            <constraint firstItem="Tl0-by-Afz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b25-tn-uap"/>
+                            <constraint firstItem="Tl0-by-Afz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hlP-wa-XF3"/>
+                            <constraint firstItem="k5s-4s-OdN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="mgf-MI-NpN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="AddButton" destination="Tl0-by-Afz" id="sQX-HX-1nh"/>
+                        <outlet property="RecordAudioButton" destination="kbB-qD-Ppi" id="Wqs-jt-dE7"/>
+                        <outlet property="RecordVideoButton" destination="YhQ-Q7-sHo" id="fFp-Gj-POs"/>
+                        <outlet property="TakeNoteButton" destination="acx-KA-Rwn" id="0Ag-jQ-2aI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="addicon" width="65" height="65"/>
+        <image name="folder" width="28.333333969116211" height="23.333333969116211"/>
+        <image name="login" width="27.666666030883789" height="27.666666030883789"/>
+        <image name="recordAudio" width="50" height="50"/>
+        <image name="recordVideo" width="50" height="50"/>
+        <image name="takeNote" width="50" height="50"/>
+    </resources>
 </document>
