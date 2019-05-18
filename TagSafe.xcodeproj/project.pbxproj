@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5497D8F69FA60D2E29D1DD5E /* Pods_TagSafe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 802F6A146BFC4F48C2B9B934 /* Pods_TagSafe.framework */; };
 		C02DBBC2228F3C45009592AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DBBC1228F3C45009592AD /* AppDelegate.swift */; };
 		C02DBBC4228F3C45009592AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DBBC3228F3C45009592AD /* ViewController.swift */; };
 		C02DBBC7228F3C45009592AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02DBBC5228F3C45009592AD /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 		C02DBBCF228F3C45009592AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C02DBBCD228F3C45009592AD /* LaunchScreen.storyboard */; };
 		C02DBBDA228F3C45009592AD /* TagSafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DBBD9228F3C45009592AD /* TagSafeTests.swift */; };
 		C02DBBE5228F3C45009592AD /* TagSafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DBBE4228F3C45009592AD /* TagSafeUITests.swift */; };
+		C02DBBF3228F4632009592AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02DBBF2228F4632009592AD /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1CE9876F4310FD9F7A24120D /* Pods-TagSafe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TagSafe.debug.xcconfig"; path = "Target Support Files/Pods-TagSafe/Pods-TagSafe.debug.xcconfig"; sourceTree = "<group>"; };
+		802F6A146BFC4F48C2B9B934 /* Pods_TagSafe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TagSafe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A875BC76B32C55EE1E886E9B /* Pods-TagSafe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TagSafe.release.xcconfig"; path = "Target Support Files/Pods-TagSafe/Pods-TagSafe.release.xcconfig"; sourceTree = "<group>"; };
 		C02DBBBE228F3C45009592AD /* TagSafe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TagSafe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C02DBBC1228F3C45009592AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C02DBBC3228F3C45009592AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 		C02DBBE0228F3C45009592AD /* TagSafeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TagSafeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C02DBBE4228F3C45009592AD /* TagSafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSafeUITests.swift; sourceTree = "<group>"; };
 		C02DBBE6228F3C46009592AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C02DBBF2228F4632009592AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5497D8F69FA60D2E29D1DD5E /* Pods_TagSafe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		088E51A499811162B95D718B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				802F6A146BFC4F48C2B9B934 /* Pods_TagSafe.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C02DBBB5228F3C45009592AD = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +98,8 @@
 				C02DBBD8228F3C45009592AD /* TagSafeTests */,
 				C02DBBE3228F3C45009592AD /* TagSafeUITests */,
 				C02DBBBF228F3C45009592AD /* Products */,
+				C0F93FB44ADC747C5B454C31 /* Pods */,
+				088E51A499811162B95D718B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +123,7 @@
 				C02DBBCD228F3C45009592AD /* LaunchScreen.storyboard */,
 				C02DBBD0228F3C45009592AD /* Info.plist */,
 				C02DBBC8228F3C45009592AD /* TagSafe.xcdatamodeld */,
+				C02DBBF2228F4632009592AD /* GoogleService-Info.plist */,
 			);
 			path = TagSafe;
 			sourceTree = "<group>";
@@ -128,6 +146,16 @@
 			path = TagSafeUITests;
 			sourceTree = "<group>";
 		};
+		C0F93FB44ADC747C5B454C31 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1CE9876F4310FD9F7A24120D /* Pods-TagSafe.debug.xcconfig */,
+				A875BC76B32C55EE1E886E9B /* Pods-TagSafe.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C02DBBE9228F3C46009592AD /* Build configuration list for PBXNativeTarget "TagSafe" */;
 			buildPhases = (
+				64C58E7C16E6CB440900F5E4 /* [CP] Check Pods Manifest.lock */,
 				C02DBBBA228F3C45009592AD /* Sources */,
 				C02DBBBB228F3C45009592AD /* Frameworks */,
 				C02DBBBC228F3C45009592AD /* Resources */,
+				209A1DE664351CA4A19B530D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C02DBBCF228F3C45009592AD /* LaunchScreen.storyboard in Resources */,
+				C02DBBF3228F4632009592AD /* GoogleService-Info.plist in Resources */,
 				C02DBBCC228F3C45009592AD /* Assets.xcassets in Resources */,
 				C02DBBC7228F3C45009592AD /* Main.storyboard in Resources */,
 			);
@@ -253,6 +284,65 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		209A1DE664351CA4A19B530D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TagSafe/Pods-TagSafe-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TagSafe/Pods-TagSafe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64C58E7C16E6CB440900F5E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TagSafe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C02DBBBA228F3C45009592AD /* Sources */ = {
@@ -434,6 +524,7 @@
 		};
 		C02DBBEA228F3C46009592AD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CE9876F4310FD9F7A24120D /* Pods-TagSafe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -451,6 +542,7 @@
 		};
 		C02DBBEB228F3C46009592AD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A875BC76B32C55EE1E886E9B /* Pods-TagSafe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
-    
     
     @IBOutlet weak var AddButton: UIButton!
     @IBOutlet weak var RecordAudioButton: UIButton!
@@ -20,8 +20,22 @@ class ViewController: UIViewController {
     var videoButtonCenter: CGPoint!
     var noteButtonCenter: CGPoint!
     
+     var db: Firestore?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        db = Firestore.firestore()
+        
+        db!.collection("tags").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
         
         audioButtonCenter = RecordAudioButton.center
         videoButtonCenter = RecordVideoButton.center
