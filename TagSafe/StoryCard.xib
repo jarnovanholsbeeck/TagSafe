@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="CalibreTest-Medium.ttf">
+            <string>CalibreTest-Medium</string>
+        </array>
+        <array key="calibretest_regular.ttf">
+            <string>CalibreTest-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StoryCardController" customModule="TagSafe" customModuleProvider="target">
+            <connections>
+                <outlet property="audioIcon" destination="JtJ-Yg-45f" id="IO1-pb-4f0"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="RTi-Ou-GqW"/>
+                <outlet property="imageIcon" destination="woo-IB-Qpu" id="oDp-Sh-2Kw"/>
+                <outlet property="noteIcon" destination="ZG2-Y8-5Kc" id="9zf-OP-c8c"/>
+                <outlet property="storyDate" destination="iCI-HI-gE7" id="lpU-Tb-kUs"/>
+                <outlet property="storyImage" destination="F79-9B-5gR" id="n5d-Km-MtT"/>
+                <outlet property="storyName" destination="v3z-0b-bax" id="UiT-or-B6m"/>
+                <outlet property="videoIcon" destination="Ct3-Tk-s1X" id="OqD-8n-Qmx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="150" height="220"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F79-9B-5gR">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="220"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="220" id="ruZ-5e-mKk"/>
+                        <constraint firstAttribute="width" constant="150" id="zHf-G3-Pod"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yad-qf-ryb">
+                    <rect key="frame" x="0.0" y="0.0" width="150" height="220"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15-05-2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCI-HI-gE7">
+                            <rect key="frame" x="8" y="30" width="68" height="16.333333333333329"/>
+                            <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" white="0.0" alpha="0.30465999119718312" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <size key="shadowOffset" width="0.0" height="1"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_small" translatesAutoresizingMaskIntoConstraints="NO" id="woo-IB-Qpu">
+                            <rect key="frame" x="8" y="192" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="HgJ-Pj-7Ku"/>
+                                <constraint firstAttribute="width" constant="20" id="kFO-Mo-zXz"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play_circle_small" translatesAutoresizingMaskIntoConstraints="NO" id="Ct3-Tk-s1X">
+                            <rect key="frame" x="36" y="192" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="imM-Vk-WQl"/>
+                                <constraint firstAttribute="width" constant="20" id="rXc-wg-AcY"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="audio_small" translatesAutoresizingMaskIntoConstraints="NO" id="JtJ-Yg-45f">
+                            <rect key="frame" x="92" y="192" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="DEW-WC-pwk"/>
+                                <constraint firstAttribute="width" constant="20" id="REP-yP-xOj"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note_small" translatesAutoresizingMaskIntoConstraints="NO" id="ZG2-Y8-5Kc">
+                            <rect key="frame" x="64" y="192" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="dTD-Jn-3Qy"/>
+                                <constraint firstAttribute="height" constant="20" id="ySM-Jg-odT"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3z-0b-bax">
+                            <rect key="frame" x="8" y="8" width="95.666666666666671" height="22"/>
+                            <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <size key="shadowOffset" width="0.0" height="1"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.24147227112676056" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="v3z-0b-bax" firstAttribute="top" secondItem="Yad-qf-ryb" secondAttribute="top" constant="8" id="15Y-dc-ild"/>
+                        <constraint firstItem="v3z-0b-bax" firstAttribute="leading" secondItem="Yad-qf-ryb" secondAttribute="leading" constant="8" id="4VN-EH-Hu1"/>
+                        <constraint firstItem="JtJ-Yg-45f" firstAttribute="leading" secondItem="ZG2-Y8-5Kc" secondAttribute="trailing" constant="8" id="Dhk-iR-eia"/>
+                        <constraint firstItem="iCI-HI-gE7" firstAttribute="leading" secondItem="Yad-qf-ryb" secondAttribute="leading" constant="8" id="Dz6-lg-bMc"/>
+                        <constraint firstItem="iCI-HI-gE7" firstAttribute="top" secondItem="v3z-0b-bax" secondAttribute="bottom" id="J5N-am-mDM"/>
+                        <constraint firstItem="Ct3-Tk-s1X" firstAttribute="leading" secondItem="woo-IB-Qpu" secondAttribute="trailing" constant="8" id="OUP-JD-wI1"/>
+                        <constraint firstAttribute="bottom" secondItem="ZG2-Y8-5Kc" secondAttribute="bottom" constant="8" id="P7T-z4-x5U"/>
+                        <constraint firstAttribute="bottom" secondItem="Ct3-Tk-s1X" secondAttribute="bottom" constant="8" id="Tbk-dP-o0J"/>
+                        <constraint firstAttribute="height" constant="220" id="guM-Ou-d2j"/>
+                        <constraint firstAttribute="width" constant="150" id="p7J-9C-ZcF"/>
+                        <constraint firstAttribute="bottom" secondItem="woo-IB-Qpu" secondAttribute="bottom" constant="8" id="qea-dR-g91"/>
+                        <constraint firstAttribute="bottom" secondItem="JtJ-Yg-45f" secondAttribute="bottom" constant="8" id="rCY-HC-JlO"/>
+                        <constraint firstItem="ZG2-Y8-5Kc" firstAttribute="leading" secondItem="Ct3-Tk-s1X" secondAttribute="trailing" constant="8" id="sWM-Jc-rPA"/>
+                        <constraint firstItem="woo-IB-Qpu" firstAttribute="leading" secondItem="Yad-qf-ryb" secondAttribute="leading" constant="8" id="uuD-tQ-QUc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="F79-9B-5gR" secondAttribute="bottom" id="7j3-Lj-3GH"/>
+                <constraint firstItem="F79-9B-5gR" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="8yC-Wk-96W"/>
+                <constraint firstItem="F79-9B-5gR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Mn3-eu-IIt"/>
+                <constraint firstItem="Yad-qf-ryb" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="MpK-LU-CjI"/>
+                <constraint firstItem="Yad-qf-ryb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Skn-9Z-laZ"/>
+                <constraint firstItem="F79-9B-5gR" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="W3B-fC-CZn"/>
+                <constraint firstItem="Yad-qf-ryb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="owt-r3-Brj"/>
+                <constraint firstAttribute="bottom" secondItem="Yad-qf-ryb" secondAttribute="bottom" id="vny-ck-OxT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="3"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-62.399999999999999" y="167.73399014778326"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="audio_small" width="11" height="14.666666984558105"/>
+        <image name="image_small" width="16.333333969116211" height="16.333333969116211"/>
+        <image name="note_small" width="16" height="10.666666984558105"/>
+        <image name="play_circle_small" width="15.333333015441895" height="15.333333015441895"/>
+    </resources>
+</document>
