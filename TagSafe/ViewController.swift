@@ -21,6 +21,7 @@ class ViewController: UIViewController, TagListViewDelegate {
     
     @IBOutlet weak var tagListView: TagListView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var fileScrollView: UIScrollView!
     
     var audioButtonCenter: CGPoint!
     var videoButtonCenter: CGPoint!
@@ -46,6 +47,7 @@ class ViewController: UIViewController, TagListViewDelegate {
         editSearchBar()
         addRecentTags()
         addRecentStories()
+        addRecentFiles()
         
         audioButtonCenter = RecordAudioButton.center
         videoButtonCenter = RecordVideoButton.center
@@ -74,6 +76,11 @@ class ViewController: UIViewController, TagListViewDelegate {
         self.tagListView.addTags(["Accident", "Traffic", "Politics", "Economy", "Domestic Violence", "Environment", "Climate", "Traffic", "Politics", "Economy"])
     }
     
+    func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
+        tagView.isSelected = !tagView.isSelected
+        tagView.selectedBackgroundColor = UIColor.darkGray
+    }
+    
     func addRecentStories() {
         var scrollWidth = 0
         
@@ -89,9 +96,19 @@ class ViewController: UIViewController, TagListViewDelegate {
         self.scrollView.contentSize = CGSize(width: scrollWidth, height: 236)
     }
     
-    func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
-        tagView.isSelected = !tagView.isSelected
-        tagView.selectedBackgroundColor = UIColor.darkGray
+    func addRecentFiles() {
+        var scrollWidth = 0
+        
+        for n in 0...4 {
+            let startY = 8 + (n * 68)
+            
+            scrollWidth = startY + 68
+            
+            let file = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), fileType: "image", filename: "TestFile", detail: "Image size", date: "12-05-2019")
+            fileScrollView.addSubview(file)
+        }
+        
+        self.fileScrollView.contentSize = CGSize(width: scrollWidth, height: 236)
     }
     
     @IBAction func addButtonClicked(_ sender: UIButton) {

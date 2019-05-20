@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="calibretest_regular.ttf">
+            <string>CalibreTest-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FileViewController" customModule="TagSafe" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="9VG-kU-nmY"/>
+                <outlet property="date" destination="FCl-2S-jQe" id="KwO-CP-l0j"/>
+                <outlet property="detail" destination="Vx9-mC-Dkt" id="n1e-nR-a5B"/>
+                <outlet property="fileType" destination="jCN-jF-f4h" id="5fb-jq-boX"/>
+                <outlet property="filename" destination="SFq-Oo-zC1" id="KTw-aP-ckN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="343" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="jCN-jF-f4h">
+                    <rect key="frame" x="16" y="15" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="V6P-5y-iF5"/>
+                        <constraint firstAttribute="height" constant="30" id="feb-jp-zLh"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place of incident.jpg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFq-Oo-zC1">
+                    <rect key="frame" x="62" y="15" width="94" height="12"/>
+                    <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4672 x 3104px" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vx9-mC-Dkt">
+                    <rect key="frame" x="62" y="32" width="67" height="12"/>
+                    <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="12"/>
+                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14-06-2019" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCl-2S-jQe">
+                    <rect key="frame" x="275" y="24" width="52" height="12"/>
+                    <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="12"/>
+                    <color key="textColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="SFq-Oo-zC1" firstAttribute="leading" secondItem="jCN-jF-f4h" secondAttribute="trailing" constant="16" id="83i-3z-ond"/>
+                <constraint firstItem="Vx9-mC-Dkt" firstAttribute="leading" secondItem="jCN-jF-f4h" secondAttribute="trailing" constant="16" id="8ci-4G-Vrn"/>
+                <constraint firstItem="FCl-2S-jQe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IQd-z6-fhe"/>
+                <constraint firstAttribute="bottom" secondItem="Vx9-mC-Dkt" secondAttribute="bottom" constant="16" id="SA9-aS-eG7"/>
+                <constraint firstItem="jCN-jF-f4h" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Sba-MT-noq"/>
+                <constraint firstItem="jCN-jF-f4h" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="oSm-yD-8uT"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FCl-2S-jQe" secondAttribute="trailing" constant="16" id="uaQ-rg-bQC"/>
+                <constraint firstItem="SFq-Oo-zC1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="w8s-ia-ALR"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="54.347826086956523" y="125.89285714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="image" width="26" height="26"/>
+    </resources>
+</document>

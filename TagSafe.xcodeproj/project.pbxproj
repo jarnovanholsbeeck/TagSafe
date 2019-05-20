@@ -21,6 +21,8 @@
 		C07A2E222292A1C70084D799 /* CalibreTest-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C07A2E212292A1C70084D799 /* CalibreTest-Medium.ttf */; };
 		C07A2E242292A90F0084D799 /* StoryCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = C07A2E232292A90F0084D799 /* StoryCard.xib */; };
 		C07A2E262292B0210084D799 /* StoryCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2E252292B0210084D799 /* StoryCardController.swift */; };
+		C07A2E292292DE5B0084D799 /* FileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C07A2E282292DE5B0084D799 /* FileView.xib */; };
+		C07A2E2B2292E2640084D799 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2E2A2292E2640084D799 /* FileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		C07A2E212292A1C70084D799 /* CalibreTest-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CalibreTest-Medium.ttf"; path = "../CalibreTest-Medium.ttf"; sourceTree = "<group>"; };
 		C07A2E232292A90F0084D799 /* StoryCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCard.xib; sourceTree = "<group>"; };
 		C07A2E252292B0210084D799 /* StoryCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardController.swift; sourceTree = "<group>"; };
+		C07A2E282292DE5B0084D799 /* FileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileView.xib; sourceTree = "<group>"; };
+		C07A2E2A2292E2640084D799 /* FileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 		C02DBBC0228F3C45009592AD /* TagSafe */ = {
 			isa = PBXGroup;
 			children = (
+				C07A2E272292DE380084D799 /* custom views */,
 				C02DBBC1228F3C45009592AD /* AppDelegate.swift */,
 				C02DBBC3228F3C45009592AD /* ViewController.swift */,
 				C02DBBC5228F3C45009592AD /* Main.storyboard */,
@@ -132,8 +137,6 @@
 				C02DBBD0228F3C45009592AD /* Info.plist */,
 				C02DBBC8228F3C45009592AD /* TagSafe.xcdatamodeld */,
 				C02DBBF2228F4632009592AD /* GoogleService-Info.plist */,
-				C07A2E232292A90F0084D799 /* StoryCard.xib */,
-				C07A2E252292B0210084D799 /* StoryCardController.swift */,
 				C07A2E1E2292A1160084D799 /* fonts */,
 			);
 			path = TagSafe;
@@ -165,6 +168,17 @@
 			);
 			name = fonts;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		C07A2E272292DE380084D799 /* custom views */ = {
+			isa = PBXGroup;
+			children = (
+				C07A2E232292A90F0084D799 /* StoryCard.xib */,
+				C07A2E252292B0210084D799 /* StoryCardController.swift */,
+				C07A2E282292DE5B0084D799 /* FileView.xib */,
+				C07A2E2A2292E2640084D799 /* FileViewController.swift */,
+			);
+			path = "custom views";
 			sourceTree = "<group>";
 		};
 		C0F93FB44ADC747C5B454C31 /* Pods */ = {
@@ -282,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C07A2E292292DE5B0084D799 /* FileView.xib in Resources */,
 				C07A2E222292A1C70084D799 /* CalibreTest-Medium.ttf in Resources */,
 				C02DBBCF228F3C45009592AD /* LaunchScreen.storyboard in Resources */,
 				C07A2E202292A12C0084D799 /* calibretest_regular.ttf in Resources */,
@@ -375,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C02DBBC4228F3C45009592AD /* ViewController.swift in Sources */,
+				C07A2E2B2292E2640084D799 /* FileViewController.swift in Sources */,
 				C02DBBC2228F3C45009592AD /* AppDelegate.swift in Sources */,
 				C02DBBCA228F3C45009592AD /* TagSafe.xcdatamodeld in Sources */,
 				C07A2E262292B0210084D799 /* StoryCardController.swift in Sources */,
