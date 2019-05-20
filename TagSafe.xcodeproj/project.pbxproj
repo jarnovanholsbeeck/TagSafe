@@ -17,6 +17,8 @@
 		C02DBBDA228F3C45009592AD /* TagSafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DBBD9228F3C45009592AD /* TagSafeTests.swift */; };
 		C02DBBE5228F3C45009592AD /* TagSafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DBBE4228F3C45009592AD /* TagSafeUITests.swift */; };
 		C02DBBF3228F4632009592AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02DBBF2228F4632009592AD /* GoogleService-Info.plist */; };
+		C07A2E202292A12C0084D799 /* calibretest_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C07A2E1F2292A12C0084D799 /* calibretest_regular.ttf */; };
+		C07A2E222292A1C70084D799 /* CalibreTest-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C07A2E212292A1C70084D799 /* CalibreTest-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +56,9 @@
 		C02DBBE0228F3C45009592AD /* TagSafeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TagSafeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C02DBBE4228F3C45009592AD /* TagSafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSafeUITests.swift; sourceTree = "<group>"; };
 		C02DBBE6228F3C46009592AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C02DBBF2228F4632009592AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C02DBBF2228F4632009592AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C07A2E1F2292A12C0084D799 /* calibretest_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = calibretest_regular.ttf; path = ../calibretest_regular.ttf; sourceTree = "<group>"; };
+		C07A2E212292A1C70084D799 /* CalibreTest-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CalibreTest-Medium.ttf"; path = "../CalibreTest-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 				C02DBBD0228F3C45009592AD /* Info.plist */,
 				C02DBBC8228F3C45009592AD /* TagSafe.xcdatamodeld */,
 				C02DBBF2228F4632009592AD /* GoogleService-Info.plist */,
+				C07A2E1E2292A1160084D799 /* fonts */,
 			);
 			path = TagSafe;
 			sourceTree = "<group>";
@@ -146,13 +151,22 @@
 			path = TagSafeUITests;
 			sourceTree = "<group>";
 		};
+		C07A2E1E2292A1160084D799 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C07A2E212292A1C70084D799 /* CalibreTest-Medium.ttf */,
+				C07A2E1F2292A12C0084D799 /* calibretest_regular.ttf */,
+			);
+			name = fonts;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		C0F93FB44ADC747C5B454C31 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				1CE9876F4310FD9F7A24120D /* Pods-TagSafe.debug.xcconfig */,
 				A875BC76B32C55EE1E886E9B /* Pods-TagSafe.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -262,7 +276,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C07A2E222292A1C70084D799 /* CalibreTest-Medium.ttf in Resources */,
 				C02DBBCF228F3C45009592AD /* LaunchScreen.storyboard in Resources */,
+				C07A2E202292A12C0084D799 /* calibretest_regular.ttf in Resources */,
 				C02DBBF3228F4632009592AD /* GoogleService-Info.plist in Resources */,
 				C02DBBCC228F3C45009592AD /* Assets.xcassets in Resources */,
 				C02DBBC7228F3C45009592AD /* Main.storyboard in Resources */,
