@@ -18,6 +18,7 @@ class ViewController: UIViewController, TagListViewDelegate {
     @IBOutlet weak var RecordAudioButton: UIButton!
     @IBOutlet weak var RecordVideoButton: UIButton!
     @IBOutlet weak var TakeNoteButton: UIButton!
+    @IBOutlet weak var fadeScreen: UIView!
     
     @IBOutlet weak var tagListView: TagListView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -122,6 +123,7 @@ class ViewController: UIViewController, TagListViewDelegate {
                 self.RecordAudioButton.alpha = 1
                 self.RecordVideoButton.alpha = 1
                 self.TakeNoteButton.alpha = 1
+                self.fadeScreen.alpha = 1
                 
                 self.RecordAudioButton.center = self.audioButtonCenter
                 self.RecordVideoButton.center = self.videoButtonCenter
@@ -137,6 +139,7 @@ class ViewController: UIViewController, TagListViewDelegate {
                 self.RecordAudioButton.alpha = 0
                 self.RecordVideoButton.alpha = 0
                 self.TakeNoteButton.alpha = 0
+                self.fadeScreen.alpha = 0
                 
                 self.RecordAudioButton.center = self.AddButton.center
                 self.RecordVideoButton.center = self.AddButton.center

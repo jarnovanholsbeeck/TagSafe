@@ -102,6 +102,10 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dC-iF-egZ">
                                 <rect key="frame" x="0.0" y="567" width="375" height="175"/>
                             </scrollView>
+                            <view alpha="0.050000000000000003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyd-ac-oi0" userLabel="fadeView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="742"/>
+                                <color key="backgroundColor" white="1" alpha="0.60291043133802813" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5s-4s-OdN">
                                 <rect key="frame" x="0.0" y="742" width="375" height="70"/>
                                 <subviews>
@@ -156,15 +160,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Hyd-ac-oi0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="28i-LV-ehV"/>
                             <constraint firstItem="XF8-8o-XrG" firstAttribute="top" secondItem="7ac-ue-QcO" secondAttribute="bottom" constant="8" id="4Gy-Mr-bsh"/>
                             <constraint firstItem="5dC-iF-egZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4gZ-LG-rtj"/>
                             <constraint firstItem="5dC-iF-egZ" firstAttribute="top" secondItem="XF8-8o-XrG" secondAttribute="bottom" constant="8" id="6GG-bw-cKz"/>
+                            <constraint firstItem="Hyd-ac-oi0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6hS-hs-VmI"/>
                             <constraint firstItem="7ac-ue-QcO" firstAttribute="leading" secondItem="k5s-4s-OdN" secondAttribute="leading" id="6yw-Hr-79B"/>
                             <constraint firstItem="7ac-ue-QcO" firstAttribute="top" secondItem="T8D-06-Lpg" secondAttribute="bottom" constant="8" id="8sE-Q6-F8G"/>
                             <constraint firstAttribute="bottom" secondItem="k5s-4s-OdN" secondAttribute="bottom" id="9H4-D3-KCK"/>
                             <constraint firstItem="k5s-4s-OdN" firstAttribute="top" secondItem="5dC-iF-egZ" secondAttribute="bottom" id="B3A-X3-kyV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XF8-8o-XrG" secondAttribute="trailing" symbolic="YES" id="BBb-RF-lZv"/>
                             <constraint firstItem="70P-Ta-XUi" firstAttribute="top" secondItem="hPg-gf-MfJ" secondAttribute="bottom" constant="8" id="CSb-kw-mrz"/>
+                            <constraint firstItem="Hyd-ac-oi0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Fp0-pg-Oir"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="T8D-06-Lpg" secondAttribute="trailing" symbolic="YES" id="Gg6-UH-kUb"/>
                             <constraint firstItem="T8D-06-Lpg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="IOv-O6-Fxv"/>
                             <constraint firstItem="T8D-06-Lpg" firstAttribute="top" secondItem="70P-Ta-XUi" secondAttribute="bottom" constant="8" id="IlG-bu-fCs"/>
@@ -175,6 +182,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hPg-gf-MfJ" secondAttribute="trailing" symbolic="YES" id="YmA-6y-NTH"/>
                             <constraint firstItem="5dC-iF-egZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YqE-fk-Rcm"/>
                             <constraint firstItem="hPg-gf-MfJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Z5A-xV-Kyp"/>
+                            <constraint firstItem="k5s-4s-OdN" firstAttribute="top" secondItem="Hyd-ac-oi0" secondAttribute="bottom" id="ZkE-Wa-569"/>
                             <constraint firstItem="Tl0-by-Afz" firstAttribute="centerX" secondItem="k5s-4s-OdN" secondAttribute="centerX" id="b25-tn-uap"/>
                             <constraint firstItem="hPg-gf-MfJ" firstAttribute="top" secondItem="Xei-yZ-S1t" secondAttribute="bottom" id="ceX-rG-coN"/>
                             <constraint firstItem="Xei-yZ-S1t" firstAttribute="leading" secondItem="k5s-4s-OdN" secondAttribute="leading" id="emr-bu-4Mq"/>
@@ -194,6 +202,7 @@
                         <outlet property="RecordVideoButton" destination="YhQ-Q7-sHo" id="fFp-Gj-POs"/>
                         <outlet property="SearchBar" destination="Xei-yZ-S1t" id="Vmo-ZY-9sn"/>
                         <outlet property="TakeNoteButton" destination="acx-KA-Rwn" id="0Ag-jQ-2aI"/>
+                        <outlet property="fadeScreen" destination="Hyd-ac-oi0" id="Mgh-d6-9aX"/>
                         <outlet property="fileScrollView" destination="5dC-iF-egZ" id="0w0-UH-OfR"/>
                         <outlet property="scrollView" destination="7ac-ue-QcO" id="ZfZ-9K-Kpw"/>
                         <outlet property="searchDisplayController" destination="Ciz-S4-els" id="3bt-Vv-84j"/>
