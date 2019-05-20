@@ -8,8 +8,12 @@
 
 import UIKit
 import Firebase
+import TagListView
 
 class ViewController: UIViewController {
+    
+    var tags: [Tag] = []
+    @IBOutlet weak var tagListView: TagListView!
     
     @IBOutlet weak var AddButton: UIButton!
     @IBOutlet weak var RecordAudioButton: UIButton!
@@ -20,22 +24,53 @@ class ViewController: UIViewController {
     var videoButtonCenter: CGPoint!
     var noteButtonCenter: CGPoint!
     
-     var db: Firestore?
+    @IBOutlet weak var tagName: UITextField!
+    @IBOutlet weak var tagColor: UITextField!
+    
+    var db: Firestore?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tags.append(Tag(name: "test", color: "#F00000"))
+        
         db = Firestore.firestore()
         
-        db!.collection("tags").getDocuments() { (querySnapshot, err) in
+        /*
+         db!.collection("tags").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
+                    
+                    //var data = document.data()
+                    //print(document.get("name")!)
+                    let newTag = Tag(name: document.get("name")! as? String, color: document.get("color")! as? String)
+                    self.tags.append(newTag)
+                    self.tagListView.addTag(newTag.name!)
                     print("\(document.documentID) => \(document.data())")
                 }
             }
         }
+         */
+        db!.collection("tags").addSnapshotListener { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.tagListView.removeAllTags()
+                self.tags = []
+                for document in querySnapshot!.documents {
+                    
+                    //var data = document.data()
+                    //print(document.get("name")!)
+                    let newTag = Tag(name: document.get("name") as? String, color: document.get("color") as? String)
+                    self.tags.append(newTag)
+                    self.tagListView.addTag(newTag.name!)
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+        
         
         audioButtonCenter = RecordAudioButton.center
         videoButtonCenter = RecordVideoButton.center
@@ -45,6 +80,11 @@ class ViewController: UIViewController {
         RecordVideoButton.center = AddButton.center
         TakeNoteButton.center = AddButton.center
     }
+    
+    @IBAction func onPressAdd(_ sender: Any) {
+        print(self.tags)
+    }
+    
     
     @IBAction func addButtonClicked(_ sender: UIButton) {
         if sender.currentImage == UIImage(named: "addicon") {
