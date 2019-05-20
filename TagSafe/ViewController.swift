@@ -83,6 +83,21 @@ class ViewController: UIViewController {
     
     @IBAction func onPressAdd(_ sender: Any) {
         print(self.tags)
+        if tagName.text?.isEmpty ?? true || tagColor.text?.isEmpty ?? true {
+            print("nope")
+            return
+        }
+        var ref: DocumentReference? = nil
+        ref = db!.collection("tags").addDocument(data: [
+            "name": tagName.text!,
+            "color": tagColor.text!
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
     }
     
     
