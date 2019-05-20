@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import TagListView
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, TagListViewDelegate {
     
     @IBOutlet weak var SearchBar: UISearchBar!
     
@@ -17,6 +18,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var RecordAudioButton: UIButton!
     @IBOutlet weak var RecordVideoButton: UIButton!
     @IBOutlet weak var TakeNoteButton: UIButton!
+    
+    @IBOutlet weak var tagListView: TagListView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var audioButtonCenter: CGPoint!
     var videoButtonCenter: CGPoint!
@@ -26,8 +30,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        editSearchBar()
         
         db = Firestore.firestore()
         
@@ -40,6 +42,10 @@ class ViewController: UIViewController {
                 }
             }
         }
+        
+        editSearchBar()
+        addRecentTags()
+        addRecentStories()
         
         audioButtonCenter = RecordAudioButton.center
         videoButtonCenter = RecordVideoButton.center
@@ -62,6 +68,30 @@ class ViewController: UIViewController {
                 leftView.tintColor = UIColor(red:0.00, green:0.42, blue:1.00, alpha:1.0)
             }
         }
+    }
+    
+    func addRecentTags() {
+        self.tagListView.addTags(["Accident", "Traffic", "Politics", "Economy", "Domestic Violence", "Environment", "Climate", "Traffic", "Politics", "Economy"])
+    }
+    
+    func addRecentStories() {
+        var scrollWidth = 0
+        
+        for n in 0...4 {
+            let startX = 8 + (n * 158)
+            
+            scrollWidth = startX + 158
+            
+            let story = StoryCardController(frame: CGRect(x: startX, y: 8, width: 150, height: 220), image: UIImage(named: "TestStory")!, name: "Traffic Jam", date: "15-06-2019", hasImage: true, hasVideo: true, hasAudio: true, hasNote: false)
+            scrollView.addSubview(story)
+        }
+        
+        self.scrollView.contentSize = CGSize(width: scrollWidth, height: 236)
+    }
+    
+    func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
+        tagView.isSelected = !tagView.isSelected
+        tagView.selectedBackgroundColor = UIColor.darkGray
     }
     
     @IBAction func addButtonClicked(_ sender: UIButton) {
