@@ -10,9 +10,10 @@ import UIKit
 import Firebase
 import TagListView
 
-class ViewController: UIViewController, TagListViewDelegate {
+class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate {
+    @IBOutlet var contentView: UIView!
     
-    @IBOutlet weak var SearchBar: UISearchBar!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var AddButton: UIButton!
     @IBOutlet weak var RecordAudioButton: UIButton!
@@ -60,7 +61,7 @@ class ViewController: UIViewController, TagListViewDelegate {
     }
     
     func editSearchBar() {
-        if let textfield = SearchBar.value(forKey: "searchField") as? UITextField {
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             textfield.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
             textfield.borderStyle = .none
             textfield.borderStyle = .roundedRect
@@ -72,6 +73,7 @@ class ViewController: UIViewController, TagListViewDelegate {
             }
         }
     }
+    
     
     func addRecentTags() {
         self.tagListView.addTags(["Accident", "Traffic", "Politics", "Economy", "Domestic Violence", "Environment", "Climate", "Traffic", "Politics", "Economy"])
@@ -123,6 +125,7 @@ class ViewController: UIViewController, TagListViewDelegate {
                 self.RecordAudioButton.alpha = 1
                 self.RecordVideoButton.alpha = 1
                 self.TakeNoteButton.alpha = 1
+                self.contentView.bringSubviewToFront(self.fadeScreen)
                 self.fadeScreen.alpha = 1
                 
                 self.RecordAudioButton.center = self.audioButtonCenter
@@ -139,6 +142,7 @@ class ViewController: UIViewController, TagListViewDelegate {
                 self.RecordAudioButton.alpha = 0
                 self.RecordVideoButton.alpha = 0
                 self.TakeNoteButton.alpha = 0
+                self.contentView.sendSubviewToBack(self.fadeScreen)
                 self.fadeScreen.alpha = 0
                 
                 self.RecordAudioButton.center = self.AddButton.center
@@ -146,5 +150,9 @@ class ViewController: UIViewController, TagListViewDelegate {
                 self.TakeNoteButton.center = self.AddButton.center
             })
         }
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        performSegue(withIdentifier: "Search", sender: self)
     }
 }

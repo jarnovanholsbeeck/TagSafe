@@ -23,6 +23,9 @@
 		C07A2E262292B0210084D799 /* StoryCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2E252292B0210084D799 /* StoryCardController.swift */; };
 		C07A2E292292DE5B0084D799 /* FileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C07A2E282292DE5B0084D799 /* FileView.xib */; };
 		C07A2E2B2292E2640084D799 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2E2A2292E2640084D799 /* FileViewController.swift */; };
+		C0EAC2CA2293F4DA005DF03E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2C92293F4DA005DF03E /* Tag.swift */; };
+		C0EAC2CC2293FB60005DF03E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2CB2293FB60005DF03E /* SearchViewController.swift */; };
+		C0EAC2CE229435BD005DF03E /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2CD229435BD005DF03E /* SearchResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		C07A2E252292B0210084D799 /* StoryCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardController.swift; sourceTree = "<group>"; };
 		C07A2E282292DE5B0084D799 /* FileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileView.xib; sourceTree = "<group>"; };
 		C07A2E2A2292E2640084D799 /* FileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
+		C0EAC2C92293F4DA005DF03E /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		C0EAC2CB2293FB60005DF03E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C0EAC2CD229435BD005DF03E /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,14 +136,15 @@
 			children = (
 				C07A2E272292DE380084D799 /* custom views */,
 				C02DBBC1228F3C45009592AD /* AppDelegate.swift */,
-				C02DBBC3228F3C45009592AD /* ViewController.swift */,
 				C02DBBC5228F3C45009592AD /* Main.storyboard */,
+				C0EAC2CF229435CD005DF03E /* Controllers */,
 				C02DBBCB228F3C45009592AD /* Assets.xcassets */,
 				C02DBBCD228F3C45009592AD /* LaunchScreen.storyboard */,
 				C02DBBD0228F3C45009592AD /* Info.plist */,
 				C02DBBC8228F3C45009592AD /* TagSafe.xcdatamodeld */,
 				C02DBBF2228F4632009592AD /* GoogleService-Info.plist */,
 				C07A2E1E2292A1160084D799 /* fonts */,
+				C0EAC2C92293F4DA005DF03E /* Tag.swift */,
 			);
 			path = TagSafe;
 			sourceTree = "<group>";
@@ -179,6 +186,16 @@
 				C07A2E2A2292E2640084D799 /* FileViewController.swift */,
 			);
 			path = "custom views";
+			sourceTree = "<group>";
+		};
+		C0EAC2CF229435CD005DF03E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C02DBBC3228F3C45009592AD /* ViewController.swift */,
+				C0EAC2CB2293FB60005DF03E /* SearchViewController.swift */,
+				C0EAC2CD229435BD005DF03E /* SearchResultViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		C0F93FB44ADC747C5B454C31 /* Pods */ = {
@@ -334,6 +351,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TagSafe/Pods-TagSafe-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/TagListView/TagListView.framework",
@@ -347,6 +365,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TagListView.framework",
@@ -389,10 +408,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0EAC2CA2293F4DA005DF03E /* Tag.swift in Sources */,
+				C0EAC2CC2293FB60005DF03E /* SearchViewController.swift in Sources */,
 				C02DBBC4228F3C45009592AD /* ViewController.swift in Sources */,
 				C07A2E2B2292E2640084D799 /* FileViewController.swift in Sources */,
 				C02DBBC2228F3C45009592AD /* AppDelegate.swift in Sources */,
 				C02DBBCA228F3C45009592AD /* TagSafe.xcdatamodeld in Sources */,
+				C0EAC2CE229435BD005DF03E /* SearchResultViewController.swift in Sources */,
 				C07A2E262292B0210084D799 /* StoryCardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

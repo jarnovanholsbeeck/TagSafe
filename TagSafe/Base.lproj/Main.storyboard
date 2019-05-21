@@ -13,6 +13,9 @@
         <array key="CalibreTest-Medium.ttf">
             <string>CalibreTest-Medium</string>
         </array>
+        <array key="calibretest_regular.ttf">
+            <string>CalibreTest-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Delegate-->
@@ -23,18 +26,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo bg" translatesAutoresizingMaskIntoConstraints="NO" id="glR-G0-UAD">
+                                <rect key="frame" x="-125" y="370" width="447.00000000000011" height="471"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="447" id="Mgo-Mo-XpX"/>
+                                    <constraint firstAttribute="height" constant="471" id="nrB-KZ-A8h"/>
+                                </constraints>
+                            </imageView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyd-ac-oi0" userLabel="fadeView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="742"/>
+                                <color key="backgroundColor" white="1" alpha="0.60291043133802813" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
+                            </view>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by name or tags..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xei-yZ-S1t">
-                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
+                                <rect key="frame" x="5" y="44" width="365" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="38D-KG-Lk9"/>
+                                </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently searched tags:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPg-gf-MfJ">
-                                <rect key="frame" x="16" y="100" width="226" height="24.666666666666671"/>
+                                <rect key="frame" x="16" y="100" width="199.66666666666666" height="21"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
-                                <color key="textColor" white="0.42999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="70P-Ta-XUi" customClass="TagListView" customModule="TagListView">
-                                <rect key="frame" x="16" y="132.66666666666666" width="343" height="127.99999999999997"/>
+                                <rect key="frame" x="16" y="129" width="343" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="8yX-Zr-NXf"/>
                                 </constraints>
@@ -43,7 +63,7 @@
                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="3"/>
@@ -85,27 +105,23 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent stories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8D-06-Lpg">
-                                <rect key="frame" x="16" y="268.66666666666669" width="141" height="24.666666666666686"/>
+                                <rect key="frame" x="15.999999999999993" y="265" width="125.33333333333331" height="21"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent files:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XF8-8o-XrG">
-                                <rect key="frame" x="16.000000000000007" y="534.33333333333337" width="115.66666666666669" height="24.666666666666629"/>
+                                <rect key="frame" x="15.999999999999993" y="538" width="103.33333333333331" height="21"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" showsVerticalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="7ac-ue-QcO">
-                                <rect key="frame" x="0.0" y="301.33333333333331" width="375" height="224.99999999999994"/>
+                                <rect key="frame" x="0.0" y="294" width="375" height="236"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dC-iF-egZ">
                                 <rect key="frame" x="0.0" y="567" width="375" height="175"/>
                             </scrollView>
-                            <view alpha="0.050000000000000003" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hyd-ac-oi0" userLabel="fadeView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="742"/>
-                                <color key="backgroundColor" white="1" alpha="0.60291043133802813" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5s-4s-OdN">
                                 <rect key="frame" x="0.0" y="742" width="375" height="70"/>
                                 <subviews>
@@ -151,7 +167,7 @@
                                 <state key="normal" image="recordAudio"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tl0-by-Afz" userLabel="addButton">
-                                <rect key="frame" x="179.66666666666666" y="756" width="16" height="22"/>
+                                <rect key="frame" x="155" y="713" width="65" height="65"/>
                                 <state key="normal" image="addicon"/>
                                 <connections>
                                     <action selector="addButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kiT-1G-6Rj"/>
@@ -167,6 +183,7 @@
                             <constraint firstItem="Hyd-ac-oi0" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6hS-hs-VmI"/>
                             <constraint firstItem="7ac-ue-QcO" firstAttribute="leading" secondItem="k5s-4s-OdN" secondAttribute="leading" id="6yw-Hr-79B"/>
                             <constraint firstItem="7ac-ue-QcO" firstAttribute="top" secondItem="T8D-06-Lpg" secondAttribute="bottom" constant="8" id="8sE-Q6-F8G"/>
+                            <constraint firstAttribute="bottom" secondItem="glR-G0-UAD" secondAttribute="bottom" constant="-29" id="91j-dL-L4c"/>
                             <constraint firstAttribute="bottom" secondItem="k5s-4s-OdN" secondAttribute="bottom" id="9H4-D3-KCK"/>
                             <constraint firstItem="k5s-4s-OdN" firstAttribute="top" secondItem="5dC-iF-egZ" secondAttribute="bottom" id="B3A-X3-kyV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XF8-8o-XrG" secondAttribute="trailing" symbolic="YES" id="BBb-RF-lZv"/>
@@ -182,10 +199,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hPg-gf-MfJ" secondAttribute="trailing" symbolic="YES" id="YmA-6y-NTH"/>
                             <constraint firstItem="5dC-iF-egZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YqE-fk-Rcm"/>
                             <constraint firstItem="hPg-gf-MfJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Z5A-xV-Kyp"/>
+                            <constraint firstItem="glR-G0-UAD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-125" id="ZkB-pI-VF9"/>
                             <constraint firstItem="k5s-4s-OdN" firstAttribute="top" secondItem="Hyd-ac-oi0" secondAttribute="bottom" id="ZkE-Wa-569"/>
                             <constraint firstItem="Tl0-by-Afz" firstAttribute="centerX" secondItem="k5s-4s-OdN" secondAttribute="centerX" id="b25-tn-uap"/>
                             <constraint firstItem="hPg-gf-MfJ" firstAttribute="top" secondItem="Xei-yZ-S1t" secondAttribute="bottom" id="ceX-rG-coN"/>
-                            <constraint firstItem="Xei-yZ-S1t" firstAttribute="leading" secondItem="k5s-4s-OdN" secondAttribute="leading" id="emr-bu-4Mq"/>
+                            <constraint firstItem="Xei-yZ-S1t" firstAttribute="leading" secondItem="k5s-4s-OdN" secondAttribute="leading" constant="5" id="emr-bu-4Mq"/>
                             <constraint firstItem="7ac-ue-QcO" firstAttribute="trailing" secondItem="k5s-4s-OdN" secondAttribute="trailing" id="fgn-u7-tv3"/>
                             <constraint firstItem="Tl0-by-Afz" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="hlP-wa-XF3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="70P-Ta-XUi" secondAttribute="trailing" constant="16" id="ios-QR-a5q"/>
@@ -200,13 +218,15 @@
                         <outlet property="AddButton" destination="Tl0-by-Afz" id="sQX-HX-1nh"/>
                         <outlet property="RecordAudioButton" destination="kbB-qD-Ppi" id="Wqs-jt-dE7"/>
                         <outlet property="RecordVideoButton" destination="YhQ-Q7-sHo" id="fFp-Gj-POs"/>
-                        <outlet property="SearchBar" destination="Xei-yZ-S1t" id="Vmo-ZY-9sn"/>
                         <outlet property="TakeNoteButton" destination="acx-KA-Rwn" id="0Ag-jQ-2aI"/>
+                        <outlet property="contentView" destination="8bC-Xf-vdC" id="WHA-XP-Wtf"/>
                         <outlet property="fadeScreen" destination="Hyd-ac-oi0" id="Mgh-d6-9aX"/>
                         <outlet property="fileScrollView" destination="5dC-iF-egZ" id="0w0-UH-OfR"/>
                         <outlet property="scrollView" destination="7ac-ue-QcO" id="ZfZ-9K-Kpw"/>
+                        <outlet property="searchBar" destination="Xei-yZ-S1t" id="Wbs-5N-qQg"/>
                         <outlet property="searchDisplayController" destination="Ciz-S4-els" id="3bt-Vv-84j"/>
                         <outlet property="tagListView" destination="70P-Ta-XUi" id="QfI-Ev-5Q6"/>
+                        <segue destination="Ni0-4b-ilB" kind="presentation" identifier="Search" animates="NO" modalTransitionStyle="crossDissolve" id="S8S-G5-OJw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -221,13 +241,260 @@
             </objects>
             <point key="canvasLocation" x="130.40000000000001" y="138.17733990147784"/>
         </scene>
+        <!--Delegate-->
+        <scene sceneID="vWY-g7-y8t">
+            <objects>
+                <viewController id="Ni0-4b-ilB" customClass="SearchViewController" customModule="TagSafe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XtN-tx-D4o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by name or tags..." showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU5-77-HQ8">
+                                <rect key="frame" x="5" y="44" width="365" height="56"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ni0-4b-ilB" id="2z3-Kk-IcK"/>
+                                </connections>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFV-iX-Gli">
+                                <rect key="frame" x="16" y="100" width="91.333333333333329" height="21"/>
+                                <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
+                                <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vvp-xM-fed" customClass="TagListView" customModule="TagListView">
+                                <rect key="frame" x="16" y="129" width="343" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="8bd-tl-Fgu"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="Add-tq-TOy"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tagSelectedBackgroundColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingY">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingX">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="removeButtonIconSize">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="removeIconLineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="marginY">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="marginX">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableRemoveButton" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="removeIconLineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="Ni0-4b-ilB" id="PJD-lL-TUw"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently searched tags:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACa-VV-GGh">
+                                <rect key="frame" x="15" y="265" width="200" height="21"/>
+                                <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
+                                <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTe-Cz-e9E" customClass="TagListView" customModule="TagListView">
+                                <rect key="frame" x="16" y="294" width="343" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="Bx7-En-Bi5"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="6Jc-iz-jBi"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tagBackgroundColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="tagSelectedBackgroundColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingY">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingX">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="removeButtonIconSize">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="removeIconLineWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="marginY">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="marginX">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableRemoveButton" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="removeIconLineColor">
+                                        <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="Ni0-4b-ilB" id="SvM-oy-XKr"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Smw-zJ-npW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zFV-iX-Gli" secondAttribute="trailing" symbolic="YES" id="2Cu-TT-eEa"/>
+                            <constraint firstItem="ACa-VV-GGh" firstAttribute="leading" secondItem="Smw-zJ-npW" secondAttribute="leading" constant="15" id="8Yy-8S-WOs"/>
+                            <constraint firstItem="OU5-77-HQ8" firstAttribute="leading" secondItem="Smw-zJ-npW" secondAttribute="leading" constant="5" id="Frw-SP-MLB"/>
+                            <constraint firstItem="OU5-77-HQ8" firstAttribute="centerX" secondItem="Vvp-xM-fed" secondAttribute="centerX" id="SDd-Di-SNB"/>
+                            <constraint firstItem="zFV-iX-Gli" firstAttribute="leading" secondItem="XtN-tx-D4o" secondAttribute="leadingMargin" id="WKr-sD-rQo"/>
+                            <constraint firstItem="zFV-iX-Gli" firstAttribute="top" secondItem="OU5-77-HQ8" secondAttribute="bottom" id="ZY4-ei-o0x"/>
+                            <constraint firstItem="ACa-VV-GGh" firstAttribute="top" secondItem="Vvp-xM-fed" secondAttribute="bottom" constant="8" symbolic="YES" id="a6U-NN-uQw"/>
+                            <constraint firstItem="Smw-zJ-npW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ACa-VV-GGh" secondAttribute="trailing" symbolic="YES" id="alN-M6-06Z"/>
+                            <constraint firstItem="zFV-iX-Gli" firstAttribute="leading" secondItem="Vvp-xM-fed" secondAttribute="leading" id="eHH-cw-PTe"/>
+                            <constraint firstItem="OU5-77-HQ8" firstAttribute="top" secondItem="Smw-zJ-npW" secondAttribute="top" id="fK4-2B-T5N"/>
+                            <constraint firstItem="DTe-Cz-e9E" firstAttribute="top" secondItem="ACa-VV-GGh" secondAttribute="bottom" constant="8" symbolic="YES" id="hmP-gi-VNe"/>
+                            <constraint firstItem="Vvp-xM-fed" firstAttribute="leading" secondItem="DTe-Cz-e9E" secondAttribute="leading" id="kB0-FL-cQK"/>
+                            <constraint firstItem="Vvp-xM-fed" firstAttribute="top" secondItem="zFV-iX-Gli" secondAttribute="bottom" constant="8" symbolic="YES" id="wKK-3L-wyb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Smw-zJ-npW"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="XtN-tx-D4o" id="Dmh-Gv-cpW"/>
+                        <outlet property="lblSearch" destination="zFV-iX-Gli" id="bra-dH-FkT"/>
+                        <outlet property="lblTags" destination="ACa-VV-GGh" id="3fM-69-jjA"/>
+                        <outlet property="searchBar" destination="OU5-77-HQ8" id="r9X-61-HMo"/>
+                        <outlet property="searchList" destination="Vvp-xM-fed" id="E3U-mw-k6S"/>
+                        <outlet property="tagList" destination="DTe-Cz-e9E" id="dyy-rC-fPj"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="CancelSearch" animates="NO" modalTransitionStyle="crossDissolve" id="tWo-XN-TR5"/>
+                        <segue destination="hLQ-fc-zt2" kind="presentation" identifier="ShowSearchResults" modalTransitionStyle="crossDissolve" id="d1y-ge-ZE1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tKC-Jg-Kdz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="922" y="-754"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="2fW-Q3-fwM">
+            <objects>
+                <viewController id="hLQ-fc-zt2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MOC-Zk-OXQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="tailTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PMd-U8-Ban">
+                                <rect key="frame" x="16" y="44" width="75" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="tRH-7a-FN7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="24"/>
+                                <inset key="titleEdgeInsets" minX="12" minY="6" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="1" maxX="2" maxY="1"/>
+                                <state key="normal" title="Back" image="back">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="xML-KA-knV"/>
+                                </connections>
+                            </button>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by name or tags..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-m6-9Y9">
+                                <rect key="frame" x="5" y="68" width="365" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hLQ-fc-zt2" id="9gW-TS-lYZ"/>
+                                </connections>
+                            </searchBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2iT-fo-yep">
+                                <rect key="frame" x="0.0" y="153" width="375" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Files:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfe-8G-0uB">
+                                <rect key="frame" x="16" y="124" width="45" height="21"/>
+                                <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
+                                <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxV-sf-lSF">
+                                <rect key="frame" x="284" y="127" width="75" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="guQ-yb-5CV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Sort by" image="dropdown">
+                                    <color key="titleColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hfe-8G-0uB" firstAttribute="leading" secondItem="qm2-Vs-kWd" secondAttribute="leading" constant="16" id="6nC-0w-q6g"/>
+                            <constraint firstItem="qm2-Vs-kWd" firstAttribute="trailing" secondItem="VxV-sf-lSF" secondAttribute="trailing" constant="16" id="7zm-Io-EeM"/>
+                            <constraint firstItem="qm2-Vs-kWd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PMd-U8-Ban" secondAttribute="trailing" symbolic="YES" id="8ZC-s2-1Mq"/>
+                            <constraint firstItem="ksv-m6-9Y9" firstAttribute="leading" secondItem="qm2-Vs-kWd" secondAttribute="leading" constant="5" id="GOh-OM-VVa"/>
+                            <constraint firstItem="PMd-U8-Ban" firstAttribute="top" secondItem="qm2-Vs-kWd" secondAttribute="top" id="HOR-EX-2hs"/>
+                            <constraint firstItem="ksv-m6-9Y9" firstAttribute="top" secondItem="PMd-U8-Ban" secondAttribute="bottom" id="XRF-EE-R5a"/>
+                            <constraint firstItem="PMd-U8-Ban" firstAttribute="leading" secondItem="MOC-Zk-OXQ" secondAttribute="leadingMargin" id="bvF-r6-RZw"/>
+                            <constraint firstItem="qm2-Vs-kWd" firstAttribute="trailing" secondItem="ksv-m6-9Y9" secondAttribute="trailing" constant="5" id="dcA-5N-1dC"/>
+                            <constraint firstItem="qm2-Vs-kWd" firstAttribute="trailing" secondItem="VxV-sf-lSF" secondAttribute="trailing" constant="16" id="oIS-dq-b0C"/>
+                            <constraint firstItem="VxV-sf-lSF" firstAttribute="centerY" secondItem="Hfe-8G-0uB" secondAttribute="centerY" id="v2C-97-bpK"/>
+                            <constraint firstItem="VxV-sf-lSF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hfe-8G-0uB" secondAttribute="trailing" constant="8" symbolic="YES" id="zhF-7H-Bhd"/>
+                            <constraint firstItem="Hfe-8G-0uB" firstAttribute="top" secondItem="ksv-m6-9Y9" secondAttribute="bottom" id="zqD-cL-o9t"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qm2-Vs-kWd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aOo-W6-Ike" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1892" y="-754.43349753694588"/>
+        </scene>
     </scenes>
     <resources>
         <image name="addicon" width="65" height="65"/>
+        <image name="back" width="12.333333015441895" height="21.333333969116211"/>
+        <image name="dropdown" width="9.3333330154418945" height="5.3333334922790527"/>
         <image name="folder" width="28.333333969116211" height="23.333333969116211"/>
         <image name="login" width="27.666666030883789" height="27.666666030883789"/>
+        <image name="logo bg" width="389" height="448"/>
         <image name="recordAudio" width="50" height="50"/>
         <image name="recordVideo" width="50" height="50"/>
         <image name="takeNote" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="xML-KA-knV"/>
+    </inferredMetricsTieBreakers>
 </document>
