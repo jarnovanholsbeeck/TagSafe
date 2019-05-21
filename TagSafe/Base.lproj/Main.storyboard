@@ -63,7 +63,7 @@
                                 <state key="normal" image="recordAudio"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tl0-by-Afz" userLabel="addButton">
-                                <rect key="frame" x="155" y="713" width="65" height="65"/>
+                                <rect key="frame" x="179.66666666666666" y="756" width="16" height="22"/>
                                 <state key="normal" image="addicon"/>
                                 <connections>
                                     <action selector="addButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kiT-1G-6Rj"/>
@@ -151,9 +151,43 @@
                     <view key="view" contentMode="scaleToFill" id="rV9-US-yC0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvb-HJ-g9w">
+                                <rect key="frame" x="68" y="250" width="44" height="30"/>
+                                <state key="normal" title="Select"/>
+                                <connections>
+                                    <action selector="selectImage:" destination="YP6-9M-dWk" eventType="touchUpInside" id="m7q-uo-iPp"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ls-QM-Ebb">
+                                <rect key="frame" x="67" y="81" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="jwi-1E-CJX"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JpE-l4-0X4">
+                                <rect key="frame" x="258" y="250" width="49" height="30"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="uploadImage:" destination="YP6-9M-dWk" eventType="touchUpInside" id="hrg-VF-Yk1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Ls-QM-Ebb" firstAttribute="top" secondItem="q6P-Hd-x9i" secondAttribute="top" constant="37" id="0Ac-1D-5dd"/>
+                            <constraint firstItem="JpE-l4-0X4" firstAttribute="baseline" secondItem="uvb-HJ-g9w" secondAttribute="baseline" id="1wF-jQ-9oP"/>
+                            <constraint firstItem="6Ls-QM-Ebb" firstAttribute="leading" secondItem="q6P-Hd-x9i" secondAttribute="leading" constant="67" id="H4H-Xf-bVG"/>
+                            <constraint firstItem="JpE-l4-0X4" firstAttribute="trailing" secondItem="6Ls-QM-Ebb" secondAttribute="trailing" id="IWK-rb-jzc"/>
+                            <constraint firstItem="6Ls-QM-Ebb" firstAttribute="centerX" secondItem="rV9-US-yC0" secondAttribute="centerX" id="Mex-Zj-H8x"/>
+                            <constraint firstItem="uvb-HJ-g9w" firstAttribute="top" secondItem="6Ls-QM-Ebb" secondAttribute="bottom" constant="41" id="ib5-YV-tso"/>
+                            <constraint firstItem="uvb-HJ-g9w" firstAttribute="leading" secondItem="q6P-Hd-x9i" secondAttribute="leading" constant="68" id="ibQ-pR-mFU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="q6P-Hd-x9i"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="6Ls-QM-Ebb" id="1V6-Dl-CET"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fU-Sw-nvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
