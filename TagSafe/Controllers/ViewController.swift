@@ -100,18 +100,18 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
     }
     
     func addRecentFiles() {
-        var scrollWidth = 0
+        var scrollHeight = 0
         
         for n in 0...4 {
             let startY = 8 + (n * 68)
             
-            scrollWidth = startY + 68
+            scrollHeight = startY + 68
             
             let file = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), fileType: "image", filename: "TestFile", detail: "Image size", date: "12-05-2019")
             fileScrollView.addSubview(file)
         }
         
-        self.fileScrollView.contentSize = CGSize(width: scrollWidth, height: 236)
+        self.fileScrollView.contentSize = CGSize(width: 343, height: scrollHeight)
     }
     
     @IBAction func addButtonClicked(_ sender: UIButton) {
@@ -125,7 +125,7 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
                 self.RecordAudioButton.alpha = 1
                 self.RecordVideoButton.alpha = 1
                 self.TakeNoteButton.alpha = 1
-                self.contentView.bringSubviewToFront(self.fadeScreen)
+                self.contentView.insertSubview(self.fadeScreen, aboveSubview: self.fileScrollView)
                 self.fadeScreen.alpha = 1
                 
                 self.RecordAudioButton.center = self.audioButtonCenter

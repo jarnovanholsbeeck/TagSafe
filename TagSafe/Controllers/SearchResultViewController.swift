@@ -7,24 +7,111 @@
 //
 
 import UIKit
+import DropDown
 
-class SearchResultViewController: UIViewController {
-
+class SearchResultViewController: UIViewController, UISearchBarDelegate {
+    @IBOutlet var contentView: UIView!
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var sort: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var AddButton: UIButton!
+    @IBOutlet weak var RecordAudioButton: UIButton!
+    @IBOutlet weak var RecordVideoButton: UIButton!
+    @IBOutlet weak var TakeNoteButton: UIButton!
+    @IBOutlet weak var fadeScreen: UIView!
+    
+    var audioButtonCenter: CGPoint!
+    var videoButtonCenter: CGPoint!
+    var noteButtonCenter: CGPoint!
+    
+    var searchItems:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        editSearchBar()
+        showSearchedFiles()
+        
+        audioButtonCenter = RecordAudioButton.center
+        videoButtonCenter = RecordVideoButton.center
+        noteButtonCenter = TakeNoteButton.center
+        
+        RecordAudioButton.center = AddButton.center
+        RecordVideoButton.center = AddButton.center
+        TakeNoteButton.center = AddButton.center
+    }
+
+    func editSearchBar() {
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
+            textfield.borderStyle = .none
+            textfield.borderStyle = .roundedRect
+            textfield.font = UIFont(name: "calibretest_regular", size: 14)
+            
+            if let leftView = textfield.leftView as? UIImageView {
+                leftView.image = leftView.image?.withRenderingMode(.alwaysTemplate)
+                leftView.tintColor = UIColor(red:0.00, green:0.42, blue:1.00, alpha:1.0)
+            }
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func showSearchedFiles() {
+        var scrollHeight = 0
+        
+        for n in 0...14 {
+            let startY = 8 + (n * 68)
+            
+            scrollHeight = startY + 68
+            
+            let file = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), fileType: "image", filename: "TestFile", detail: "Image size", date: "12-05-2019")
+            scrollView.addSubview(file)
+        }
+        
+        self.scrollView.contentSize = CGSize(width: 343, height: scrollHeight)
     }
-    */
-
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        performSegue(withIdentifier: "SearchAgain", sender: self)
+    }
+    
+    @IBAction func addButtonClicked(_ sender: UIButton) {
+        if sender.currentImage == UIImage(named: "addicon") {
+            UIView.transition(with: sender, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                sender.setImage(UIImage(named: "closeicon"), for: .normal)
+            }, completion: nil)
+            
+            // expand buttons
+            UIView.animate(withDuration: 0.4, animations: {
+                self.RecordAudioButton.alpha = 1
+                self.RecordVideoButton.alpha = 1
+                self.TakeNoteButton.alpha = 1
+                self.contentView.insertSubview(self.fadeScreen, aboveSubview: self.scrollView)
+                self.fadeScreen.alpha = 1
+                
+                self.RecordAudioButton.center = self.audioButtonCenter
+                self.RecordVideoButton.center = self.videoButtonCenter
+                self.TakeNoteButton.center = self.noteButtonCenter
+            })
+        } else {
+            UIView.transition(with: sender, duration: 0.4, options: .transitionCrossDissolve, animations: {
+                sender.setImage(UIImage(named: "addicon"), for: .normal)
+            }, completion: nil)
+            
+            // hide buttons
+            UIView.animate(withDuration: 0.4, animations: {
+                self.RecordAudioButton.alpha = 0
+                self.RecordVideoButton.alpha = 0
+                self.TakeNoteButton.alpha = 0
+                self.contentView.sendSubviewToBack(self.fadeScreen)
+                self.fadeScreen.alpha = 0
+                
+                self.RecordAudioButton.center = self.AddButton.center
+                self.RecordVideoButton.center = self.AddButton.center
+                self.TakeNoteButton.center = self.AddButton.center
+            })
+        }
+    }
 }
