@@ -87,15 +87,25 @@ class ViewController: UIViewController {
             print("nope")
             return
         }
-        var ref: DocumentReference? = nil
-        ref = db!.collection("tags").addDocument(data: [
-            "name": tagName.text!,
-            "color": tagColor.text!
+        let newTag = Tag(name: tagName.text!, color: tagColor.text!)
+        if tags.contains(where: {$0.name == newTag.name}){
+            print("found")
+            return
+        }
+        else {
+            print("not found")
+        }
+        
+        var dbRef: DocumentReference? = nil
+        
+        dbRef = db!.collection("tags").addDocument(data: [
+            "name": newTag.name!,
+            "color": newTag.color!
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
-                print("Document added with ID: \(ref!.documentID)")
+                print("Document added with ID: \(dbRef!.documentID)")
             }
         }
     }

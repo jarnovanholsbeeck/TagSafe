@@ -16,4 +16,5 @@ class Tag: NSObject {
         self.name = name
         self.color = color
     }
+    
 }
