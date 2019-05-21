@@ -54,14 +54,33 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
     
     func handleUploadImage(){
         let storageRef = storage?.reference()
-        print(storageRef!)
+        //print(storageRef!)
         
         let filename = ((mediaURL as! NSURL).absoluteString! as NSString).lastPathComponent
-        print(filename)
+        //print(filename)
         
-//        let localFile = URL(string: (mediaURL as? String)!)
-//
-//        let uploadTask = storageRef?.putFile(from: localFile!)
+        //let localFile = URL(string: (mediaURL as! NSURL).absoluteString!)
+        let uploadData = imageView.image!.pngData()
+        
+        let imageRef = storageRef!.child("image/\(filename)")
+
+        let uploadTask = imageRef.putData(uploadData!, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
+            }
+            // Metadata contains file metadata such as size, content-type.
+            let size = metadata.size
+            print(metadata)
+            // You can also access to download URL after upload.
+            imageRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                print(downloadURL)
+            }
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
