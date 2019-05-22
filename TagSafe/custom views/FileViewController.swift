@@ -22,12 +22,12 @@ class FileViewController: UIView {
         commonInit()
     }
     
-    init(frame: CGRect, fileType: String, filename: String, detail: String, date: String) {
+    init(frame: CGRect, file: File) {
         super.init(frame: frame)
         
         commonInit()
         
-        switch fileType {
+        switch file.fileType {
         case "video":
             self.fileType.image = UIImage(named: "video")
         case "note":
@@ -37,9 +37,9 @@ class FileViewController: UIView {
         default:
             self.fileType.image = UIImage(named: "image")
         }
-        self.filename.text = filename
-        self.detail.text = detail
-        self.date.text = date
+        self.filename.text = file.filename
+        self.detail.text = file.fileDetail
+        self.date.text = file.date
     }
     
     required init?(coder aDecoder: NSCoder) {

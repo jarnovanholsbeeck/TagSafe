@@ -30,7 +30,6 @@ class SearchResultViewController: UIViewController, UISearchBarDelegate, UITable
     
     var dropButton = DropDown()
     
-    var searchItems:[String] = []
     var files: [File] = []
     
     let dateFormatter = DateFormatter()

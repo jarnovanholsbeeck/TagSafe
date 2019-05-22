@@ -15,17 +15,23 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var files: [File] = []
     
     @IBOutlet weak var story: UILabel!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: SelfSizedTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let nib = UINib.init(nibName: "CustomFileCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "FileCell")
+        tableView.maxHeight = 551
 
         // Do any additional setup after loading the view.
         story.text = storyName
+        
+        showStoryFiles()
     }
     
-    func showSearchedFiles() {
-        for n in 0...16 {
+    func showStoryFiles() {
+        for n in 0...8 {
             switch n {
             case _ where n <= 4:
                 let newFile = File(name: "file", detail: "detail", type: "image", date: "15-06-2019")
@@ -45,10 +51,6 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.files.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 68
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -79,5 +81,13 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @IBAction func addFiles(_ sender: Any) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "AddFiles") {
+            if let nextvc = segue.destination as? StoryAddViewController {
+                nextvc.story = self.storyName
+            }
+        }
     }
 }

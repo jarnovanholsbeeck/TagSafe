@@ -117,8 +117,9 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
             
             scrollHeight = startY + 68
             
-            let file = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), fileType: "image", filename: "TestFile", detail: "Image size", date: "12-05-2019")
-            fileScrollView.addSubview(file)
+            let file = File(name: "File \(n+1)", detail: "File detail", type: "audio", date: "15-\(n+1)-2019")
+            let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file)
+            fileScrollView.addSubview(fileView)
         }
         
         self.fileScrollView.contentSize = CGSize(width: 343, height: scrollHeight)
