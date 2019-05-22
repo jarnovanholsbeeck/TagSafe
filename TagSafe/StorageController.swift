@@ -98,8 +98,16 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
                 }
                 let userRef = self.db!.collection("users").document(self.loggedInUser!.uid)
 
+                let tag = Tag(name: "bla", color: "bla")
                 userRef.updateData([
-                    "files": FieldValue.arrayUnion([downloadURL.absoluteString])
+                    "files": FieldValue.arrayUnion([
+                        [
+                            "filename": filename,
+                            "filetype": "image",
+                            "tags": [],
+                            "mediaURL": downloadURL.absoluteString
+                        ]
+                        ])
                 ])
                 
                 print(downloadURL)
