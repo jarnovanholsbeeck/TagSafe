@@ -40,6 +40,7 @@ class StorageController: UIViewController{
             print(user?.email ?? "No one logged in")
             self.loggedInUser = user
             
+            //View stories of user in console
             let docRef = self.db!.collection("users").document(user!.uid)
             
             docRef.collection("stories").addSnapshotListener { (querySnapshot, err) in
@@ -135,18 +136,24 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
                     return
                 }
                 let userRef = self.db!.collection("users").document(self.loggedInUser!.uid)
+                
+                userRef.collection("files").addDocument(data: [
+                        "filename": filename,
+                        "filetype": "image",
+                        "tags": [],
+                        "mediaURL": downloadURL.absoluteString
+                    ])
 
-                let tag = Tag(name: "bla", color: "bla")
-                userRef.updateData([
-                    "files": FieldValue.arrayUnion([
-                        [
-                            "filename": filename,
-                            "filetype": "image",
-                            "tags": [],
-                            "mediaURL": downloadURL.absoluteString
-                        ]
-                        ])
-                ])
+//                userRef.updateData([
+//                    "files": FieldValue.arrayUnion([
+//                        [
+//                            "filename": filename,
+//                            "filetype": "image",
+//                            "tags": [],
+//                            "mediaURL": downloadURL.absoluteString
+//                        ]
+//                        ])
+//                ])
                 
                 print(downloadURL)
             }
