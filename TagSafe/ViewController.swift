@@ -12,6 +12,8 @@ import TagListView
 
 class ViewController: UIViewController {
     
+    var authHandle: NSObjectProtocol?
+    
     var tags: [Tag] = []
     @IBOutlet weak var tagListView: TagListView!
     
@@ -65,7 +67,10 @@ class ViewController: UIViewController {
                     //print(document.get("name")!)
                     let newTag = Tag(name: document.get("name") as? String, color: document.get("color") as? String)
                     self.tags.append(newTag)
-                    self.tagListView.addTag(newTag.name!)
+                    if newTag.name != nil{
+                        self.tagListView.addTag(newTag.name!)
+                    }
+                    
                     print("\(document.documentID) => \(document.data())")
                 }
             }
@@ -79,6 +84,27 @@ class ViewController: UIViewController {
         RecordAudioButton.center = AddButton.center
         RecordVideoButton.center = AddButton.center
         TakeNoteButton.center = AddButton.center
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        authHandle = Auth.auth().addStateDidChangeListener{(auth, user) in
+            print(user?.email ?? "No one logged in")
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(authHandle!)
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            self.dismiss(animated: true, completion: nil)
+        } catch let logoutError as NSError {
+            print("Error logging out: %@", logoutError)
+        }
+        
     }
     
     @IBAction func onPressAdd(_ sender: Any) {

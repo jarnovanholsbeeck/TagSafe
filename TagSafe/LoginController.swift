@@ -11,6 +11,7 @@ import Firebase
 
 class LoginController: UIViewController {
 
+    var toLoginUser: User?
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -25,7 +26,7 @@ class LoginController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         authHandle = Auth.auth().addStateDidChangeListener{(auth, user) in
-            
+            //self.toLoginUser = user
         }
     }
     
@@ -33,13 +34,34 @@ class LoginController: UIViewController {
         Auth.auth().removeStateDidChangeListener(authHandle!)
     }
     
+    @IBAction func login(_ sender: Any) {
+        Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (auth, error) in
+            if let err = error {
+                print(err)
+            } else {
+                print(auth?.user.email)
+                self.performSegue(withIdentifier: "home", sender: nil)
+            }
+
+        }
+    }
+    
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//
+//        print("preparing for segue")
+//        if segue.identifier == "home" {
+//            let destinationVC = segue.destination as? ViewController
+//            destinationVC?.title = "Home"
+//        }
+//
+//
+//    }
 
 }

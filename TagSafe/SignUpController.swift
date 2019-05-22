@@ -45,7 +45,7 @@ class SignUpController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         authHandle = Auth.auth().addStateDidChangeListener{(auth, user) in
-            print("SIGNED UP: \(user!.uid)")
+            print("SIGNED UP: \(user?.uid ?? "No one signed in yet")")
             if let uid = user?.uid {                
                 self.db!.collection("users").document(uid).setData([
                     "files":[]

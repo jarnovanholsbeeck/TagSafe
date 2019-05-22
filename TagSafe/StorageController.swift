@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseStorage
 
 class StorageController: UIViewController{
 
+    var authHandle: NSObjectProtocol?
+    var db: Firestore?
     var storage: Storage?
     var mediaURL: Any?
+    
+    var loggedInUser: User?
     
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        db = Firestore.firestore()
         storage = Storage.storage()
     }
     
@@ -27,6 +32,17 @@ class StorageController: UIViewController{
     
     @IBAction func uploadImage(_ sender: Any) {
         handleUploadImage()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        authHandle = Auth.auth().addStateDidChangeListener{(auth, user) in
+            print(user?.email ?? "No one logged in")
+            self.loggedInUser = user
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(authHandle!)
     }
     
     /*
@@ -54,10 +70,10 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
     
     func handleUploadImage(){
         let storageRef = storage?.reference()
-        //print(storageRef!)
+        print(storageRef!)
         
         let filename = ((mediaURL as! NSURL).absoluteString! as NSString).lastPathComponent
-        //print(filename)
+        print(filename)
         
         //let localFile = URL(string: (mediaURL as! NSURL).absoluteString!)
         let uploadData = imageView.image!.pngData()
@@ -67,6 +83,7 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
         let uploadTask = imageRef.putData(uploadData!, metadata: nil) { (metadata, error) in
             guard let metadata = metadata else {
                 // Uh-oh, an error occurred!
+                print(error)
                 return
             }
             // Metadata contains file metadata such as size, content-type.
@@ -76,8 +93,15 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
             imageRef.downloadURL { (url, error) in
                 guard let downloadURL = url else {
                     // Uh-oh, an error occurred!
+                    print(error)
                     return
                 }
+                let userRef = self.db!.collection("users").document(self.loggedInUser!.uid)
+
+                userRef.updateData([
+                    "files": FieldValue.arrayUnion([downloadURL.absoluteString])
+                ])
+                
                 print(downloadURL)
             }
         }
