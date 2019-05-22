@@ -26,6 +26,7 @@
 		C0CC1B05229537BE0025532E /* CustomFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC1B04229537BE0025532E /* CustomFileCell.swift */; };
 		C0CC1B07229537EF0025532E /* CustomFileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CC1B06229537EF0025532E /* CustomFileCell.xib */; };
 		C0CC1B0922953CAF0025532E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC1B0822953CAF0025532E /* File.swift */; };
+		C0CC1B0B229570180025532E /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC1B0A229570180025532E /* StoryViewController.swift */; };
 		C0EAC2CA2293F4DA005DF03E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2C92293F4DA005DF03E /* Tag.swift */; };
 		C0EAC2CC2293FB60005DF03E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2CB2293FB60005DF03E /* SearchViewController.swift */; };
 		C0EAC2CE229435BD005DF03E /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2CD229435BD005DF03E /* SearchResultViewController.swift */; };
@@ -76,6 +77,7 @@
 		C0CC1B04229537BE0025532E /* CustomFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFileCell.swift; sourceTree = "<group>"; };
 		C0CC1B06229537EF0025532E /* CustomFileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomFileCell.xib; sourceTree = "<group>"; };
 		C0CC1B0822953CAF0025532E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = File.swift; path = TagSafe/File.swift; sourceTree = SOURCE_ROOT; };
+		C0CC1B0A229570180025532E /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		C0EAC2C92293F4DA005DF03E /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		C0EAC2CB2293FB60005DF03E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C0EAC2CD229435BD005DF03E /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				C02DBBC3228F3C45009592AD /* ViewController.swift */,
 				C0EAC2CB2293FB60005DF03E /* SearchViewController.swift */,
 				C0EAC2CD229435BD005DF03E /* SearchResultViewController.swift */,
+				C0CC1B0A229570180025532E /* StoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				C0CC1B0922953CAF0025532E /* File.swift in Sources */,
 				C02DBBC2228F3C45009592AD /* AppDelegate.swift in Sources */,
 				C02DBBCA228F3C45009592AD /* TagSafe.xcdatamodeld in Sources */,
+				C0CC1B0B229570180025532E /* StoryViewController.swift in Sources */,
 				C0EAC2CE229435BD005DF03E /* SearchResultViewController.swift in Sources */,
 				C07A2E262292B0210084D799 /* StoryCardController.swift in Sources */,
 			);

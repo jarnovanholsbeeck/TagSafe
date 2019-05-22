@@ -29,7 +29,9 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
     var videoButtonCenter: CGPoint!
     var noteButtonCenter: CGPoint!
     
-     var db: Firestore?
+    var db: Firestore?
+    
+    var tappedStory: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,15 +90,23 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
         var scrollWidth = 0
         
         for n in 0...4 {
-            let startX = 8 + (n * 158)
+            let startX = 16 + (n * 158)
             
-            scrollWidth = startX + 158
+            scrollWidth = startX + 166
             
-            let story = StoryCardController(frame: CGRect(x: startX, y: 8, width: 150, height: 220), image: UIImage(named: "TestStory")!, name: "Traffic Jam", date: "15-06-2019", hasImage: true, hasVideo: true, hasAudio: true, hasNote: false)
+            let story = StoryCardController(frame: CGRect(x: startX, y: 8, width: 150, height: 220), image: UIImage(named: "TestStory")!, name: "Traffic Jam \(n)", date: "15-06-2019", hasImage: true, hasVideo: true, hasAudio: true, hasNote: false)
+            let gesture = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(_:)))
+            story.addGestureRecognizer(gesture)
             scrollView.addSubview(story)
         }
         
         self.scrollView.contentSize = CGSize(width: scrollWidth, height: 236)
+    }
+    
+    @objc func handleCardTap(_ sender: UITapGestureRecognizer) {
+        let card = sender.view! as? StoryCardController
+        tappedStory = card?.storyName.text!
+        performSegue(withIdentifier: "ShowStory", sender: self)
     }
     
     func addRecentFiles() {
@@ -158,5 +168,13 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         performSegue(withIdentifier: "Search", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "ShowStory") {
+            if let nextvc = segue.destination as? StoryViewController {
+                nextvc.storyName = tappedStory
+            }
+        }
     }
 }

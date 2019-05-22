@@ -63,5 +63,4 @@ class StoryCardController: UIView {
         content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.addSubview(content)
     }
-    
 }

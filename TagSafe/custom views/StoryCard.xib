@@ -91,6 +91,7 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.24147227112676056" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstItem="v3z-0b-bax" firstAttribute="top" secondItem="Yad-qf-ryb" secondAttribute="top" constant="8" id="15Y-dc-ild"/>
                         <constraint firstItem="v3z-0b-bax" firstAttribute="leading" secondItem="Yad-qf-ryb" secondAttribute="leading" constant="8" id="4VN-EH-Hu1"/>
