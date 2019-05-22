@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo bg" translatesAutoresizingMaskIntoConstraints="NO" id="glR-G0-UAD">
-                                <rect key="frame" x="-125" y="370" width="447.00000000000011" height="471"/>
+                                <rect key="frame" x="-125" y="370" width="447" height="471"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="447" id="Mgo-Mo-XpX"/>
                                     <constraint firstAttribute="height" constant="471" id="nrB-KZ-A8h"/>
@@ -39,6 +39,10 @@
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" notEnabled="YES"/>
                                 </accessibility>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="C7y-IN-gzr" appends="YES" id="B2A-G0-9XP"/>
+                                </connections>
                             </view>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by name or tags..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xei-yZ-S1t">
                                 <rect key="frame" x="5" y="44" width="365" height="56"/>
@@ -48,13 +52,13 @@
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently searched tags:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPg-gf-MfJ">
-                                <rect key="frame" x="16" y="100" width="199.66666666666666" height="21"/>
+                                <rect key="frame" x="16" y="100" width="226" height="24.666666666666671"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="70P-Ta-XUi" customClass="TagListView" customModule="TagListView">
-                                <rect key="frame" x="16" y="129" width="343" height="128"/>
+                                <rect key="frame" x="16" y="132.66666666666666" width="343" height="127.99999999999997"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="8yX-Zr-NXf"/>
                                 </constraints>
@@ -105,19 +109,19 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent stories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8D-06-Lpg">
-                                <rect key="frame" x="15.999999999999993" y="265" width="125.33333333333331" height="21"/>
+                                <rect key="frame" x="16" y="268.66666666666669" width="141" height="24.666666666666686"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent files:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XF8-8o-XrG">
-                                <rect key="frame" x="15.999999999999993" y="538" width="103.33333333333331" height="21"/>
+                                <rect key="frame" x="16.000000000000007" y="534.33333333333337" width="115.66666666666669" height="24.666666666666629"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" showsVerticalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="7ac-ue-QcO">
-                                <rect key="frame" x="0.0" y="294" width="375" height="236"/>
+                                <rect key="frame" x="0.0" y="301.33333333333331" width="375" height="224.99999999999994"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dC-iF-egZ">
                                 <rect key="frame" x="0.0" y="567" width="375" height="175"/>
@@ -167,7 +171,7 @@
                                 <state key="normal" image="recordAudio"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tl0-by-Afz" userLabel="addButton">
-                                <rect key="frame" x="155" y="713" width="65" height="65"/>
+                                <rect key="frame" x="179.66666666666666" y="756" width="16" height="22"/>
                                 <state key="normal" image="addicon"/>
                                 <connections>
                                     <action selector="addButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kiT-1G-6Rj"/>
@@ -238,6 +242,11 @@
                         <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="nz5-9p-Vii"/>
                     </connections>
                 </searchDisplayController>
+                <tapGestureRecognizer id="C7y-IN-gzr">
+                    <connections>
+                        <action selector="fadePush:" destination="BYZ-38-t0r" id="NoM-Ie-bDO"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="25" y="-245"/>
         </scene>
@@ -419,9 +428,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.59927926936619713" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="137-MR-XmB" appends="YES" id="WXw-zE-1Si"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="tailTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PMd-U8-Ban">
-                                <rect key="frame" x="16" y="44" width="75" height="24"/>
+                                <rect key="frame" x="16" y="44" width="75" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="tRH-7a-FN7"/>
                                 </constraints>
@@ -436,20 +449,20 @@
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by name or tags..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-m6-9Y9">
-                                <rect key="frame" x="5" y="68" width="365" height="56"/>
+                                <rect key="frame" x="5" y="72" width="365" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="hLQ-fc-zt2" id="9gW-TS-lYZ"/>
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Files:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfe-8G-0uB">
-                                <rect key="frame" x="15.999999999999996" y="124" width="44.666666666666657" height="21"/>
+                                <rect key="frame" x="16" y="128" width="49" height="24.666666666666657"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxV-sf-lSF">
-                                <rect key="frame" x="284" y="127" width="75" height="15"/>
+                                <rect key="frame" x="284" y="131.33333333333334" width="75" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="guQ-yb-5CV"/>
                                 </constraints>
@@ -459,11 +472,19 @@
                                 <state key="normal" title="Sort by" image="dropdown">
                                     <color key="titleColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="sortAction:" destination="hLQ-fc-zt2" eventType="touchUpInside" id="rF9-Q7-UVd"/>
+                                </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2iT-fo-yep">
-                                <rect key="frame" x="0.0" y="153" width="375" height="581"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kjr-Vr-jVQ">
+                                <rect key="frame" x="0.0" y="160.66666666666669" width="375" height="581.33333333333326"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hLQ-fc-zt2" id="I6n-uC-xr7"/>
+                                    <outlet property="delegate" destination="hLQ-fc-zt2" id="mI0-tz-z7r"/>
+                                </connections>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7v-jw-DJY">
                                 <rect key="frame" x="0.0" y="742" width="375" height="70"/>
                                 <subviews>
@@ -509,7 +530,7 @@
                                 <state key="normal" image="recordAudio"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIC-ZB-Qzx" userLabel="addButton">
-                                <rect key="frame" x="155" y="713" width="65" height="65"/>
+                                <rect key="frame" x="179.66666666666666" y="756" width="16" height="22"/>
                                 <state key="normal" image="addicon"/>
                                 <connections>
                                     <action selector="addButtonClicked:" destination="hLQ-fc-zt2" eventType="touchUpInside" id="Yh4-NG-hdY"/>
@@ -519,9 +540,11 @@
                         <color key="backgroundColor" white="0.95528165135585086" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Hfe-8G-0uB" firstAttribute="leading" secondItem="qm2-Vs-kWd" secondAttribute="leading" constant="16" id="6nC-0w-q6g"/>
+                            <constraint firstItem="Kjr-Vr-jVQ" firstAttribute="leading" secondItem="qm2-Vs-kWd" secondAttribute="leading" id="7Of-Ts-zBQ"/>
                             <constraint firstItem="qm2-Vs-kWd" firstAttribute="trailing" secondItem="VxV-sf-lSF" secondAttribute="trailing" constant="16" id="7zm-Io-EeM"/>
                             <constraint firstItem="qm2-Vs-kWd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="PMd-U8-Ban" secondAttribute="trailing" symbolic="YES" id="8ZC-s2-1Mq"/>
                             <constraint firstAttribute="bottom" secondItem="j7v-jw-DJY" secondAttribute="bottom" id="92A-tB-zye"/>
+                            <constraint firstItem="Kjr-Vr-jVQ" firstAttribute="bottom" secondItem="j7v-jw-DJY" secondAttribute="top" id="Es3-ic-2be"/>
                             <constraint firstItem="TIC-ZB-Qzx" firstAttribute="centerX" secondItem="j7v-jw-DJY" secondAttribute="centerX" id="Eva-BD-3hy"/>
                             <constraint firstItem="ksv-m6-9Y9" firstAttribute="leading" secondItem="qm2-Vs-kWd" secondAttribute="leading" constant="5" id="GOh-OM-VVa"/>
                             <constraint firstItem="PMd-U8-Ban" firstAttribute="top" secondItem="qm2-Vs-kWd" secondAttribute="top" id="HOR-EX-2hs"/>
@@ -531,6 +554,8 @@
                             <constraint firstItem="PMd-U8-Ban" firstAttribute="leading" secondItem="MOC-Zk-OXQ" secondAttribute="leadingMargin" id="bvF-r6-RZw"/>
                             <constraint firstItem="qm2-Vs-kWd" firstAttribute="trailing" secondItem="ksv-m6-9Y9" secondAttribute="trailing" constant="5" id="dcA-5N-1dC"/>
                             <constraint firstItem="j7v-jw-DJY" firstAttribute="leading" secondItem="qm2-Vs-kWd" secondAttribute="leading" id="eF5-2W-3lN"/>
+                            <constraint firstItem="Kjr-Vr-jVQ" firstAttribute="trailing" secondItem="qm2-Vs-kWd" secondAttribute="trailing" id="gbe-8Q-eSw"/>
+                            <constraint firstItem="Kjr-Vr-jVQ" firstAttribute="top" secondItem="Hfe-8G-0uB" secondAttribute="bottom" constant="8" id="ghz-nv-wLA"/>
                             <constraint firstItem="qm2-Vs-kWd" firstAttribute="trailing" secondItem="VxV-sf-lSF" secondAttribute="trailing" constant="16" id="oIS-dq-b0C"/>
                             <constraint firstItem="TIC-ZB-Qzx" firstAttribute="centerX" secondItem="MOC-Zk-OXQ" secondAttribute="centerX" id="uKx-DR-hud"/>
                             <constraint firstItem="VxV-sf-lSF" firstAttribute="centerY" secondItem="Hfe-8G-0uB" secondAttribute="centerY" id="v2C-97-bpK"/>
@@ -546,13 +571,18 @@
                         <outlet property="TakeNoteButton" destination="mpt-Ol-4yc" id="GhA-D1-k7D"/>
                         <outlet property="contentView" destination="MOC-Zk-OXQ" id="WxV-IT-5nr"/>
                         <outlet property="fadeScreen" destination="Jkg-WF-MGl" id="SRm-22-KxQ"/>
-                        <outlet property="scrollView" destination="2iT-fo-yep" id="6bO-C3-1TZ"/>
                         <outlet property="searchBar" destination="ksv-m6-9Y9" id="dNV-pw-6ns"/>
                         <outlet property="sort" destination="VxV-sf-lSF" id="cn5-Tr-eWp"/>
+                        <outlet property="tableView" destination="Kjr-Vr-jVQ" id="hBv-W2-58O"/>
                         <segue destination="Ni0-4b-ilB" kind="presentation" identifier="SearchAgain" modalTransitionStyle="crossDissolve" id="Pgz-SA-yeF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOo-W6-Ike" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="137-MR-XmB">
+                    <connections>
+                        <action selector="fadePush:" destination="hLQ-fc-zt2" id="VRz-bN-MMg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1693.5999999999999" y="-1032.2660098522167"/>
         </scene>
@@ -569,8 +599,7 @@
         <image name="takeNote" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d1y-ge-ZE1"/>
-        <segue reference="Pgz-SA-yeF"/>
+        <segue reference="S8S-G5-OJw"/>
         <segue reference="xML-KA-knV"/>
     </inferredMetricsTieBreakers>
 </document>

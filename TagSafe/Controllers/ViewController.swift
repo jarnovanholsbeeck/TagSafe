@@ -152,6 +152,10 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
         }
     }
     
+    @IBAction func fadePush(_ sender: UITapGestureRecognizer) {
+        self.AddButton.sendActions(for: .touchUpInside)
+    }
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         performSegue(withIdentifier: "Search", sender: self)
     }
