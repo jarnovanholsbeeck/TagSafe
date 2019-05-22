@@ -24,6 +24,7 @@ class StorageController: UIViewController{
         super.viewDidLoad()
         db = Firestore.firestore()
         storage = Storage.storage()
+        
     }
     
     @IBAction func selectImage(_ sender: Any) {
@@ -38,7 +39,44 @@ class StorageController: UIViewController{
         authHandle = Auth.auth().addStateDidChangeListener{(auth, user) in
             print(user?.email ?? "No one logged in")
             self.loggedInUser = user
+            
+            let docRef = self.db!.collection("users").document(user!.uid)
+            
+            docRef.collection("stories").addSnapshotListener { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let fileRef = document.reference
+                        
+                        let data = document.get("files") as? [DocumentReference]
+                        
+                        data!.forEach { file in
+                            print(file.documentID)
+                            
+                            docRef.collection("files").document(file.documentID).addSnapshotListener { documentSnapshot, error in
+                                guard let document = documentSnapshot else {
+                                    print("Error fetching document: \(error!)")
+                                    return
+                                }
+                                guard let data = document.data() else {
+                                    print("Document data was empty.")
+                                    return
+                                }
+                                print("Current data: \(data)")
+                                print(data["filename"]!)
+                            }
+                        }
+                        
+                        //print(document.data())
+                        //docRef.collection("files").document(document.reference.documentID)
+                        print("\(document.documentID) => \(document.data())")
+                    }
+                }
+            }
         }
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
