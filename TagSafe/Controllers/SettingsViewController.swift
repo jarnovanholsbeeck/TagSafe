@@ -12,16 +12,13 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var notifications: UIButton!
-    @IBOutlet weak var privacy: UIButton!
-    @IBOutlet weak var tutorial: UIButton!
-    @IBOutlet weak var website: UIButton!
     
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var recordAudioButton: UIButton!
     @IBOutlet weak var recordVideoButton: UIButton!
     @IBOutlet weak var takeNoteButton: UIButton!
     @IBOutlet weak var fadeScreen: UIView!
+    @IBOutlet weak var containerView: UIView!
     
     var audioButtonCenter: CGPoint!
     var videoButtonCenter: CGPoint!
@@ -51,7 +48,7 @@ class SettingsViewController: UIViewController {
                 self.recordAudioButton.alpha = 1
                 self.recordVideoButton.alpha = 1
                 self.takeNoteButton.alpha = 1
-                self.contentView.insertSubview(self.fadeScreen, aboveSubview: self.website)
+                self.contentView.insertSubview(self.fadeScreen, aboveSubview: self.containerView)
                 self.fadeScreen.alpha = 1
                 
                 self.recordAudioButton.center = self.audioButtonCenter

@@ -24,6 +24,7 @@
 		C07A2E292292DE5B0084D799 /* FileView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C07A2E282292DE5B0084D799 /* FileView.xib */; };
 		C07A2E2B2292E2640084D799 /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2E2A2292E2640084D799 /* FileViewController.swift */; };
 		C07F5E0222968D6F00B31901 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F5E0122968D6F00B31901 /* SettingsViewController.swift */; };
+		C07F5E042296A0CF00B31901 /* SettingsChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F5E032296A0CF00B31901 /* SettingsChildViewController.swift */; };
 		C0CC1B05229537BE0025532E /* CustomFileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC1B04229537BE0025532E /* CustomFileCell.swift */; };
 		C0CC1B07229537EF0025532E /* CustomFileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0CC1B06229537EF0025532E /* CustomFileCell.xib */; };
 		C0CC1B0922953CAF0025532E /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC1B0822953CAF0025532E /* File.swift */; };
@@ -78,6 +79,7 @@
 		C07A2E282292DE5B0084D799 /* FileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileView.xib; sourceTree = "<group>"; };
 		C07A2E2A2292E2640084D799 /* FileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
 		C07F5E0122968D6F00B31901 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C07F5E032296A0CF00B31901 /* SettingsChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsChildViewController.swift; sourceTree = "<group>"; };
 		C0CC1B04229537BE0025532E /* CustomFileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFileCell.swift; sourceTree = "<group>"; };
 		C0CC1B06229537EF0025532E /* CustomFileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomFileCell.xib; sourceTree = "<group>"; };
 		C0CC1B0822953CAF0025532E /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = File.swift; path = TagSafe/File.swift; sourceTree = SOURCE_ROOT; };
@@ -215,6 +217,7 @@
 				C0CC1B0A229570180025532E /* StoryViewController.swift */,
 				C0CC1B0E229584630025532E /* StoryAddViewController.swift */,
 				C07F5E0122968D6F00B31901 /* SettingsViewController.swift */,
+				C07F5E032296A0CF00B31901 /* SettingsChildViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				C0CC1B05229537BE0025532E /* CustomFileCell.swift in Sources */,
 				C0EAC2CC2293FB60005DF03E /* SearchViewController.swift in Sources */,
 				C02DBBC4228F3C45009592AD /* ViewController.swift in Sources */,
+				C07F5E042296A0CF00B31901 /* SettingsChildViewController.swift in Sources */,
 				C07A2E2B2292E2640084D799 /* FileViewController.swift in Sources */,
 				C0CC1B0922953CAF0025532E /* File.swift in Sources */,
 				C02DBBC2228F3C45009592AD /* AppDelegate.swift in Sources */,
