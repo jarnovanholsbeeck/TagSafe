@@ -135,14 +135,31 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
                     print(error)
                     return
                 }
-                let userRef = self.db!.collection("users").document(self.loggedInUser!.uid)
                 
-                userRef.collection("files").addDocument(data: [
-                        "filename": filename,
-                        "filetype": "image",
-                        "tags": [],
-                        "mediaURL": downloadURL.absoluteString
-                    ])
+                //Put image in database
+                var dbRef: DocumentReference? = nil
+                
+                dbRef = self.db!.collection("user-files").addDocument(data: [
+                    "filename": filename,
+                    "filetype": "image",
+                    "mediaURL": downloadURL.absoluteString,
+                    "userUid": self.loggedInUser?.uid
+                ]) { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                    } else {
+                        print("Document added with ID: \(dbRef!.documentID)")
+                    }
+                }
+                
+//                let userRef = self.db!.collection("users").document(self.loggedInUser!.uid)
+//
+//                userRef.collection("files").addDocument(data: [
+//                        "filename": filename,
+//                        "filetype": "image",
+//                        "tags": [],
+//                        "mediaURL": downloadURL.absoluteString
+//                    ])
 
 //                userRef.updateData([
 //                    "files": FieldValue.arrayUnion([

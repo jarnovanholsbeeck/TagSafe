@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tagColor: UITextField!
     
     var db: Firestore?
+    var loggedInUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,24 +39,20 @@ class ViewController: UIViewController {
         
         db = Firestore.firestore()
         
-        /*
-         db!.collection("tags").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    
-                    //var data = document.data()
-                    //print(document.get("name")!)
-                    let newTag = Tag(name: document.get("name")! as? String, color: document.get("color")! as? String)
-                    self.tags.append(newTag)
-                    self.tagListView.addTag(newTag.name!)
-                    print("\(document.documentID) => \(document.data())")
-                }
-            }
-        }
-         */
-        db!.collection("tags").addSnapshotListener { (querySnapshot, err) in
+        audioButtonCenter = RecordAudioButton.center
+        videoButtonCenter = RecordVideoButton.center
+        noteButtonCenter = TakeNoteButton.center
+        
+        RecordAudioButton.center = AddButton.center
+        RecordVideoButton.center = AddButton.center
+        TakeNoteButton.center = AddButton.center
+    }
+    
+    func getUserTags(user: User){
+        
+        let tagsRef = self.db!.collection("user-tags")
+        
+        let userTagsQuery = tagsRef.whereField("userUid", isEqualTo: user.uid).addSnapshotListener { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -75,20 +72,32 @@ class ViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func addUserTag(newTag: Tag){
+        var dbRef: DocumentReference? = nil
         
-        
-        audioButtonCenter = RecordAudioButton.center
-        videoButtonCenter = RecordVideoButton.center
-        noteButtonCenter = TakeNoteButton.center
-        
-        RecordAudioButton.center = AddButton.center
-        RecordVideoButton.center = AddButton.center
-        TakeNoteButton.center = AddButton.center
+        dbRef = db!.collection("user-tags").addDocument(data: [
+            "name": newTag.name!,
+            "color": newTag.color!,
+            "userUid": loggedInUser?.uid
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(dbRef!.documentID)")
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         authHandle = Auth.auth().addStateDidChangeListener{(auth, user) in
-            print(user?.email ?? "No one logged in")
+            if let usr = user {
+                print(user?.email ?? "No one logged in")
+                self.loggedInUser = user
+                
+                self.getUserTags(user: usr)
+            }
         }
     }
     
@@ -122,18 +131,7 @@ class ViewController: UIViewController {
             print("not found")
         }
         
-        var dbRef: DocumentReference? = nil
-        
-        dbRef = db!.collection("tags").addDocument(data: [
-            "name": newTag.name!,
-            "color": newTag.color!
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(dbRef!.documentID)")
-            }
-        }
+        addUserTag(newTag: newTag);
     }
     
     
