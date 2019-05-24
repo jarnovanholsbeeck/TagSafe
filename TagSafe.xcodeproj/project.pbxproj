@@ -37,6 +37,10 @@
 		C0EAC2CA2293F4DA005DF03E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2C92293F4DA005DF03E /* Tag.swift */; };
 		C0EAC2CC2293FB60005DF03E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2CB2293FB60005DF03E /* SearchViewController.swift */; };
 		C0EAC2CE229435BD005DF03E /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2CD229435BD005DF03E /* SearchResultViewController.swift */; };
+		C0FBF8742297DA7100DA776C /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBF8732297DA7100DA776C /* AudioViewController.swift */; };
+		C0FBF87A2297E47600DA776C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBF8792297E47600DA776C /* VideoViewController.swift */; };
+		C0FBF87C2297E5A600DA776C /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBF87B2297E5A600DA776C /* NoteViewController.swift */; };
+		C0FBF8822297EA0D00DA776C /* AudioAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBF8812297EA0D00DA776C /* AudioAlertViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,10 @@
 		C0EAC2C92293F4DA005DF03E /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		C0EAC2CB2293FB60005DF03E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C0EAC2CD229435BD005DF03E /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		C0FBF8732297DA7100DA776C /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
+		C0FBF8792297E47600DA776C /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		C0FBF87B2297E5A600DA776C /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		C0FBF8812297EA0D00DA776C /* AudioAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAlertViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +235,10 @@
 				C07F5E052296C3F900B31901 /* LoginViewController.swift */,
 				C0213A472296D3770067C77D /* PinLoginViewController.swift */,
 				C0213A492296D8A80067C77D /* AllDataViewController.swift */,
+				C0FBF8732297DA7100DA776C /* AudioViewController.swift */,
+				C0FBF8792297E47600DA776C /* VideoViewController.swift */,
+				C0FBF87B2297E5A600DA776C /* NoteViewController.swift */,
+				C0FBF8812297EA0D00DA776C /* AudioAlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -449,6 +461,7 @@
 				C02DBBC4228F3C45009592AD /* ViewController.swift in Sources */,
 				C07F5E042296A0CF00B31901 /* SettingsChildViewController.swift in Sources */,
 				C07A2E2B2292E2640084D799 /* FileViewController.swift in Sources */,
+				C0FBF87C2297E5A600DA776C /* NoteViewController.swift in Sources */,
 				C0CC1B0922953CAF0025532E /* File.swift in Sources */,
 				C02DBBC2228F3C45009592AD /* AppDelegate.swift in Sources */,
 				C02DBBCA228F3C45009592AD /* TagSafe.xcdatamodeld in Sources */,
@@ -456,9 +469,12 @@
 				C0213A482296D3770067C77D /* PinLoginViewController.swift in Sources */,
 				C0213A4A2296D8A80067C77D /* AllDataViewController.swift in Sources */,
 				C0CC1B0B229570180025532E /* StoryViewController.swift in Sources */,
+				C0FBF8742297DA7100DA776C /* AudioViewController.swift in Sources */,
 				C07F5E062296C3F900B31901 /* LoginViewController.swift in Sources */,
 				C0EAC2CE229435BD005DF03E /* SearchResultViewController.swift in Sources */,
 				C07A2E262292B0210084D799 /* StoryCardController.swift in Sources */,
+				C0FBF87A2297E47600DA776C /* VideoViewController.swift in Sources */,
+				C0FBF8822297EA0D00DA776C /* AudioAlertViewController.swift in Sources */,
 				C0CC1B0D22957AC30025532E /* SelfSizedTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
