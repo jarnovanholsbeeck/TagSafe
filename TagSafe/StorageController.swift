@@ -23,6 +23,9 @@ class StorageController: UIViewController{
     var tagIds: [String] = []
     var loggedInUser: User?
     
+    var userFiles: [File] = []
+    
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tagListView: TagListView!
     @IBOutlet weak var searchView: UISearchBar!
@@ -31,6 +34,7 @@ class StorageController: UIViewController{
         super.viewDidLoad()
         searchView.delegate = self
         tagListView.delegate = self
+        tableView.delegate = self
         
         
         db = Firestore.firestore()
@@ -261,4 +265,23 @@ extension StorageController: TagListViewDelegate{
             print(selectedTag.name!)
         }
     }
+}
+
+extension StorageController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.userFiles.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FileCell", for: indexPath) as! CustomFileCell
+        
+        cell.initFileCell(filename: self.userFiles[indexPath.row].filename)
+        
+        return cell
+    }
+
+    
+    
+    
 }

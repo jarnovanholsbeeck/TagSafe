@@ -47,9 +47,7 @@ class SignUpController: UIViewController {
         authHandle = Auth.auth().addStateDidChangeListener{(auth, user) in
             print("SIGNED UP: \(user?.uid ?? "No one signed in yet")")
             if let uid = user?.uid {                
-                self.db!.collection("users").document(uid).setData([
-                    "files":[]
-                ]) {
+                self.db!.collection("users").document(uid).setData([:]) {
                     err in
                     if let err = err {
                         print("Error adding document: \(err)")
