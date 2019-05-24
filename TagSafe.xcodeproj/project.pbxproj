@@ -19,6 +19,8 @@
 		C02DBBDA228F3C45009592AD /* TagSafeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DBBD9228F3C45009592AD /* TagSafeTests.swift */; };
 		C02DBBE5228F3C45009592AD /* TagSafeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02DBBE4228F3C45009592AD /* TagSafeUITests.swift */; };
 		C02DBBF3228F4632009592AD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C02DBBF2228F4632009592AD /* GoogleService-Info.plist */; };
+		C03EBB8A229830FE00214AF6 /* TagSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = C03EBB89229830FE00214AF6 /* TagSelector.xib */; };
+		C03EBB8C2298311E00214AF6 /* TagSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03EBB8B2298311E00214AF6 /* TagSelector.swift */; };
 		C07A2E202292A12C0084D799 /* calibretest_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C07A2E1F2292A12C0084D799 /* calibretest_regular.ttf */; };
 		C07A2E222292A1C70084D799 /* CalibreTest-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C07A2E212292A1C70084D799 /* CalibreTest-Medium.ttf */; };
 		C07A2E242292A90F0084D799 /* StoryCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = C07A2E232292A90F0084D799 /* StoryCard.xib */; };
@@ -84,6 +86,8 @@
 		C02DBBE4228F3C45009592AD /* TagSafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSafeUITests.swift; sourceTree = "<group>"; };
 		C02DBBE6228F3C46009592AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C02DBBF2228F4632009592AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C03EBB89229830FE00214AF6 /* TagSelector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagSelector.xib; sourceTree = "<group>"; };
+		C03EBB8B2298311E00214AF6 /* TagSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelector.swift; sourceTree = "<group>"; };
 		C07A2E1F2292A12C0084D799 /* calibretest_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = calibretest_regular.ttf; path = ../calibretest_regular.ttf; sourceTree = "<group>"; };
 		C07A2E212292A1C70084D799 /* CalibreTest-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CalibreTest-Medium.ttf"; path = "../CalibreTest-Medium.ttf"; sourceTree = "<group>"; };
 		C07A2E232292A90F0084D799 /* StoryCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCard.xib; sourceTree = "<group>"; };
@@ -224,6 +228,8 @@
 				C0CC1B06229537EF0025532E /* CustomFileCell.xib */,
 				C0CC1B04229537BE0025532E /* CustomFileCell.swift */,
 				C0CC1B0C22957AC30025532E /* SelfSizedTableView.swift */,
+				C03EBB89229830FE00214AF6 /* TagSelector.xib */,
+				C03EBB8B2298311E00214AF6 /* TagSelector.swift */,
 			);
 			path = "custom views";
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 				C02DBBCF228F3C45009592AD /* LaunchScreen.storyboard in Resources */,
 				C07A2E202292A12C0084D799 /* calibretest_regular.ttf in Resources */,
 				C02DBBF3228F4632009592AD /* GoogleService-Info.plist in Resources */,
+				C03EBB8A229830FE00214AF6 /* TagSelector.xib in Resources */,
 				C0CC1B07229537EF0025532E /* CustomFileCell.xib in Resources */,
 				C07A2E242292A90F0084D799 /* StoryCard.xib in Resources */,
 				C02DBBCC228F3C45009592AD /* Assets.xcassets in Resources */,
@@ -486,6 +493,7 @@
 				C07A2E262292B0210084D799 /* StoryCardController.swift in Sources */,
 				C0FBF87A2297E47600DA776C /* VideoViewController.swift in Sources */,
 				C0FBF8822297EA0D00DA776C /* AudioAlertViewController.swift in Sources */,
+				C03EBB8C2298311E00214AF6 /* TagSelector.swift in Sources */,
 				C0CC1B0D22957AC30025532E /* SelfSizedTableView.swift in Sources */,
 				C0FBF88422980F9E00DA776C /* PictureAlertViewController.swift in Sources */,
 			);

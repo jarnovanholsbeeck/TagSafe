@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo bg" translatesAutoresizingMaskIntoConstraints="NO" id="glR-G0-UAD">
-                                <rect key="frame" x="-125" y="370" width="447.00000000000011" height="471"/>
+                                <rect key="frame" x="-125" y="370" width="447" height="471"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="447" id="Mgo-Mo-XpX"/>
                                     <constraint firstAttribute="height" constant="471" id="nrB-KZ-A8h"/>
@@ -474,7 +474,7 @@
                                 </connections>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo bg" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-HU-AHT">
-                                <rect key="frame" x="-125" y="370" width="447.00000000000011" height="471"/>
+                                <rect key="frame" x="-125" y="370" width="447" height="471"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="471" id="dDo-u3-as6"/>
                                     <constraint firstAttribute="width" constant="447" id="uz1-yH-jut"/>
@@ -649,16 +649,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logowhite" translatesAutoresizingMaskIntoConstraints="NO" id="Ldg-Tb-VXe">
-                                <rect key="frame" x="179.66666666666666" y="212" width="16" height="16"/>
+                                <rect key="frame" x="125.66666666666669" y="212" width="124" height="159"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello there! Please sign up below to enter." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b50-Ba-MJP">
-                                <rect key="frame" x="28" y="236" width="319" height="20"/>
+                                <rect key="frame" x="49.666666666666657" y="379" width="276" height="17"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24o-tH-fcx">
-                                <rect key="frame" x="151" y="350" width="73" height="33"/>
+                                <rect key="frame" x="155" y="490" width="65" height="30"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="18"/>
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -668,7 +668,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pin" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1ku-YB-v9o">
-                                <rect key="frame" x="137.66666666666666" y="288" width="100" height="30"/>
+                                <rect key="frame" x="137.66666666666666" y="428" width="100" height="30"/>
                                 <color key="textColor" red="0.0" green="0.42352941179999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES" textContentType="password"/>
@@ -1072,7 +1072,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="tailTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PMd-U8-Ban">
-                                <rect key="frame" x="16" y="44" width="75" height="24"/>
+                                <rect key="frame" x="16" y="44" width="75" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="tRH-7a-FN7"/>
                                 </constraints>
@@ -1087,20 +1087,20 @@
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by name or tags..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-m6-9Y9">
-                                <rect key="frame" x="5" y="68" width="365" height="56"/>
+                                <rect key="frame" x="5" y="72" width="365" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="hLQ-fc-zt2" id="9gW-TS-lYZ"/>
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Files:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfe-8G-0uB">
-                                <rect key="frame" x="15.999999999999996" y="124" width="44.666666666666657" height="21"/>
+                                <rect key="frame" x="16" y="128" width="49" height="24.666666666666657"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxV-sf-lSF">
-                                <rect key="frame" x="284" y="127" width="75" height="15"/>
+                                <rect key="frame" x="284" y="131.33333333333334" width="75" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="guQ-yb-5CV"/>
                                 </constraints>
@@ -1115,7 +1115,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kjr-Vr-jVQ">
-                                <rect key="frame" x="0.0" y="153" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="160.66666666666669" width="375" height="581.33333333333326"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -1183,7 +1183,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIC-ZB-Qzx" userLabel="addButton">
-                                <rect key="frame" x="155" y="713" width="65" height="65"/>
+                                <rect key="frame" x="179.66666666666666" y="756" width="16" height="22"/>
                                 <state key="normal" image="addicon"/>
                                 <connections>
                                     <action selector="addButtonClicked:" destination="hLQ-fc-zt2" eventType="touchUpInside" id="Yh4-NG-hdY"/>
@@ -1812,10 +1812,10 @@
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWy-4B-ivq">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWy-4B-ivq" customClass="TagSelector" customModule="TagSafe" customModuleProvider="target">
                                         <rect key="frame" x="32" y="215.33333333333331" width="279" height="30"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="XNq-OP-uK8"/>
                                             <constraint firstAttribute="height" constant="30" id="mO4-Qc-MnY"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -1933,11 +1933,12 @@
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjD-rw-BFV">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjD-rw-BFV" customClass="TagSelector" customModule="TagSafe" customModuleProvider="target">
                                         <rect key="frame" x="32" y="303" width="279" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="YI5-l0-emM"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="mX9-OF-OFO"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -2090,9 +2091,12 @@
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzj-Rt-v8g">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzj-Rt-v8g" customClass="TagSelector" customModule="TagSafe" customModuleProvider="target">
                                         <rect key="frame" x="32" y="374" width="279" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="kI7-iT-Ox6"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="4"/>
@@ -2266,10 +2270,11 @@
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAr-nY-t3l">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAr-nY-t3l" customClass="TagSelector" customModule="TagSafe" customModuleProvider="target">
                                         <rect key="frame" x="32" y="92" width="279" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Ijo-uE-l9C"/>
                                             <constraint firstAttribute="height" constant="30" id="crO-1e-RqH"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
