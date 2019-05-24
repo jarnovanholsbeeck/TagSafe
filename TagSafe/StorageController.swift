@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import TagListView
 
 class StorageController: UIViewController{
 
@@ -17,13 +18,21 @@ class StorageController: UIViewController{
     var storage: Storage?
     var mediaURL: Any?
     
+    var tags: [Tag] = []
     var loggedInUser: User?
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var tagListView: TagListView!
+    @IBOutlet weak var searchView: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchView.delegate = self
+        tagListView.delegate = self
+        
         db = Firestore.firestore()
         storage = Storage.storage()
+    
         
     }
     
@@ -39,6 +48,8 @@ class StorageController: UIViewController{
         authHandle = Auth.auth().addStateDidChangeListener{(auth, user) in
             print(user?.email ?? "No one logged in")
             self.loggedInUser = user
+            
+            self.getUserTags(user: user!)
             
             //View stories of user in console
             let docRef = self.db!.collection("users").document(user!.uid)
@@ -83,20 +94,56 @@ class StorageController: UIViewController{
     override func viewWillDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(authHandle!)
     }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func getUserTags(user: User){
+        
+        let tagsRef = self.db!.collection("user-tags")
+        
+        let userTagsQuery = tagsRef.whereField("userUid", isEqualTo: user.uid).addSnapshotListener { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.tagListView.removeAllTags()
+                self.tags = []
+                for document in querySnapshot!.documents {
+                    
+                    //var data = document.data()
+                    //print(document.get("name")!)
+                    
+                    let newTag = Tag(id: document.documentID, name: document.get("name") as? String, color: document.get("color") as? String)
+                    self.tags.append(newTag)
+                    if newTag.name != nil{
+                        self.tagListView.addTag(newTag.name!)
+                    }
+                    
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
     }
-    */
+    
+    func filterUserTags(searchText: String, user: User){
+        //getUserTags(user: user)
+        if(searchText.isEmpty){
+            getUserTags(user: user)
+        } else {
+            var filteredTags: [Tag] = []
+            
+            filteredTags = tags.filter{$0.name!.contains(searchText)}
+            self.tagListView.removeAllTags()
+            
+            for filteredTag in filteredTags {
+                //filteredTags.append(filteredTag)
+                self.tagListView.addTag(filteredTag.name!)
+            }
+            print(filteredTags)
+        }
 
+        
+    }
 }
 
-extension StorageController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension StorageController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UISearchBarDelegate {
 
     func handleSelectImage(){
         let imagePicker = UIImagePickerController()
@@ -152,26 +199,6 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
                     }
                 }
                 
-//                let userRef = self.db!.collection("users").document(self.loggedInUser!.uid)
-//
-//                userRef.collection("files").addDocument(data: [
-//                        "filename": filename,
-//                        "filetype": "image",
-//                        "tags": [],
-//                        "mediaURL": downloadURL.absoluteString
-//                    ])
-
-//                userRef.updateData([
-//                    "files": FieldValue.arrayUnion([
-//                        [
-//                            "filename": filename,
-//                            "filetype": "image",
-//                            "tags": [],
-//                            "mediaURL": downloadURL.absoluteString
-//                        ]
-//                        ])
-//                ])
-                
                 print(downloadURL)
             }
         }
@@ -199,5 +226,19 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterUserTags(searchText: searchText.lowercased(), user: self.loggedInUser!)
+    }
+}
+
+extension StorageController: TagListViewDelegate{
+    func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
+        print(title + " has been pressed")
+        tagView.isHighlighted = true
+        
+        var filteredTag = tags.filter{$0.name! == title}
+        print(filteredTag.first?.name)
     }
 }

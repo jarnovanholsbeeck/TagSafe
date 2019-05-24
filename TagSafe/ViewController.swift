@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tags.append(Tag(name: "test", color: "#F00000"))
+        //tags.append(Tag(name: "test", color: "#F00000"))
         
         db = Firestore.firestore()
         
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
                     
                     //var data = document.data()
                     //print(document.get("name")!)
-                    let newTag = Tag(name: document.get("name") as? String, color: document.get("color") as? String)
+                    let newTag = Tag(id: document.documentID, name: document.get("name") as? String, color: document.get("color") as? String)
                     self.tags.append(newTag)
                     if newTag.name != nil{
                         self.tagListView.addTag(newTag.name!)
@@ -122,7 +122,7 @@ class ViewController: UIViewController {
             print("nope")
             return
         }
-        let newTag = Tag(name: tagName.text!, color: tagColor.text!)
+        let newTag = Tag(id: "", name: tagName.text!, color: tagColor.text!)
         if tags.contains(where: {$0.name == newTag.name}){
             print("found")
             return

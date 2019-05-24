@@ -239,6 +239,8 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="6Ls-QM-Ebb" id="1V6-Dl-CET"/>
+                        <outlet property="searchView" destination="jXL-Ch-ddl" id="QYe-EP-GnP"/>
+                        <outlet property="tagListView" destination="nm2-st-UX9" id="vS6-We-jWO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fU-Sw-nvL" userLabel="First Responder" sceneMemberID="firstResponder"/>
