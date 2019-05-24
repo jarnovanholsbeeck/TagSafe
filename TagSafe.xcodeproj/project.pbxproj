@@ -41,6 +41,9 @@
 		C0FBF87A2297E47600DA776C /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBF8792297E47600DA776C /* VideoViewController.swift */; };
 		C0FBF87C2297E5A600DA776C /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBF87B2297E5A600DA776C /* NoteViewController.swift */; };
 		C0FBF8822297EA0D00DA776C /* AudioAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBF8812297EA0D00DA776C /* AudioAlertViewController.swift */; };
+		C0FBF88422980F9E00DA776C /* PictureAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBF88322980F9E00DA776C /* PictureAlertViewController.swift */; };
+		C0FBF8862298116D00DA776C /* VideoAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBF8852298116D00DA776C /* VideoAlertViewController.swift */; };
+		C0FBF888229815B500DA776C /* NoteAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FBF887229815B500DA776C /* NoteAlertViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		C0FBF8792297E47600DA776C /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		C0FBF87B2297E5A600DA776C /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		C0FBF8812297EA0D00DA776C /* AudioAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioAlertViewController.swift; sourceTree = "<group>"; };
+		C0FBF88322980F9E00DA776C /* PictureAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureAlertViewController.swift; sourceTree = "<group>"; };
+		C0FBF8852298116D00DA776C /* VideoAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoAlertViewController.swift; sourceTree = "<group>"; };
+		C0FBF887229815B500DA776C /* NoteAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAlertViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +245,9 @@
 				C0FBF8792297E47600DA776C /* VideoViewController.swift */,
 				C0FBF87B2297E5A600DA776C /* NoteViewController.swift */,
 				C0FBF8812297EA0D00DA776C /* AudioAlertViewController.swift */,
+				C0FBF88322980F9E00DA776C /* PictureAlertViewController.swift */,
+				C0FBF8852298116D00DA776C /* VideoAlertViewController.swift */,
+				C0FBF887229815B500DA776C /* NoteAlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -465,10 +474,12 @@
 				C0CC1B0922953CAF0025532E /* File.swift in Sources */,
 				C02DBBC2228F3C45009592AD /* AppDelegate.swift in Sources */,
 				C02DBBCA228F3C45009592AD /* TagSafe.xcdatamodeld in Sources */,
+				C0FBF888229815B500DA776C /* NoteAlertViewController.swift in Sources */,
 				C07F5E0222968D6F00B31901 /* SettingsViewController.swift in Sources */,
 				C0213A482296D3770067C77D /* PinLoginViewController.swift in Sources */,
 				C0213A4A2296D8A80067C77D /* AllDataViewController.swift in Sources */,
 				C0CC1B0B229570180025532E /* StoryViewController.swift in Sources */,
+				C0FBF8862298116D00DA776C /* VideoAlertViewController.swift in Sources */,
 				C0FBF8742297DA7100DA776C /* AudioViewController.swift in Sources */,
 				C07F5E062296C3F900B31901 /* LoginViewController.swift in Sources */,
 				C0EAC2CE229435BD005DF03E /* SearchResultViewController.swift in Sources */,
@@ -476,6 +487,7 @@
 				C0FBF87A2297E47600DA776C /* VideoViewController.swift in Sources */,
 				C0FBF8822297EA0D00DA776C /* AudioAlertViewController.swift in Sources */,
 				C0CC1B0D22957AC30025532E /* SelfSizedTableView.swift in Sources */,
+				C0FBF88422980F9E00DA776C /* PictureAlertViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

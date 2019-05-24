@@ -8,26 +8,44 @@
 
 import UIKit
 
-class NoteViewController: UIViewController {
+class NoteViewController: UIViewController, UITextViewDelegate {
+    
+    @IBOutlet weak var txtTitle: UITextField!
+    @IBOutlet weak var txtContent: UITextView!
+    
+    var fileChanged: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        txtTitle.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func back(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        switch fileChanged {
+        case true:
+            // save changes
+            let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "NoteAlert") as! NoteAlertViewController
+            customAlert.providesPresentationContextTransitionStyle = true
+            customAlert.definesPresentationContext = true
+            customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            customAlert.tempTitle = txtTitle.text
+            self.present(customAlert, animated: true, completion: {
+                self.fileChanged = false
+            })
+            
+        default:
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        fileChanged = true
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        fileChanged = true
     }
 }

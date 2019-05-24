@@ -11,6 +11,7 @@ import UIKit
 class AudioAlertViewController: UIViewController {
     
     @IBOutlet weak var alertView: UIView!
+    @IBOutlet weak var playView: UIView!
     @IBOutlet weak var fileTitle: UITextField!
     @IBOutlet weak var story: UITextField!
     @IBOutlet weak var tagSelector: UIView!
