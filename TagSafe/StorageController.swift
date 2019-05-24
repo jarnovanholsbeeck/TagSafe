@@ -57,6 +57,7 @@ class StorageController: UIViewController{
             self.loggedInUser = user
             
             self.getUserTags(user: user!)
+            self.getUserFiles(user: user!)
             
             //View stories of user in console
             let docRef = self.db!.collection("users").document(user!.uid)
@@ -71,7 +72,7 @@ class StorageController: UIViewController{
                         let data = document.get("files") as? [DocumentReference]
                         
                         data!.forEach { file in
-                            print(file.documentID)
+                            //print(file.documentID)
                             
                             docRef.collection("files").document(file.documentID).addSnapshotListener { documentSnapshot, error in
                                 guard let document = documentSnapshot else {
@@ -83,13 +84,13 @@ class StorageController: UIViewController{
                                     return
                                 }
                                 print("Current data: \(data)")
-                                print(data["filename"]!)
+                                //print(data["filename"]!)
                             }
                         }
                         
                         //print(document.data())
                         //docRef.collection("files").document(document.reference.documentID)
-                        print("\(document.documentID) => \(document.data())")
+                        //print("\(document.documentID) => \(document.data())")
                     }
                 }
             }
@@ -100,6 +101,26 @@ class StorageController: UIViewController{
     
     override func viewWillDisappear(_ animated: Bool) {
         Auth.auth().removeStateDidChangeListener(authHandle!)
+    }
+    
+    func getUserFiles(user: User){
+        
+        let userFilesRef = self.db!.collection("user-files")
+        
+        let userFilesQuery = userFilesRef.whereField("userUid", isEqualTo: user.uid).addSnapshotListener { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+    
+                    let data = document.data()
+                    let file = File(id: document.documentID, name: data["filename"] as! String, detail: "detail", type: data["filetype"] as! String, date: "2019", content: data["mediaURL"] as! String)
+                    
+                    self.userFiles.append(file)
+                    print(data)
+                }
+            }
+        }
     }
 
     func getUserTags(user: User){
@@ -123,7 +144,7 @@ class StorageController: UIViewController{
                         self.tagListView.addTag(newTag.name!)
                     }
                     
-                    print("\(document.documentID) => \(document.data())")
+                    //print("\(document.documentID) => \(document.data())")
                 }
             }
         }
@@ -143,10 +164,29 @@ class StorageController: UIViewController{
                 //filteredTags.append(filteredTag)
                 self.tagListView.addTag(filteredTag.name!)
             }
-            print(filteredTags)
+            //print(filteredTags)
         }
-
+    }
+    
+    func filterFilesByTags(tags: [Tag], user: User){
         
+        let userFilesRef = self.db!.collection("user-files")
+        let userTagsRef = self.db!.collection("user-tags")
+        
+        let userFilesQuery = userFilesRef.whereField("userUid", isEqualTo: user.uid).addSnapshotListener { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    var data = document.data()
+                    
+//                    var tagsArray: [NSArray] = data["tags"] as! [NSArray]
+//                    
+//                    print(tagsArray)
+                    //print("\(document.documentID) => \(data["tags"])")
+                }
+            }
+        }
     }
 }
 
@@ -163,10 +203,10 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
     
     func handleUploadImage(){
         let storageRef = storage?.reference()
-        print(storageRef!)
+        //print(storageRef!)
         
         let filename = ((mediaURL as! NSURL).absoluteString! as NSString).lastPathComponent
-        print(filename)
+        //print(filename)
         
         //let localFile = URL(string: (mediaURL as! NSURL).absoluteString!)
         let uploadData = imageView.image!.pngData()
@@ -181,7 +221,7 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
             }
             // Metadata contains file metadata such as size, content-type.
             let size = metadata.size
-            print(metadata)
+            //print(metadata)
             // You can also access to download URL after upload.
             imageRef.downloadURL { (url, error) in
                 guard let downloadURL = url else {
@@ -208,7 +248,7 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
                     }
                 }
                 
-                print(downloadURL)
+                //print(downloadURL)
             }
         }
     }
@@ -227,7 +267,7 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
         if let selectedImage = selectedImageFromPicker {
             imageView.image = selectedImage
             mediaURL = info[.imageURL]
-            print(mediaURL!)
+            //print(mediaURL!)
         }
         
         dismiss(animated: true, completion: nil)
@@ -259,10 +299,12 @@ extension StorageController: TagListViewDelegate{
             tagView.isSelected = true
             selectedTags.append(filteredTag.first!)
             tagIds.append(filteredTag.first!.id!)
+            
+            filterFilesByTags(tags: filteredTag, user: loggedInUser!)
         }
 
         for selectedTag in selectedTags {
-            print(selectedTag.name!)
+            //print(selectedTag.name!)
         }
     }
 }
@@ -276,12 +318,9 @@ extension StorageController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FileCell", for: indexPath) as! CustomFileCell
         
-        cell.initFileCell(filename: self.userFiles[indexPath.row].filename)
-        
+        cell.initFileCell(file: self.userFiles[indexPath.row])
         return cell
     }
-
-    
     
     
 }

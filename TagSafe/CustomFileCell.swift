@@ -22,8 +22,8 @@ class CustomFileCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func initFileCell(filename: String){
-        self.filename.text = filename
+    func initFileCell(file: File){
+        self.filename.text = file.filename
     }
 
 }
