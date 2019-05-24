@@ -19,6 +19,8 @@ class StorageController: UIViewController{
     var mediaURL: Any?
     
     var tags: [Tag] = []
+    var selectedTags: [Tag] = []
+    var tagIds: [String] = []
     var loggedInUser: User?
     
     @IBOutlet weak var imageView: UIImageView!
@@ -29,6 +31,7 @@ class StorageController: UIViewController{
         super.viewDidLoad()
         searchView.delegate = self
         tagListView.delegate = self
+        
         
         db = Firestore.firestore()
         storage = Storage.storage()
@@ -186,11 +189,13 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
                 //Put image in database
                 var dbRef: DocumentReference? = nil
                 
+                
                 dbRef = self.db!.collection("user-files").addDocument(data: [
                     "filename": filename,
                     "filetype": "image",
                     "mediaURL": downloadURL.absoluteString,
-                    "userUid": self.loggedInUser?.uid
+                    "userUid": self.loggedInUser?.uid,
+                    "tags": self.tagIds
                 ]) { err in
                     if let err = err {
                         print("Error adding document: \(err)")
@@ -235,10 +240,25 @@ extension StorageController: UIImagePickerControllerDelegate, UINavigationContro
 
 extension StorageController: TagListViewDelegate{
     func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
-        print(title + " has been pressed")
+        //print(title + " has been pressed")
         tagView.isHighlighted = true
         
         var filteredTag = tags.filter{$0.name! == title}
-        print(filteredTag.first?.name)
+        //print(filteredTag.first?.name)
+        
+        if tagView.isSelected {
+            tagView.isSelected = false
+            selectedTags.remove(at: selectedTags.firstIndex(of: filteredTag.first!)!)
+            tagIds.remove(at: tagIds.firstIndex(of: filteredTag.first!.id!)!)
+            
+        } else {
+            tagView.isSelected = true
+            selectedTags.append(filteredTag.first!)
+            tagIds.append(filteredTag.first!.id!)
+        }
+
+        for selectedTag in selectedTags {
+            print(selectedTag.name!)
+        }
     }
 }
