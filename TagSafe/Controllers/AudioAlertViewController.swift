@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import AVKit
 
 class AudioAlertViewController: UIViewController {
     
     @IBOutlet weak var alertView: UIView!
-    @IBOutlet weak var playView: UIView!
     @IBOutlet weak var fileTitle: UITextField!
     @IBOutlet weak var story: UITextField!
     @IBOutlet weak var tagSelector: UIView!
@@ -46,6 +46,18 @@ class AudioAlertViewController: UIViewController {
         })
     }
 
+    @IBAction func play(_ sender: Any) {
+        if let path = Bundle.main.path(forResource: "audio", ofType: "mp3") {
+            let audio = AVPlayer(url: URL(fileURLWithPath: path))
+            let audioPlayer = AVPlayerViewController()
+            audioPlayer.player = audio
+            
+            present(audioPlayer, animated: true, completion: {
+                audio.play()
+            })
+        }
+    }
+    
     @IBAction func deleteAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

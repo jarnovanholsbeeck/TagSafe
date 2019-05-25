@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 class VideoAlertViewController: UIViewController {
 
@@ -20,6 +21,18 @@ class VideoAlertViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func play(_ sender: Any) {
+        if let path = Bundle.main.path(forResource: "video", ofType: "mp4") {
+            let video = AVPlayer(url: URL(fileURLWithPath: path))
+            let videoPlayer = AVPlayerViewController()
+            videoPlayer.player = video
+            
+            present(videoPlayer, animated: true, completion: {
+                video.play()
+            })
+        }
+    }
+    
     @IBAction func deleteAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
