@@ -16,10 +16,13 @@ class AudioAlertViewController: UIViewController {
     @IBOutlet weak var story: UITextField!
     @IBOutlet weak var tagSelector: UIView!
     
+    var recordingURL: URL!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("Url in alert: \(recordingURL!)")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,8 +50,8 @@ class AudioAlertViewController: UIViewController {
     }
 
     @IBAction func play(_ sender: Any) {
-        if let path = Bundle.main.path(forResource: "audio", ofType: "mp3") {
-            let audio = AVPlayer(url: URL(fileURLWithPath: path))
+        if recordingURL != nil { // let path = Bundle.main.path(forResource: "audio", ofType: "mp3")
+            let audio = AVPlayer(url: recordingURL) //URL(fileURLWithPath: path)
             let audioPlayer = AVPlayerViewController()
             audioPlayer.player = audio
             

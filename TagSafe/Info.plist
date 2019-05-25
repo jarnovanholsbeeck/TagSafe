@@ -39,6 +39,8 @@
 		<string>calibretest_regular.ttf</string>
 		<string>CalibreTest-Medium.ttf</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(PRODUCT_NAME) use Microphone.</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
