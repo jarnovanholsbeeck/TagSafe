@@ -41,7 +41,7 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func getStory() {
         let storyRef = db!.collection("user-stories")
         
-        storyRef.whereField("title", isEqualTo: storyName!).addSnapshotListener { (querySnapshot, err) in
+        storyRef.whereField("title", isEqualTo: storyName!).whereField("userUid", isEqualTo: userID!).addSnapshotListener { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -74,6 +74,7 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 self.files.append(newFile)
                 self.tableView.reloadData()
+                
                 self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.tableView.frame.origin.y, width: self.tableView.frame.size.width, height: self.tableView.contentSize.height)
             }
         }

@@ -8,6 +8,7 @@
 
 import UIKit
 import DropDown
+import Firebase
 
 class StoryAddViewController: UIViewController, UISearchBarDelegate {
 
@@ -120,7 +121,8 @@ class StoryAddViewController: UIViewController, UISearchBarDelegate {
     }
     
     @IBAction func save(_ sender: Any) {
-        
+        // get selected files
+        // save story with new files
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
