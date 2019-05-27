@@ -29,12 +29,12 @@ class StoryCardController: UIView {
         commonInit()
     }
     
-    init(frame: CGRect, image: UIImage, name: String, date: String, hasImage: Bool, hasVideo: Bool, hasAudio: Bool, hasNote: Bool) {
+    init(frame: CGRect, image: String, name: String, date: String, hasImage: Bool, hasVideo: Bool, hasAudio: Bool, hasNote: Bool) {
         super.init(frame: frame)
         
         commonInit()
         
-        self.storyImage.image = image
+        self.storyImage.downloaded(from: image)
         self.storyName.text = name
         self.storyDate.text = date
         if !hasImage {
@@ -62,5 +62,26 @@ class StoryCardController: UIView {
         content.frame = self.bounds
         content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.addSubview(content)
+    }
+}
+
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() {
+                self.image = image
+            }
+            }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
     }
 }

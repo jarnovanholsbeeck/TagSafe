@@ -111,7 +111,7 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
                         if id == self.userID! {
                             let name = document.get("title") as! String
                             let date = document.get("dateCreated") as! String
-                            let image = UIImage(named: "TestStory")!
+                            let image = document.get("thumbnail") as! String
                             
                             let hasImage = true
                             let hasVideo = true
@@ -126,7 +126,7 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
         }
     }
     
-    func addStory(name: String, date: String, image: UIImage, hasImage: Bool, video: Bool, audio: Bool, note: Bool) {
+    func addStory(name: String, date: String, image: String, hasImage: Bool, video: Bool, audio: Bool, note: Bool) {
         var scrollWidth = 0
         let startX = 16 + (numberOfStories * 158)
         scrollWidth = startX + 166

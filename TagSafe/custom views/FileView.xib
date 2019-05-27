@@ -59,6 +59,7 @@
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="SFq-Oo-zC1" firstAttribute="leading" secondItem="jCN-jF-f4h" secondAttribute="trailing" constant="16" id="83i-3z-ond"/>
                 <constraint firstItem="Vx9-mC-Dkt" firstAttribute="leading" secondItem="jCN-jF-f4h" secondAttribute="trailing" constant="16" id="8ci-4G-Vrn"/>
@@ -75,9 +76,18 @@
                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                     <integer key="value" value="7"/>
                 </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="Np0-R5-Cw7" appends="YES" id="5MM-O6-r9P"/>
+            </connections>
             <point key="canvasLocation" x="54.347826086956523" y="125.89285714285714"/>
         </view>
+        <tapGestureRecognizer id="Np0-R5-Cw7">
+            <connections>
+                <action selector="onViewTap:" destination="-1" id="dIy-7r-2cD"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="image" width="26" height="26"/>

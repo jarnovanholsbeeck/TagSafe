@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingsChildViewController: UIViewController {
 
@@ -23,7 +24,6 @@ class SettingsChildViewController: UIViewController {
     @IBOutlet weak var toggle: UISwitch!
     
     //privacy
-    @IBOutlet weak var currentPass: UITextField!
     @IBOutlet weak var newPass: UITextField!
     @IBOutlet weak var newPassCheck: UITextField!
     @IBOutlet weak var save: UIButton!
@@ -33,11 +33,25 @@ class SettingsChildViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
 
+    @IBAction func saveNewPassword(_ sender: Any) {
+        let newPassword = newPass.text
+        let newPasswordCheck = newPassCheck.text
+        
+        if newPassword != nil && newPasswordCheck != nil && newPassword == newPasswordCheck {
+            Auth.auth().currentUser?.updatePassword(to: newPassword!) { (error) in
+                if error != nil {
+                    print("\(String(describing: error))")
+                } else {
+                    self.newPass.text = ""
+                    self.newPassCheck.text = ""
+                    self.newPass.resignFirstResponder()
+                    self.newPassCheck.resignFirstResponder()
+                }
+            }
+        }
+    }
+    
     @IBAction func showNotificationView(_ sender: UIButton) {
         UIView.transition(with: sender, duration: 0.4, options: .transitionCrossDissolve, animations: {
             self.mainView.alpha = 0

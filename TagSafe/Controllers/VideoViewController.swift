@@ -53,10 +53,24 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate, UII
         }
     }
     
+    func takePicture() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            controller.sourceType = .camera
+            controller.mediaTypes = [kUTTypeImage as String]
+            controller.cameraCaptureMode = .photo
+            controller.delegate = self
+            
+            present(controller, animated: true, completion: nil)
+        } else {
+            print("Camera is not available")
+        }
+    }
+    
     func startRecording() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             controller.sourceType = .camera
             controller.mediaTypes = [kUTTypeMovie as String]
+            controller.cameraCaptureMode = .video
             controller.delegate = self
             
             present(controller, animated: true, completion: nil)
@@ -67,7 +81,7 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate, UII
     
     @IBAction func loadFile(_ sender: Any) {
         controller.sourceType = UIImagePickerController.SourceType.photoLibrary
-        controller.mediaTypes = [kUTTypeMovie as String]
+        controller.mediaTypes = [kUTTypeMovie as String, kUTTypeImage as String]
         controller.delegate = self
         
         present(controller, animated: true, completion: nil)
@@ -99,8 +113,6 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate, UII
         } else {
             DispatchQueue.main.async(execute: { () -> Void in
             })
-            
-            print("video: \(video)")
             
             let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "VideoAlert") as! VideoAlertViewController
             customAlert.providesPresentationContextTransitionStyle = true

@@ -20,14 +20,23 @@ class StoryAddViewController: UIViewController, UISearchBarDelegate {
     var files: [File] = []
     let dateFormatter = DateFormatter()
 
+    var userID: String!
     var story: String!
+    var storyID: String!
+    var numberOfFiles = 0
+    var selectedFiles: [String] = []
+    
+    var db: Firestore?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        db = Firestore.firestore()
+        
+        userID = UserDefaults.standard.string(forKey: "latestUserID")
+        
         editSearchBar()
-        showAllFiles()
+        loadFiles()
         
         dropButton.anchorView = sort
         dropButton.bottomOffset = CGPoint(x: 0, y:(dropButton.anchorView?.plainView.bounds.height)!)
@@ -88,27 +97,64 @@ class StoryAddViewController: UIViewController, UISearchBarDelegate {
             scrollHeight = startY + 68
             
             let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: files[n])
+            
+            if selectedFiles.contains(files[n].id) {
+                fileView.selected = true
+                fileView.contentView.layer.borderWidth = 1
+            }
+            
             scrollView.addSubview(fileView)
         }
         
         self.scrollView.contentSize = CGSize(width: 343, height: scrollHeight)
     }
     
-    func showAllFiles() {
+    func loadFiles() {
+        let filesRef = self.db!.collection("user-files")
+        
+        filesRef.addSnapshotListener { (querysnapshot, err) in
+            if err != nil {
+                print("Error getting stories for this user.")
+            } else {
+                for document in querysnapshot!.documents {
+                    let data = document.data()
+                    if let id = data["userUid"] as? String {
+                        if id == self.userID! {
+                            
+                            //print("date: \(data["dateCreated"])")
+                            let name = data["filename"] as? String
+                            let detail = data["detail"] as? String
+                            let type = data["filetype"] as? String
+                            let date = data["dateCreated"] as? String
+                            
+                            self.showFile(id: document.documentID, name: name!, detail: detail!, type: type!, date: date!)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func showFile(id: String, name: String, detail: String, type: String, date: String) {
         var scrollHeight = 0
         
-        for n in 0...9 {
-            let startY = 8 + (n * 68)
-            
-            scrollHeight = startY + 68
-            
-            let file = File(id: "", name: "File \(n+1)", detail: "File detail", type: "audio", date: "15-\(n+1)-2019", content: "")
-            files.append(file)
-            let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file)
-            scrollView.addSubview(fileView)
+        let startY = 8 + (self.numberOfFiles * 68)
+        
+        scrollHeight = startY + 68
+        
+        let file = File(id: id, name: name, detail: detail, type: type, date: date, content: "")
+        files.append(file)
+        let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file)
+        
+        if selectedFiles.contains(id) {
+            fileView.selected = true
+            fileView.contentView.layer.borderWidth = 1
         }
         
+        scrollView.addSubview(fileView)
+        
         self.scrollView.contentSize = CGSize(width: 343, height: scrollHeight)
+        self.numberOfFiles += 1
     }
     
     
@@ -122,7 +168,22 @@ class StoryAddViewController: UIViewController, UISearchBarDelegate {
     
     @IBAction func save(_ sender: Any) {
         // get selected files
+        var selectedFiles: [String] = []
+        let views = self.scrollView.subviews
+        for view in views {
+            if let fileView = view as? FileViewController {
+                if fileView.selected == true {
+                    selectedFiles.append(fileView.fileID)
+                }
+            } else {}
+        }
+        
         // save story with new files
+        let storyRef = self.db!.collection("user-stories").document(storyID)
+        
+        storyRef.updateData([
+            "files": FieldValue.arrayUnion(selectedFiles)
+        ])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

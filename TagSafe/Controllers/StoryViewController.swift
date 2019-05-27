@@ -13,8 +13,10 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var userID: String!
     var storyName: String!
+    var storyID: String!
     
     var files: [File] = []
+    var fileIDs: [String] = []
     
     var db: Firestore?
     
@@ -45,7 +47,10 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                self.files.removeAll()
+                self.fileIDs.removeAll()
                 for document in querySnapshot!.documents {
+                    self.storyID = document.documentID
                     let data = document.get("files") as? [String]
                     for file in data! {
                         self.getFile(file: file)
@@ -70,9 +75,10 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let date = document.get("dateCreated") as? String
                 let content = document.get("content") as? String
                 
-                let newFile = File(id: self.userID, name: name!, detail: detail!, type: type!, date: date!, content: content!)
+                let newFile = File(id: document.documentID, name: name!, detail: detail!, type: type!, date: date!, content: content!)
                 
                 self.files.append(newFile)
+                self.fileIDs.append(document.documentID)
                 self.tableView.reloadData()
                 
                 self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.tableView.frame.origin.y, width: self.tableView.frame.size.width, height: self.tableView.contentSize.height)
@@ -86,6 +92,14 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            files.remove(at: indexPath.row)
+            fileIDs.remove(at: indexPath.row)
+            
+            let storyRef = db!.collection("user-stories").document(storyID)
+            storyRef.updateData([
+                "files": fileIDs
+            ])
+            
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
@@ -118,6 +132,8 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if (segue.identifier == "AddFiles") {
             if let nextvc = segue.destination as? StoryAddViewController {
                 nextvc.story = self.storyName
+                nextvc.storyID = self.storyID
+                nextvc.selectedFiles = self.fileIDs
             }
         }
     }

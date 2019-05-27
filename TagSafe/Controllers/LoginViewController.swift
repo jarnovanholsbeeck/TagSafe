@@ -54,7 +54,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 let defaults = UserDefaults.standard
                 defaults.set(self.toLoginUser?.uid, forKey: "latestUserID")
-                self.showPinAlert()
+                if self.pinSet() == true {
+                    self.goToPin()
+                } else {
+                    self.goToHome()
+                }
             }
         }
     }
@@ -82,11 +86,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func pinSet()->Bool {
+        let defaults = UserDefaults.standard
+        if defaults.string(forKey: "pin") != nil {
+            // pin set
+            return true
+        } else {
+            // pin not set
+            return false
+        }
+    }
+    
     func showPinAlert() {
         let alertController = UIAlertController(title: "Eanble Pin login", message: nil, preferredStyle: UIAlertController.Style.alert)
         let cancelAction = UIAlertAction(title: "No", style: .cancel) { (result : UIAlertAction) -> Void in
             let defaults = UserDefaults.standard
             defaults.set(false, forKey: "pinEnabled")
+            defaults.set(nil, forKey: "pin")
             self.goToHome()
         }
         cancelAction.setValue(UIColor.red, forKey: "titleTextColor")

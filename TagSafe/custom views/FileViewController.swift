@@ -10,6 +10,9 @@ import UIKit
 
 class FileViewController: UIView {
     let kCONTENT_XIB_NAME = "FileView"
+    
+    var selected: Bool = false
+    var fileID: String!
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var fileType: UIImageView!
@@ -26,6 +29,10 @@ class FileViewController: UIView {
         super.init(frame: frame)
         
         commonInit()
+        
+        contentView.layer.borderColor = UIColor(red:0.00, green:0.48, blue:1.00, alpha:1.0).cgColor
+        
+        self.fileID = file.id
         
         switch file.fileType {
         case "video":
@@ -53,5 +60,16 @@ class FileViewController: UIView {
         content.frame = self.bounds
         content.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         self.addSubview(content)
+    }
+    
+    @IBAction func onViewTap(_ sender: UITapGestureRecognizer) {
+        selected = !selected
+        switch selected {
+        case true:
+            contentView.layer.borderColor = UIColor(red:0.00, green:0.48, blue:1.00, alpha:1.0).cgColor
+            contentView.layer.borderWidth = 1
+        default:
+            contentView.layer.borderWidth = 0
+        }
     }
 }
