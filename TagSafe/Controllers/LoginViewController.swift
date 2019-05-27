@@ -7,35 +7,54 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var pin: Int!
-        
+    var toLoginUser: User?
+    
+    var authHandle: NSObjectProtocol?
+    var db: Firestore?
+    
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        db = Firestore.firestore()
 
-        // Do any additional setup after loading the view.
         if firstLaunch() == true {
             //stay
         } else {
             if pinEnabled() == true {
                 // go to next view
-                self.goToPin()
+                //self.goToPin()
             } else {
                 // stay
             }
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        authHandle = Auth.auth().addStateDidChangeListener{(auth, user) in
+            self.toLoginUser = user
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        Auth.auth().removeStateDidChangeListener(authHandle!)
     }
     
     @IBAction func login(_ sender: Any) {
-        print("login")
-        showPinAlert()
+        Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (auth, error) in
+            if let err = error {
+                print(err)
+            } else {
+                self.showPinAlert()
+            }
+        }
     }
     
     func firstLaunch()->Bool {
@@ -79,7 +98,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             defaults.set(true, forKey: "pinEnabled")
             defaults.set(pin, forKey: "pin")
             
-            self.goToPin()
+            self.setPin(user: self.toLoginUser!, pin: Int(pin!)!)
         }
         
         // textfields
@@ -95,12 +114,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func setPin(user: User, pin: Int) {
+        let userRef = self.db!.collection("users").document(user.uid)
+        
+        userRef.setData(["pin": pin]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully overwritten!")
+            }
+        }
+        
+        self.goToPin()
+    }
+    
     func goToHome() {
         performSegue(withIdentifier: "ToHome", sender: self)
     }
     
     func goToPin() {
-        performSegue(withIdentifier: "InputPin", sender: self)
+        let pinVC : PinLoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PinLogin") as! PinLoginViewController
+        pinVC.userId = toLoginUser?.uid
+        
+        self.present(pinVC, animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

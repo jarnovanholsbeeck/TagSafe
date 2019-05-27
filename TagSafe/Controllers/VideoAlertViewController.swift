@@ -10,6 +10,8 @@ import UIKit
 import AVKit
 
 class VideoAlertViewController: UIViewController {
+    
+    var video: String!
 
     @IBOutlet weak var fileTitle: UITextField!
     @IBOutlet weak var fileStory: UITextField!
@@ -22,8 +24,8 @@ class VideoAlertViewController: UIViewController {
     }
 
     @IBAction func play(_ sender: Any) {
-        if let path = Bundle.main.path(forResource: "video", ofType: "mp4") {
-            let video = AVPlayer(url: URL(fileURLWithPath: path))
+        if video != nil {
+            let video = AVPlayer(url: URL(fileURLWithPath: self.video))
             let videoPlayer = AVPlayerViewController()
             videoPlayer.player = video
             

@@ -7,28 +7,39 @@
 //
 
 import UIKit
+import Firebase
 
 class PinLoginViewController: UIViewController, UITextFieldDelegate {
+    
+    var userId: String!
+    
+    var db: Firestore?
 
     @IBOutlet weak var pinField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        db = Firestore.firestore()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     @IBAction func checkPinAndContinue(_ sender: Any) {
+        let userRef = self.db!.collection("users").document(userId)
+        
+        userRef.getDocument { (document, error) in
+            if let data = document?.data() {
+                let pin = data["pin"]
+                let pinCheck = self.pinField.text
+                if pin! as? Int == Int(pinCheck!) {
+                    self.toHome()
+                }
+            } else {
+                print("Document does not exist")
+            }
+        }
+    }
+    
+    func toHome() {
         performSegue(withIdentifier: "ToHomeFromPin", sender: self)
     }
     

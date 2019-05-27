@@ -643,7 +643,7 @@
         <!--Pin Login View Controller-->
         <scene sceneID="VO8-eG-OrG">
             <objects>
-                <viewController id="cV8-Q7-BRG" customClass="PinLoginViewController" customModule="TagSafe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PinLogin" id="cV8-Q7-BRG" customClass="PinLoginViewController" customModule="TagSafe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q1G-ZS-dOv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1258,7 +1258,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.0" green="0.42352941179999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <connections>
                                     <outlet property="delegate" destination="ZJe-FY-Tzl" id="2aT-Lc-UtL"/>
                                 </connections>
@@ -1315,6 +1315,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="fib-4V-wI7"/>
                     <connections>
+                        <outlet property="emailField" destination="M9L-Se-NJD" id="YWL-0o-VDl"/>
+                        <outlet property="passwordField" destination="EUk-ZH-jl1" id="6bt-Ma-Jh4"/>
                         <segue destination="cV8-Q7-BRG" kind="show" identifier="InputPin" id="PcJ-x0-HVH"/>
                         <segue destination="VtE-w8-qpj" kind="show" identifier="ToHome" id="OkG-MC-dZk"/>
                     </connections>
@@ -1893,7 +1895,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rpj-sq-ScD">
                                 <rect key="frame" x="16" y="154" width="343" height="399"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save file" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2b-ox-Nfm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Save file" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2b-ox-Nfm">
                                         <rect key="frame" x="121" y="16" width="101" height="30"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="30"/>
                                         <color key="textColor" red="0.0" green="0.42352941179999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2581,7 +2583,7 @@
         <segue reference="5gg-tG-0Mr"/>
         <segue reference="5kf-2B-9dP"/>
         <segue reference="nwF-24-mvw"/>
-        <segue reference="OkG-MC-dZk"/>
+        <segue reference="ihg-E4-Tq3"/>
         <segue reference="Pgz-SA-yeF"/>
         <segue reference="slh-xc-24Q"/>
         <segue reference="CKD-A9-aPd"/>

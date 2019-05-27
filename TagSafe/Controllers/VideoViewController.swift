@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class VideoViewController: UIViewController {
+class VideoViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    var recording: Bool = false
+    var controller = UIImagePickerController()
+    let videoFileName = "/video.mp4"
+    
+    var recording: Bool = true
     var pictureTaken: Bool = false
 
     override func viewDidLoad() {
@@ -41,18 +45,70 @@ class VideoViewController: UIViewController {
     @IBAction func recordVideo(_ sender: Any) {
         switch recording {
         case true:
-            recording = false
-            let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "VideoAlert") as! VideoAlertViewController
-            customAlert.providesPresentationContextTransitionStyle = true
-            customAlert.definesPresentationContext = true
-            customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            self.present(customAlert, animated: true, completion: nil)
+            //recording = false
+            
+            self.startRecording()
         default:
             recording = true
         }
     }
     
+    func startRecording() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            controller.sourceType = .camera
+            controller.mediaTypes = [kUTTypeMovie as String]
+            controller.delegate = self
+            
+            present(controller, animated: true, completion: nil)
+        } else {
+            print("Camera is not available")
+        }
+    }
+    
     @IBAction func loadFile(_ sender: Any) {
+        controller.sourceType = UIImagePickerController.SourceType.photoLibrary
+        controller.mediaTypes = [kUTTypeMovie as String]
+        controller.delegate = self
+        
+        present(controller, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 1
+        if let selectedVideo:URL = (info[UIImagePickerController.InfoKey.mediaURL] as? URL) {
+            // Save video to the main photo album
+            let selectorToCall = #selector(VideoViewController.videoSaved(_:didFinishSavingWithError:context:))
+            
+            // 2
+            UISaveVideoAtPathToSavedPhotosAlbum(selectedVideo.relativePath, self, selectorToCall, nil)
+            // Save the video to the app directory
+            let videoData = try? Data(contentsOf: selectedVideo)
+            let paths = NSSearchPathForDirectoriesInDomains(
+                FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+            let documentsDirectory: URL = URL(fileURLWithPath: paths[0])
+            let dataPath = documentsDirectory.appendingPathComponent(videoFileName)
+            try! videoData?.write(to: dataPath, options: [])
+        }
+        // 3
+        picker.dismiss(animated: true)
+    }
+    
+    @objc func videoSaved(_ video: String, didFinishSavingWithError error: NSError!, context: UnsafeMutableRawPointer){
+        if let theError = error {
+            print("error saving the video = \(theError)")
+        } else {
+            DispatchQueue.main.async(execute: { () -> Void in
+            })
+            
+            print("video: \(video)")
+            
+            let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "VideoAlert") as! VideoAlertViewController
+            customAlert.providesPresentationContextTransitionStyle = true
+            customAlert.definesPresentationContext = true
+            customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            customAlert.video = video
+            self.present(customAlert, animated: true, completion: nil)
+        }
     }
 }

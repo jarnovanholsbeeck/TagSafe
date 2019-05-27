@@ -9,6 +9,9 @@ target 'TagSafe' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
   pod 'TagListView', '~> 1.0'
   pod 'DropDown'
 

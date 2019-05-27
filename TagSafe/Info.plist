@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please allow to acces gallery</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Please allow to acces gallery</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow me to use the camera</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -40,7 +46,7 @@
 		<string>CalibreTest-Medium.ttf</string>
 	</array>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>$(PRODUCT_NAME) use Microphone.</string>
+	<string>Please allow me to use th emicrophone</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
