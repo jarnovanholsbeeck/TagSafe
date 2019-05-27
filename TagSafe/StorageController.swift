@@ -168,23 +168,43 @@ class StorageController: UIViewController{
         }
     }
     
-    func filterFilesByTags(tags: [Tag], user: User){
+    func filterFilesByTags(tags: [String], user: User){
+        
+        //First get all files of user
         
         let userFilesRef = self.db!.collection("user-files")
-        let userTagsRef = self.db!.collection("user-tags")
         
-        let userFilesQuery = userFilesRef.whereField("userUid", isEqualTo: user.uid).addSnapshotListener { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    var data = document.data()
-                    
-//                    var tagsArray: [NSArray] = data["tags"] as! [NSArray]
-//                    
-//                    print(tagsArray)
-                    //print("\(document.documentID) => \(data["tags"])")
+        let userFilesQuery = userFilesRef.whereField("userUid", isEqualTo: user.uid)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        
+                        //Then get all files with selected tags
+                        self.getFilesByTags(documentID: document.documentID, tags: tags)
+                    }
                 }
+        }
+    }
+    
+    func getFilesByTags(documentID: String, tags: [String]){
+        
+        let userFileDocRef = self.db!.collection("user-files").document(documentID)
+        
+        userFileDocRef.getDocument { (document, error) in
+            if let doc = document, doc.exists{
+                
+                var fileTags = [String]()
+                fileTags = doc.get("tags") as? [String] ?? []
+                
+                if fileTags.sorted() == tags.sorted(){
+                    print(doc.get("filename")!)
+                    //print(fileTags)
+                }
+                
+            } else {
+                print("Document not found")
             }
         }
     }
@@ -300,7 +320,7 @@ extension StorageController: TagListViewDelegate{
             selectedTags.append(filteredTag.first!)
             tagIds.append(filteredTag.first!.id!)
             
-            filterFilesByTags(tags: filteredTag, user: loggedInUser!)
+            filterFilesByTags(tags: tagIds, user: loggedInUser!)
         }
 
         for selectedTag in selectedTags {
