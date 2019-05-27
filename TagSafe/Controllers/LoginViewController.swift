@@ -52,6 +52,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             if let err = error {
                 print(err)
             } else {
+                let defaults = UserDefaults.standard
+                defaults.set(self.toLoginUser?.uid, forKey: "latestUserID")
                 self.showPinAlert()
             }
         }

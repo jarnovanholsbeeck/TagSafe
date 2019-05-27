@@ -101,7 +101,7 @@ class StoryAddViewController: UIViewController, UISearchBarDelegate {
             
             scrollHeight = startY + 68
             
-            let file = File(name: "File \(n+1)", detail: "File detail", type: "audio", date: "15-\(n+1)-2019")
+            let file = File(id: "", name: "File \(n+1)", detail: "File detail", type: "audio", date: "15-\(n+1)-2019", content: "")
             files.append(file)
             let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file)
             scrollView.addSubview(fileView)

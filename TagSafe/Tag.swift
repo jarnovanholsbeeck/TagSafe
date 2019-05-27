@@ -9,11 +9,13 @@
 import UIKit
 
 class Tag: NSObject {
-    var color: String!
-    var name: String!
+    var id: String?
+    var name: String?
+    var color: String?
     
-    init(color: String, name: String) {
-        self.color = color
+    init(id: String?, name: String?, color: String?) {
+        self.id = id
         self.name = name
+        self.color = color
     }
 }

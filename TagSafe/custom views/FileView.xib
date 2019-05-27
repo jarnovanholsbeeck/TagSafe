@@ -38,6 +38,9 @@
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place of incident.jpg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFq-Oo-zC1">
                     <rect key="frame" x="62" y="15" width="94" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="K57-Oj-M2J"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>

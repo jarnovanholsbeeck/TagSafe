@@ -9,15 +9,19 @@
 import UIKit
 
 class File: NSObject {
+    var id: String
     var filename: String
     var fileDetail: String
     var fileType: String
     var date: String
+    var content: String
     
-    init(name: String, detail: String, type: String, date: String) {
+    init(id: String, name: String, detail: String, type: String, date: String, content: String) {
+        self.id = id
         self.filename = name
         self.fileDetail = detail
         self.fileType = type
         self.date = date
+        self.content = content
     }
 }

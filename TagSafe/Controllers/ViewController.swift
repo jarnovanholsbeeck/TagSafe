@@ -30,7 +30,10 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
     var noteButtonCenter: CGPoint!
     
     var db: Firestore?
+    var userID: String?
     
+    var numberOfStories = 0
+    var numberOfFiles = 0
     var tappedStory: String!
     
     override func viewDidLoad() {
@@ -38,20 +41,12 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
         
         db = Firestore.firestore()
         
-        db!.collection("tags").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
-            }
-        }
+        userID = UserDefaults.standard.string(forKey: "latestUserID")
         
         editSearchBar()
-        addRecentTags()
-        addRecentStories()
-        addRecentFiles()
+        getUserTags()
+        getStories()
+        getUserFiles()
         
         audioButtonCenter = RecordAudioButton.center
         videoButtonCenter = RecordVideoButton.center
@@ -76,9 +71,26 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
         }
     }
     
-    
-    func addRecentTags() {
-        self.tagListView.addTags(["Accident", "Traffic", "Politics", "Economy", "Domestic Violence", "Environment", "Climate", "Traffic", "Politics", "Economy"])
+    func getUserTags() {
+        let tagsRef = db!.collection("user-tags")
+        
+        tagsRef.addSnapshotListener { (querySnapshot, err) in
+            if err != nil {
+                print("Error getting stories for this user.")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    if let id = data["userUid"] as? String {
+                        if id == self.userID! {
+                            let newTag = Tag(id: document.documentID, name: document.get("name") as? String, color: document.get("color") as? String)
+                            if newTag.name != nil{
+                                self.tagListView.addTag(newTag.name!)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
@@ -86,21 +98,46 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
         tagView.selectedBackgroundColor = UIColor.darkGray
     }
     
-    func addRecentStories() {
-        var scrollWidth = 0
+    func getStories() {
+        let storiesRef = self.db!.collection("user-stories")
         
-        for n in 0...4 {
-            let startX = 16 + (n * 158)
-            
-            scrollWidth = startX + 166
-            
-            let story = StoryCardController(frame: CGRect(x: startX, y: 8, width: 150, height: 220), image: UIImage(named: "TestStory")!, name: "Traffic Jam \(n)", date: "15-06-2019", hasImage: true, hasVideo: true, hasAudio: true, hasNote: false)
-            let gesture = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(_:)))
-            story.addGestureRecognizer(gesture)
-            scrollView.addSubview(story)
+        storiesRef.addSnapshotListener { (querysnapshot, err) in
+            if err != nil {
+                print("Error getting stories for this user.")
+            } else {
+                for document in querysnapshot!.documents {
+                    let data = document.data()
+                    if let id = data["userUid"] as? String {
+                        if id == self.userID! {
+                            let name = document.get("title") as! String
+                            let date = document.get("dateCreated") as! String
+                            let image = UIImage(named: "TestStory")!
+                            
+                            let hasImage = true
+                            let hasVideo = true
+                            let hasAudio = true
+                            let hasNote = true
+                            
+                            self.addStory(name: name, date: date, image: image, hasImage: hasImage, video: hasVideo, audio: hasAudio, note: hasNote)
+                        }
+                    }
+                }
+            }
         }
+    }
+    
+    func addStory(name: String, date: String, image: UIImage, hasImage: Bool, video: Bool, audio: Bool, note: Bool) {
+        var scrollWidth = 0
+        let startX = 16 + (numberOfStories * 158)
+        scrollWidth = startX + 166
+        
+        let story = StoryCardController(frame: CGRect(x: startX, y: 8, width: 150, height: 220), image: image, name: name, date: date, hasImage: hasImage, hasVideo: video, hasAudio: audio, hasNote: note)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.handleCardTap(_:)))
+        story.addGestureRecognizer(gesture)
+        scrollView.addSubview(story)
         
         self.scrollView.contentSize = CGSize(width: scrollWidth, height: 236)
+        numberOfStories += 1
     }
     
     @objc func handleCardTap(_ sender: UITapGestureRecognizer) {
@@ -109,20 +146,46 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
         performSegue(withIdentifier: "ShowStory", sender: self)
     }
     
-    func addRecentFiles() {
+    func getUserFiles() {
+        let filesRef = self.db!.collection("user-files")
+        
+        filesRef.addSnapshotListener { (querysnapshot, err) in
+            if err != nil {
+                print("Error getting stories for this user.")
+            } else {
+                for document in querysnapshot!.documents {
+                    let data = document.data()
+                    if let id = data["userUid"] as? String {
+                        if id == self.userID! {
+                            
+                            //print("date: \(data["dateCreated"])")
+                            let name = data["filename"] as? String
+                            let detail = data["detail"] as? String
+                            let type = data["filetype"] as? String
+                            let date = data["dateCreated"] as? String
+                            
+                            self.addFile(id: self.userID!, name: name!, detail: detail!, type: type!, date: date!)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func addFile(id: String,name: String, detail: String, type: String, date: String) {
         var scrollHeight = 0
         
-        for n in 0...4 {
-            let startY = 8 + (n * 68)
-            
-            scrollHeight = startY + 68
-            
-            let file = File(name: "File \(n+1)", detail: "File detail", type: "audio", date: "15-\(n+1)-2019")
-            let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file)
-            fileScrollView.addSubview(fileView)
-        }
+        let startY = 8 + (numberOfFiles * 68)
         
+        scrollHeight = startY + 68
+        
+        let file = File(id: id, name: name, detail: detail, type: type, date: date, content: "")
+        let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file)
+        fileScrollView.addSubview(fileView)
+    
         self.fileScrollView.contentSize = CGSize(width: 343, height: scrollHeight)
+        
+        numberOfFiles += 1
     }
     
     @IBAction func addButtonClicked(_ sender: UIButton) {

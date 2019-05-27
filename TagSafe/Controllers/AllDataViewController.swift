@@ -95,16 +95,16 @@ class AllDataViewController: UIViewController, UISearchBarDelegate, UITableViewD
         for n in 0...8 {
             switch n {
             case _ where n <= 4:
-                let newFile = File(name: "file", detail: "detail", type: "image", date: "15-06-2019")
+                let newFile = File(id: "", name: "file", detail: "detail", type: "image", date: "15-06-2019", content: "")
                 self.files.append(newFile)
             case _ where n <= 8:
-                let newFile = File(name: "test", detail: "detail", type: "audio", date: "12-06-2019")
+                let newFile = File(id: "", name: "test", detail: "detail", type: "audio", date: "12-06-2019", content: "")
                 self.files.append(newFile)
             case _ where n <= 12:
-                let newFile = File(name: "something", detail: "detail", type: "video", date: "10-06-2019")
+                let newFile = File(id: "", name: "something", detail: "detail", type: "video", date: "10-06-2019", content: "")
                 self.files.append(newFile)
             default:
-                let newFile = File(name: "else", detail: "detail", type: "note", date: "5-05-2019")
+                let newFile = File(id: "", name: "else", detail: "detail", type: "note", date: "5-05-2019", content: "")
                 self.files.append(newFile)
             }
         }

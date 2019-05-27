@@ -83,12 +83,8 @@ class SettingsViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*if (segue.identifier == "ShowStory") {
-            if let nextvc = segue.destination as? StoryViewController {
-                nextvc.storyName = tappedStory
-            }
-        }*/
+    @IBAction func logOut(_ sender: Any) {
+        performSegue(withIdentifier: "LogOut", sender: self)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
