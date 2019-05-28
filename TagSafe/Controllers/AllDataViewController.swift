@@ -8,6 +8,7 @@
 
 import UIKit
 import DropDown
+import Firebase
 
 class AllDataViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -24,7 +25,13 @@ class AllDataViewController: UIViewController, UISearchBarDelegate, UITableViewD
     
     var dropButton = DropDown()
     var files: [File] = []
+    var fileIDs: [String] = []
     let dateFormatter = DateFormatter()
+    
+    var db: Firestore?
+    var userID: String?
+    
+    var numberOfFiles = 0
     
     var audioButtonCenter: CGPoint!
     var videoButtonCenter: CGPoint!
@@ -33,7 +40,10 @@ class AllDataViewController: UIViewController, UISearchBarDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        db = Firestore.firestore()
+        
+        userID = UserDefaults.standard.string(forKey: "latestUserID")
+        
         let nib = UINib.init(nibName: "CustomFileCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "FileCell")
         
@@ -92,20 +102,25 @@ class AllDataViewController: UIViewController, UISearchBarDelegate, UITableViewD
     }
     
     func showFiles() {
-        for n in 0...8 {
-            switch n {
-            case _ where n <= 4:
-                let newFile = File(id: "", name: "file", detail: "detail", type: "image", date: "15-06-2019", content: "")
-                self.files.append(newFile)
-            case _ where n <= 8:
-                let newFile = File(id: "", name: "test", detail: "detail", type: "audio", date: "12-06-2019", content: "")
-                self.files.append(newFile)
-            case _ where n <= 12:
-                let newFile = File(id: "", name: "something", detail: "detail", type: "video", date: "10-06-2019", content: "")
-                self.files.append(newFile)
-            default:
-                let newFile = File(id: "", name: "else", detail: "detail", type: "note", date: "5-05-2019", content: "")
-                self.files.append(newFile)
+        let fileRef = db!.collection("user-files")
+        
+        fileRef.addSnapshotListener { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let name = document.get("filename") as? String
+                    let detail = document.get("detail") as? String
+                    let type = document.get("filetype") as? String
+                    let date = document.get("dateCreated") as? String
+                    let content = document.get("content") as? String
+                    
+                    let newFile = File(id: document.documentID, name: name!, detail: detail!, type: type!, date: date!, content: content!)
+                    
+                    self.files.append(newFile)
+                    self.fileIDs.append(document.documentID)
+                    self.tableView.reloadData()
+                }
             }
         }
     }
@@ -116,6 +131,17 @@ class AllDataViewController: UIViewController, UISearchBarDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            db!.collection("user-files").document(fileIDs[indexPath.row]).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+            
+            files.remove(at: indexPath.row)
+            fileIDs.remove(at: indexPath.row)
+            
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }

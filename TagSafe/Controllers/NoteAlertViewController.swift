@@ -7,10 +7,21 @@
 //
 
 import UIKit
+import Firebase
 
 class NoteAlertViewController: UIViewController {
     
     var tempTitle: String!
+    var contentText: String!
+    
+    var db: Firestore?
+    
+    var tags: [Tag] = []
+    var selectedTags: [Tag] = []
+    var tagIds: [String] = []
+    
+    let date = Date()
+    let formatter = DateFormatter()
 
     @IBOutlet weak var fileTitle: UITextField!
     @IBOutlet weak var fileStory: UITextField!
@@ -19,8 +30,11 @@ class NoteAlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         fileTitle.text = tempTitle
+        
+        db = Firestore.firestore()
+        
+        formatter.dateFormat = "dd-MM-yyyy"
     }
     
     @IBAction func deleteAction(_ sender: Any) {
@@ -28,7 +42,31 @@ class NoteAlertViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        // save to firebase
         self.dismiss(animated: true, completion: nil)
+        self.uploadData()
+    }
+    
+    func uploadData() {
+        let filesRef = self.db!.collection("user-files")
+        
+        let userID = UserDefaults.standard.string(forKey: "latestUserID")
+        let dateCreated = self.formatter.string(from: self.date)
+        let filename = fileTitle.text!
+        let words = (contentText.components(separatedBy: .whitespacesAndNewlines).filter { !$0.isEmpty }).count
+        
+        filesRef.addDocument(data: [
+            "content": "\(contentText!)",
+            "dateCreated": dateCreated,
+            "detail": "\(words) words",
+            "filename": filename,
+            "filetype": "note",
+            "tags": self.tagIds,
+            "userUid": userID!
+        ])
     }
 }
+
+
+/*
+ 
+ */

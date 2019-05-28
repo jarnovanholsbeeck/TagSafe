@@ -127,8 +127,9 @@ class StoryAddViewController: UIViewController, UISearchBarDelegate {
                             let detail = data["detail"] as? String
                             let type = data["filetype"] as? String
                             let date = data["dateCreated"] as? String
+                            let content = data["content"] as? String
                             
-                            self.showFile(id: document.documentID, name: name!, detail: detail!, type: type!, date: date!)
+                            self.showFile(id: document.documentID, name: name!, detail: detail!, type: type!, date: date!, content: content!)
                         }
                     }
                 }
@@ -136,14 +137,14 @@ class StoryAddViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
-    func showFile(id: String, name: String, detail: String, type: String, date: String) {
+    func showFile(id: String, name: String, detail: String, type: String, date: String, content: String) {
         var scrollHeight = 0
         
         let startY = 8 + (self.numberOfFiles * 68)
         
         scrollHeight = startY + 68
         
-        let file = File(id: id, name: name, detail: detail, type: type, date: date, content: "")
+        let file = File(id: id, name: name, detail: detail, type: type, date: date, content: content)
         files.append(file)
         let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file, selections: true, vc: self)
         

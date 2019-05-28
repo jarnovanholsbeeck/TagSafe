@@ -32,6 +32,7 @@ class NoteViewController: UIViewController, UITextViewDelegate {
             customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             customAlert.tempTitle = txtTitle.text
+            customAlert.contentText = txtContent.text
             self.present(customAlert, animated: true, completion: {
                 self.fileChanged = false
             })

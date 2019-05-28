@@ -13,9 +13,9 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate, UII
     
     var controller = UIImagePickerController()
     let videoFileName = "/video.mp4"
-    
-    var recording: Bool = true
-    var pictureTaken: Bool = false
+    let imageFileName = "/image.png"
+    var videoURL: URL!
+    var imageURL: URL!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,29 +28,11 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate, UII
     }
     
     @IBAction func takePicture(_ sender: Any) {
-        switch pictureTaken {
-        case true:
-            pictureTaken = false
-            let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "PictureAlert") as! PictureAlertViewController
-            customAlert.providesPresentationContextTransitionStyle = true
-            customAlert.definesPresentationContext = true
-            customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-            self.present(customAlert, animated: true, completion: nil)
-        default:
-            pictureTaken = true
-        }
+        self.takePicture()
     }
     
     @IBAction func recordVideo(_ sender: Any) {
-        switch recording {
-        case true:
-            //recording = false
-            
-            self.startRecording()
-        default:
-            recording = true
-        }
+        self.startRecording()
     }
     
     func takePicture() {
@@ -90,26 +72,40 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate, UII
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // 1
         if let selectedVideo:URL = (info[UIImagePickerController.InfoKey.mediaURL] as? URL) {
+            print(info)
+
             // Save video to the main photo album
             let selectorToCall = #selector(VideoViewController.videoSaved(_:didFinishSavingWithError:context:))
-            
-            // 2
             UISaveVideoAtPathToSavedPhotosAlbum(selectedVideo.relativePath, self, selectorToCall, nil)
+            
             // Save the video to the app directory
             let videoData = try? Data(contentsOf: selectedVideo)
             let paths = NSSearchPathForDirectoriesInDomains(
                 FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
             let documentsDirectory: URL = URL(fileURLWithPath: paths[0])
             let dataPath = documentsDirectory.appendingPathComponent(videoFileName)
+            self.videoURL = dataPath
             try! videoData?.write(to: dataPath, options: [])
+        } else {
+            let image = (info[UIImagePickerController.InfoKey.originalImage] as? UIImage)!
+            
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+            
+            let imageData = image.pngData()
+            let paths = NSSearchPathForDirectoriesInDomains(
+                FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+            let documentsDirectory: URL = URL(fileURLWithPath: paths[0])
+            let dataPath = documentsDirectory.appendingPathComponent(imageFileName)
+            self.imageURL = dataPath
+            try! imageData?.write(to: dataPath, options: [])
         }
         // 3
         picker.dismiss(animated: true)
     }
     
     @objc func videoSaved(_ video: String, didFinishSavingWithError error: NSError!, context: UnsafeMutableRawPointer){
-        if let theError = error {
-            print("error saving the video = \(theError)")
+        if let error = error {
+            print("error saving the video = \(error)")
         } else {
             DispatchQueue.main.async(execute: { () -> Void in
             })
@@ -120,6 +116,24 @@ class VideoViewController: UIViewController, UINavigationControllerDelegate, UII
             customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             customAlert.video = video
+            customAlert.videoURL = self.videoURL
+            self.present(customAlert, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            print("error saving the image = \(error)")
+        } else {
+            DispatchQueue.main.async(execute: { () -> Void in
+            })
+
+            let customAlert = self.storyboard?.instantiateViewController(withIdentifier: "PictureAlert") as! PictureAlertViewController
+            customAlert.providesPresentationContextTransitionStyle = true
+            customAlert.definesPresentationContext = true
+            customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+            customAlert.imageURL = self.imageURL
             self.present(customAlert, animated: true, completion: nil)
         }
     }

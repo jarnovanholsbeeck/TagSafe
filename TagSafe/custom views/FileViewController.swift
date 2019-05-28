@@ -48,7 +48,7 @@ class FileViewController: UIView {
         switch file.fileType {
         case "video":
             self.type = "video"
-            self.fileType.image = UIImage(named: "video")
+            self.fileType.image = UIImage(named: "play_circle")
         case "note":
             self.type = "note"
             self.fileType.image = UIImage(named: "note")

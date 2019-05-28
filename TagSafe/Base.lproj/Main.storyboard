@@ -1266,7 +1266,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.0" green="0.42352941179999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="username"/>
                                 <connections>
                                     <outlet property="delegate" destination="ZJe-FY-Tzl" id="2aT-Lc-UtL"/>
                                 </connections>
@@ -1871,7 +1871,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rQK-c2-5Pz">
                                         <rect key="frame" x="32" y="138" width="279" height="30"/>
@@ -1976,7 +1976,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jNf-Uf-k6T">
                                         <rect key="frame" x="32" y="266" width="279" height="30"/>
@@ -2142,11 +2142,11 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KrS-e0-Rbb">
                                         <rect key="frame" x="32" y="264" width="279" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="279" id="OUE-ea-9OJ"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="279" id="OUE-ea-9OJ"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iec-9r-OUh">
                                         <rect key="frame" x="32" y="302" width="279" height="30"/>
@@ -2341,7 +2341,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2641,11 +2641,10 @@
         <image name="take_picture" width="103.33333587646484" height="103.33333587646484"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d1y-ge-ZE1"/>
         <segue reference="kiE-Jw-T87"/>
         <segue reference="AAN-w9-n8X"/>
         <segue reference="YcD-ey-n2E"/>
-        <segue reference="tWo-XN-TR5"/>
+        <segue reference="OkG-MC-dZk"/>
         <segue reference="Pgz-SA-yeF"/>
         <segue reference="diw-fw-vlA"/>
         <segue reference="NSe-iJ-Ql3"/>

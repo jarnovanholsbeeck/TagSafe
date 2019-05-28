@@ -68,8 +68,8 @@ class AudioAlertViewController: UIViewController {
     }
 
     @IBAction func play(_ sender: Any) {
-        if recordingURL != nil { // let path = Bundle.main.path(forResource: "audio", ofType: "mp3")
-            let audio = AVPlayer(url: recordingURL) //URL(fileURLWithPath: path)
+        if recordingURL != nil {
+            let audio = AVPlayer(url: recordingURL)
             let audioPlayer = AVPlayerViewController()
             audioPlayer.player = audio
             
