@@ -1031,7 +1031,6 @@
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Smw-zJ-npW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zFV-iX-Gli" secondAttribute="trailing" symbolic="YES" id="2Cu-TT-eEa"/>
-                            <constraint firstItem="DTe-Cz-e9E" firstAttribute="leading" secondItem="Smw-zJ-npW" secondAttribute="leading" constant="16" id="3lF-PT-0DH"/>
                             <constraint firstItem="ACa-VV-GGh" firstAttribute="leading" secondItem="Smw-zJ-npW" secondAttribute="leading" constant="15" id="8Yy-8S-WOs"/>
                             <constraint firstItem="OU5-77-HQ8" firstAttribute="leading" secondItem="Smw-zJ-npW" secondAttribute="leading" constant="5" id="Frw-SP-MLB"/>
                             <constraint firstItem="OU5-77-HQ8" firstAttribute="centerX" secondItem="Vvp-xM-fed" secondAttribute="centerX" id="SDd-Di-SNB"/>
@@ -1039,10 +1038,10 @@
                             <constraint firstItem="zFV-iX-Gli" firstAttribute="top" secondItem="OU5-77-HQ8" secondAttribute="bottom" id="ZY4-ei-o0x"/>
                             <constraint firstItem="ACa-VV-GGh" firstAttribute="top" secondItem="Vvp-xM-fed" secondAttribute="bottom" constant="8" symbolic="YES" id="a6U-NN-uQw"/>
                             <constraint firstItem="Smw-zJ-npW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ACa-VV-GGh" secondAttribute="trailing" symbolic="YES" id="alN-M6-06Z"/>
-                            <constraint firstItem="zFV-iX-Gli" firstAttribute="leading" secondItem="Vvp-xM-fed" secondAttribute="leading" id="eHH-cw-PTe"/>
+                            <constraint firstItem="Vvp-xM-fed" firstAttribute="leading" secondItem="zFV-iX-Gli" secondAttribute="leading" id="eHH-cw-PTe"/>
                             <constraint firstItem="OU5-77-HQ8" firstAttribute="top" secondItem="Smw-zJ-npW" secondAttribute="top" id="fK4-2B-T5N"/>
                             <constraint firstItem="DTe-Cz-e9E" firstAttribute="top" secondItem="ACa-VV-GGh" secondAttribute="bottom" constant="8" symbolic="YES" id="hmP-gi-VNe"/>
-                            <constraint firstItem="Vvp-xM-fed" firstAttribute="leading" secondItem="DTe-Cz-e9E" secondAttribute="leading" id="kB0-FL-cQK"/>
+                            <constraint firstItem="DTe-Cz-e9E" firstAttribute="leading" secondItem="Vvp-xM-fed" secondAttribute="leading" id="kB0-FL-cQK"/>
                             <constraint firstItem="Vvp-xM-fed" firstAttribute="top" secondItem="zFV-iX-Gli" secondAttribute="bottom" constant="8" symbolic="YES" id="wKK-3L-wyb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Smw-zJ-npW"/>
@@ -2641,10 +2640,11 @@
         <image name="take_picture" width="103.33333587646484" height="103.33333587646484"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="d1y-ge-ZE1"/>
         <segue reference="kiE-Jw-T87"/>
         <segue reference="AAN-w9-n8X"/>
         <segue reference="YcD-ey-n2E"/>
-        <segue reference="OkG-MC-dZk"/>
+        <segue reference="tWo-XN-TR5"/>
         <segue reference="Pgz-SA-yeF"/>
         <segue reference="diw-fw-vlA"/>
         <segue reference="NSe-iJ-Ql3"/>

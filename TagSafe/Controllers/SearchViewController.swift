@@ -8,7 +8,7 @@
 
 import UIKit
 import TagListView
-import DropDown
+import Firebase
 
 class SearchViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate {
 
@@ -21,36 +21,26 @@ class SearchViewController: UIViewController, TagListViewDelegate, UISearchBarDe
     
     var subViewsArray: [UIView] = []
     
-    var data: [String] = ["Accident", "Traffic", "Politics", "Economy", "Domestic Violence", "Environment", "Climate", "Traffic", "Politics", "Economy", "Domestic Violence", "Environment", "Climate", "Traffic", "Politics", "Economy"]
-    var dataFiltered: [String] = []
-    var dropButton = DropDown()
+    var db: Firestore?
+    var userUID: String?
+    
+    var tags: [Tag] = []
+    var tagsFiltered: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        db = Firestore.firestore()
+        userUID = UserDefaults.standard.string(forKey: "latestUserID")
 
-        // Do any additional setup after loading the view.
         editSearchBar()
-        addTags()
+        getTags()
         
         searchBar.becomeFirstResponder()
         
         // color cancel button
         let view: UIView = self.searchBar.subviews[0] as UIView
         subViewsArray = view.subviews
-        
-        dataFiltered = data
-        
-        dropButton.anchorView = searchBar
-        dropButton.bottomOffset = CGPoint(x: 0, y:(dropButton.anchorView?.plainView.bounds.height)!)
-        dropButton.backgroundColor = .white
-        dropButton.direction = .bottom
-        
-        dropButton.selectionAction = { [unowned self] (index: Int, item: String) in
-            let tag = self.searchList.addTag(item)
-            tag.isSelected = true
-            self.dropButton.hide()
-            self.searchBar.text = ""
-        }
     }
     
     func editSearchBar() {
@@ -67,8 +57,24 @@ class SearchViewController: UIViewController, TagListViewDelegate, UISearchBarDe
         }
     }
     
-    func addTags() {
-        self.tagList.addTags(["Accident", "Traffic", "Politics", "Economy", "Domestic Violence", "Environment", "Climate", "Traffic", "Politics", "Economy", "Domestic Violence", "Environment", "Climate", "Traffic", "Politics", "Economy"])
+    func getTags() {
+        let tagsRef = self.db!.collection("user-tags").whereField("userUid", isEqualTo: self.userUID!)
+        
+            tagsRef.addSnapshotListener { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.tagList.removeAllTags()
+                self.tags = []
+                for document in querySnapshot!.documents {
+                    let newTag = Tag(id: document.documentID, name: document.get("name") as? String, color: document.get("color") as? String)
+                    self.tags.append(newTag)
+                    if newTag.name != nil{
+                        self.tagList.addTag(newTag.name!)
+                    }
+                }
+            }
+        }
     }
     
     func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
@@ -77,12 +83,32 @@ class SearchViewController: UIViewController, TagListViewDelegate, UISearchBarDe
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        dataFiltered = searchText.isEmpty ? data : data.filter({ (dat) -> Bool in
-            dat.range(of: searchText, options: .caseInsensitive) != nil
-        })
-        
-        dropButton.dataSource = dataFiltered
-        dropButton.show()
+        print("search: \(searchText)")
+        if(searchText.isEmpty){
+            print("search2")
+            getTags()
+        } else {
+            let searchArray = searchText.components(separatedBy: .whitespacesAndNewlines)
+            print(searchArray)
+            
+            var filteredTags: [Tag] = []
+            
+            self.searchList.removeAllTags()
+            
+            for search in searchArray {
+                let tag = self.tags.filter { $0.name!.lowercased().contains(search.lowercased()) }
+                
+                for singleTag in tag {
+                    filteredTags.append(singleTag)
+                }
+            }
+            
+            for filteredTag in filteredTags {
+                print(filteredTag.name!)
+                self.searchList.addTag(filteredTag.name!)
+                self.tagsFiltered.append(filteredTag.name!)
+            }
+        }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -112,14 +138,12 @@ class SearchViewController: UIViewController, TagListViewDelegate, UISearchBarDe
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        var searchTags :[String] = []
+        var searchTags: [String] = []
         let selected = searchList.tagViews
         for item in selected {
             searchTags.append(item.titleLabel!.text!)
         }
-        if searchBar.text! != "" {
-            searchTags.append(searchBar.text!)
-        }
+        
         print("search \(searchTags)")
         
         performSegue(withIdentifier: "ShowSearchResults", sender: self)
