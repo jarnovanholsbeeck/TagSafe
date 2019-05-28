@@ -158,7 +158,6 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
                     if let id = data["userUid"] as? String {
                         if id == self.userID! {
                             
-                            //print("date: \(data["dateCreated"])")
                             let name = data["filename"] as? String
                             let detail = data["detail"] as? String
                             let type = data["filetype"] as? String
@@ -180,7 +179,7 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
         scrollHeight = startY + 68
         
         let file = File(id: id, name: name, detail: detail, type: type, date: date, content: "")
-        let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file)
+        let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file, selections: false)
         fileScrollView.addSubview(fileView)
     
         self.fileScrollView.contentSize = CGSize(width: 343, height: scrollHeight)

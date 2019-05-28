@@ -17,10 +17,21 @@ class AudioViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPla
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     
+    var timer = Timer()
+    var seconds = 0
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var audioWave: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.setupView()
     }
     
@@ -33,7 +44,12 @@ class AudioViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPla
         customAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         customAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         customAlert.recordingURL = getFileURL() as URL
+        customAlert.recordingTime = timerLabel.text!
         self.present(customAlert, animated: true, completion: nil)
+        
+        audioRecorder = nil
+        seconds = 0
+        timerLabel.text = timeString(time: TimeInterval(seconds))
     }
 
     @IBAction func record(_ sender: UIButton) {
@@ -42,7 +58,6 @@ class AudioViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPla
             // stop recording & save
             recording = false
             if audioRecorder == nil {
-                audioRecorder = nil
                 startRecording()
             } else {
                 finishRecording(success: true)
@@ -51,7 +66,6 @@ class AudioViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPla
             // start recording
             recording = true
             if audioRecorder == nil {
-                audioRecorder = nil
                 startRecording()
             } else {
                 finishRecording(success: true)
@@ -101,16 +115,16 @@ class AudioViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPla
             audioRecorder.delegate = self
             audioRecorder.record()
             print("recording")
+            self.runTimer()
         } catch {
             finishRecording(success: false)
         }
     }
     
     func finishRecording(success: Bool) {
+        timer.invalidate()
         audioRecorder.stop()
-        //audioRecorder = nil
-        
-        
+        audioWave.image = UIImage(named: "audio_wave_still")
     }
     
     func getDocumentsDirectory() -> URL {
@@ -121,5 +135,22 @@ class AudioViewController: UIViewController, AVAudioRecorderDelegate, AVAudioPla
     func getFileURL() -> URL {
         let path = getDocumentsDirectory().appendingPathComponent("recording.m4a")
         return path as URL
+    }
+    
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+        audioWave.image = UIImage(named: "audio_wave")
+    }
+    
+    @objc func updateTimer() {
+        seconds += 1
+        timerLabel.text = timeString(time: TimeInterval(seconds))
+    }
+    
+    func timeString(time:TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
 }

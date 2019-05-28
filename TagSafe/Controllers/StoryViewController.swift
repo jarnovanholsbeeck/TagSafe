@@ -80,8 +80,6 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.files.append(newFile)
                 self.fileIDs.append(document.documentID)
                 self.tableView.reloadData()
-                
-                self.tableView.frame = CGRect(x: self.tableView.frame.origin.x, y: self.tableView.frame.origin.y, width: self.tableView.frame.size.width, height: self.tableView.contentSize.height)
             }
         }
     }
@@ -123,9 +121,6 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
         
         return cell
-    }
-    
-    @IBAction func addFiles(_ sender: Any) {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

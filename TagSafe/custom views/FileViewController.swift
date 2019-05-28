@@ -11,8 +11,11 @@ import UIKit
 class FileViewController: UIView {
     let kCONTENT_XIB_NAME = "FileView"
     
+    var enableSelections: Bool = false
     var selected: Bool = false
     var fileID: String!
+    
+    var type: String!
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var fileType: UIImageView!
@@ -25,10 +28,12 @@ class FileViewController: UIView {
         commonInit()
     }
     
-    init(frame: CGRect, file: File) {
+    init(frame: CGRect, file: File, selections: Bool) {
         super.init(frame: frame)
         
         commonInit()
+        
+        enableSelections = selections
         
         contentView.layer.borderColor = UIColor(red:0.00, green:0.48, blue:1.00, alpha:1.0).cgColor
         
@@ -36,12 +41,16 @@ class FileViewController: UIView {
         
         switch file.fileType {
         case "video":
+            self.type = "video"
             self.fileType.image = UIImage(named: "video")
         case "note":
+            self.type = "note"
             self.fileType.image = UIImage(named: "note")
         case "audio":
+            self.type = "audio"
             self.fileType.image = UIImage(named: "audio")
         default:
+            self.type = "image"
             self.fileType.image = UIImage(named: "image")
         }
         self.filename.text = file.filename
@@ -63,13 +72,27 @@ class FileViewController: UIView {
     }
     
     @IBAction func onViewTap(_ sender: UITapGestureRecognizer) {
-        selected = !selected
-        switch selected {
-        case true:
-            contentView.layer.borderColor = UIColor(red:0.00, green:0.48, blue:1.00, alpha:1.0).cgColor
-            contentView.layer.borderWidth = 1
-        default:
-            contentView.layer.borderWidth = 0
+        if enableSelections == true {
+            selected = !selected
+            switch selected {
+            case true:
+                contentView.layer.borderColor = UIColor(red:0.00, green:0.48, blue:1.00, alpha:1.0).cgColor
+                contentView.layer.borderWidth = 1
+            default:
+                contentView.layer.borderWidth = 0
+            }
+        } else {
+            // open files
+            switch type {
+            case "video":
+                print("VideoAlert")
+            case "note":
+                print("NoteAlert")
+            case "audio":
+                print("AudioAlert")
+            default:
+                print("ImageAlert")
+            }
         }
     }
 }

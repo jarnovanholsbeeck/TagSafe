@@ -8,6 +8,8 @@
 
 import UIKit
 import AVKit
+import Firebase
+import FirebaseStorage
 
 class AudioAlertViewController: UIViewController {
     
@@ -17,11 +19,27 @@ class AudioAlertViewController: UIViewController {
     @IBOutlet weak var tagSelector: UIView!
     
     var recordingURL: URL!
+    var recordingTime: String!
+    
+    var tags: [Tag] = []
+    var selectedTags: [Tag] = []
+    var tagIds: [String] = []
+    
+    var db: Firestore?
+    var storage: Storage?
+    var mediaURL: Any?
+    
+    let date = Date()
+    let formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        db = Firestore.firestore()
+        storage = Storage.storage()
+        
+        formatter.dateFormat = "dd-MM-yyyy"
+        
         print("Url in alert: \(recordingURL!)")
     }
     
@@ -67,6 +85,44 @@ class AudioAlertViewController: UIViewController {
     
     @IBAction func saveAction(_ sender: Any) {
         // save file to firebase
+        self.uploadData()
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func uploadData() {
+        let storageRef = storage?.reference()
+        let filename = fileTitle.text!
+        let audioRef = storageRef!.child("audio/\(filename).m4a")
+        
+        audioRef.putFile(from: recordingURL, metadata: nil) { metadata, error in
+            // You can also access to download URL after upload.
+            audioRef.downloadURL { (url, error) in
+                guard let downloadURL = url else {
+                    return
+                }
+                
+                var dbRef: DocumentReference? = nil
+                
+                let userID = UserDefaults.standard.string(forKey: "latestUserID")
+                
+                let dateCreated = self.formatter.string(from: self.date)
+                
+                dbRef = self.db!.collection("user-files").addDocument(data: [
+                    "content": downloadURL.absoluteString,
+                    "dateCreated": dateCreated,
+                    "detail": self.recordingTime,
+                    "filename": filename,
+                    "filetype": "audio",
+                    "tags": self.tagIds,
+                    "userUid": userID!
+                ]) { err in
+                    if let err = err {
+                        print("Error adding document: \(err)")
+                    } else {
+                        print("Document added with ID: \(dbRef!.documentID)")
+                    }
+                }
+            }
+        }
     }
 }
