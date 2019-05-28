@@ -10,7 +10,7 @@ import UIKit
 import AVKit
 import Firebase
 
-class PictureAlertViewController: UIViewController {
+class PictureAlertViewController: UIViewController, UITextFieldDelegate {
     
     var imageURL: URL!
     
@@ -83,5 +83,10 @@ class PictureAlertViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

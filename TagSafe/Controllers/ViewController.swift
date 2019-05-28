@@ -94,8 +94,9 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
     }
     
     func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
-        tagView.isSelected = !tagView.isSelected
-        tagView.selectedBackgroundColor = UIColor.darkGray
+        let searchVC: SearchViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Search") as! SearchViewController
+        searchVC.searchItem = title
+        self.present(searchVC, animated: true, completion: nil)
     }
     
     func getStories() {

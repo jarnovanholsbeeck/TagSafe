@@ -51,8 +51,8 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="38D-KG-Lk9"/>
                                 </connections>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently searched tags:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPg-gf-MfJ">
-                                <rect key="frame" x="16" y="100" width="226" height="24.666666666666671"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your tags:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPg-gf-MfJ">
+                                <rect key="frame" x="16" y="100" width="94.333333333333329" height="24.666666666666671"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -109,14 +109,14 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="O4d-8E-kD1"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent stories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8D-06-Lpg">
-                                <rect key="frame" x="16" y="268.66666666666669" width="141" height="24.666666666666686"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your stories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8D-06-Lpg">
+                                <rect key="frame" x="15.999999999999993" y="268.66666666666669" width="116.33333333333331" height="24.666666666666686"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent files:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XF8-8o-XrG">
-                                <rect key="frame" x="16.000000000000007" y="534.33333333333337" width="115.66666666666669" height="24.666666666666629"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your files:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XF8-8o-XrG">
+                                <rect key="frame" x="16" y="534.33333333333337" width="91" height="24.666666666666629"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -898,7 +898,7 @@
         <!--Delegate-->
         <scene sceneID="vWY-g7-y8t">
             <objects>
-                <viewController id="Ni0-4b-ilB" customClass="SearchViewController" customModule="TagSafe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Search" id="Ni0-4b-ilB" customClass="SearchViewController" customModule="TagSafe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XtN-tx-D4o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -917,7 +917,7 @@
                                 <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vvp-xM-fed" customClass="TagListView" customModule="TagListView">
+                            <view tag="1" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vvp-xM-fed" customClass="TagListView" customModule="TagListView">
                                 <rect key="frame" x="16" y="129" width="343" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="8bd-tl-Fgu"/>
@@ -969,13 +969,13 @@
                                     <outlet property="delegate" destination="Ni0-4b-ilB" id="PJD-lL-TUw"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recently searched tags:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACa-VV-GGh">
-                                <rect key="frame" x="15" y="265" width="199.66666666666666" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your tags:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACa-VV-GGh">
+                                <rect key="frame" x="15" y="265" width="85.333333333333329" height="21"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTe-Cz-e9E" customClass="TagListView" customModule="TagListView">
+                            <view tag="2" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTe-Cz-e9E" customClass="TagListView" customModule="TagListView">
                                 <rect key="frame" x="16" y="294" width="343" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="Bx7-En-Bi5"/>
@@ -1064,7 +1064,7 @@
         <!--Search Result View Controller-->
         <scene sceneID="2fW-Q3-fwM">
             <objects>
-                <viewController id="hLQ-fc-zt2" customClass="SearchResultViewController" customModule="TagSafe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchResults" id="hLQ-fc-zt2" customClass="SearchResultViewController" customModule="TagSafe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MOC-Zk-OXQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1123,7 +1123,7 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kjr-Vr-jVQ">
                                 <rect key="frame" x="0.0" y="160.66666666666669" width="375" height="581.33333333333326"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="dataSource" destination="hLQ-fc-zt2" id="I6n-uC-xr7"/>
@@ -1870,7 +1870,10 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="lkC-NB-PFj" id="wAq-lf-9KV"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rQK-c2-5Pz">
                                         <rect key="frame" x="32" y="138" width="279" height="30"/>
@@ -1880,6 +1883,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="lkC-NB-PFj" id="Pnf-7k-8mG"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWy-4B-ivq" customClass="TagSelector" customModule="TagSafe" customModuleProvider="target">
                                         <rect key="frame" x="32" y="176" width="279" height="30"/>
@@ -1975,7 +1981,10 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y1A-gP-K8X" id="LxS-Wl-BJJ"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jNf-Uf-k6T">
                                         <rect key="frame" x="32" y="266" width="279" height="30"/>
@@ -1985,6 +1994,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y1A-gP-K8X" id="HhN-5v-3Xb"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjD-rw-BFV" customClass="TagSelector" customModule="TagSafe" customModuleProvider="target">
                                         <rect key="frame" x="32" y="304" width="279" height="30"/>
@@ -2145,13 +2157,19 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="2GL-hA-0tC" id="heF-iA-KWW"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Story" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iec-9r-OUh">
                                         <rect key="frame" x="32" y="302" width="279" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="2GL-hA-0tC" id="1eG-xv-DP7"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzj-Rt-v8g" customClass="TagSelector" customModule="TagSafe" customModuleProvider="target">
                                         <rect key="frame" x="32" y="336" width="279" height="30"/>
@@ -2319,6 +2337,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VQG-8n-kjj" id="Wgd-eh-gda"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAr-nY-t3l" customClass="TagSelector" customModule="TagSafe" customModuleProvider="target">
                                         <rect key="frame" x="32" y="92" width="279" height="30"/>
@@ -2340,7 +2361,10 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="VQG-8n-kjj" id="fE6-7R-2Ts"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2640,14 +2664,13 @@
         <image name="take_picture" width="103.33333587646484" height="103.33333587646484"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d1y-ge-ZE1"/>
-        <segue reference="kiE-Jw-T87"/>
-        <segue reference="AAN-w9-n8X"/>
-        <segue reference="YcD-ey-n2E"/>
-        <segue reference="tWo-XN-TR5"/>
-        <segue reference="Pgz-SA-yeF"/>
-        <segue reference="diw-fw-vlA"/>
-        <segue reference="NSe-iJ-Ql3"/>
-        <segue reference="h0S-Fj-aaK"/>
+        <segue reference="maB-et-HwR"/>
+        <segue reference="Ike-Rk-LZJ"/>
+        <segue reference="f2O-HE-4TI"/>
+        <segue reference="OkG-MC-dZk"/>
+        <segue reference="S8S-G5-OJw"/>
+        <segue reference="c31-IC-jIh"/>
+        <segue reference="PzB-QO-fB4"/>
+        <segue reference="pNM-7q-Pex"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,7 +11,7 @@ import AVKit
 import Firebase
 import FirebaseStorage
 
-class VideoAlertViewController: UIViewController {
+class VideoAlertViewController: UIViewController, UITextFieldDelegate {
     
     var video: String!
     var videoURL: URL!
@@ -96,5 +96,10 @@ class VideoAlertViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

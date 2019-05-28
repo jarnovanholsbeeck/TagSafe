@@ -27,6 +27,8 @@ class SearchViewController: UIViewController, TagListViewDelegate, UISearchBarDe
     var tags: [Tag] = []
     var tagsFiltered: [String] = []
     
+    var searchItem: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,10 @@ class SearchViewController: UIViewController, TagListViewDelegate, UISearchBarDe
         getTags()
         
         searchBar.becomeFirstResponder()
+        
+        if searchItem != "" {
+            self.searchList.addTag(searchItem)
+        }
         
         // color cancel button
         let view: UIView = self.searchBar.subviews[0] as UIView
@@ -79,7 +85,21 @@ class SearchViewController: UIViewController, TagListViewDelegate, UISearchBarDe
     
     func tagPressed(_ title: String, tagView: TagView, sender: TagListView) {
         tagView.isSelected = !tagView.isSelected
-        tagView.selectedBackgroundColor = UIColor.darkGray
+        //tagView.selectedBackgroundColor = UIColor(red:0.00, green:0.48, blue:1.00, alpha:1.0)
+        //tagView.selectedTextColor = UIColor.white
+        
+        if sender.tag == 1 {
+            //searchTagList
+            self.searchList.removeTag(title)
+        } else if sender.tag == 2 {
+            //TagList
+            if self.tagsFiltered.contains(title) {
+                
+            } else {
+                self.searchList.addTag(title)
+                self.tagsFiltered.append(title)
+            }
+        }
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -146,6 +166,8 @@ class SearchViewController: UIViewController, TagListViewDelegate, UISearchBarDe
         
         print("search \(searchTags)")
         
-        performSegue(withIdentifier: "ShowSearchResults", sender: self)
+        let resultVC: SearchResultViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchResults") as! SearchResultViewController
+        resultVC.searchItems = searchTags
+        self.present(resultVC, animated: true, completion: nil)
     }
 }

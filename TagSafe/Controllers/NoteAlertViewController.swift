@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class NoteAlertViewController: UIViewController {
+class NoteAlertViewController: UIViewController, UITextFieldDelegate {
     
     var tempTitle: String!
     var contentText: String!
@@ -64,9 +64,9 @@ class NoteAlertViewController: UIViewController {
             "userUid": userID!
         ])
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 }
-
-
-/*
- 
- */

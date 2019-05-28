@@ -8,6 +8,7 @@
 
 import UIKit
 import DropDown
+import Firebase
 
 class SearchResultViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     
@@ -30,14 +31,25 @@ class SearchResultViewController: UIViewController, UISearchBarDelegate, UITable
     
     var dropButton = DropDown()
     
-    var files: [File] = []
+    var db: Firestore?
+    var userID: String?
     
+    var searchItems: [String] = []
+    
+    var files: [File] = []
+    var fileIDs: [String] = []
     let dateFormatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        db = Firestore.firestore()
+        
+        userID = UserDefaults.standard.string(forKey: "latestUserID")
+        
+        let nib = UINib.init(nibName: "CustomFileCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "FileCell")
+        
         editSearchBar()
         showSearchedFiles()
         
@@ -54,10 +66,7 @@ class SearchResultViewController: UIViewController, UISearchBarDelegate, UITable
         }
         
         dateFormatter.dateFormat = "dd-MM-yyyy"
-        
-        let nib = UINib.init(nibName: "CustomFileCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: "FileCell")
-        
+
         audioButtonCenter = RecordAudioButton.center
         videoButtonCenter = RecordVideoButton.center
         noteButtonCenter = TakeNoteButton.center
@@ -82,22 +91,52 @@ class SearchResultViewController: UIViewController, UISearchBarDelegate, UITable
     }
     
     func showSearchedFiles() {
-        for n in 0...16 {
-            switch n {
-            case _ where n <= 4:
-                let newFile = File(id: "", name: "file", detail: "detail", type: "image", date: "15-06-2019", content: "")
-                self.files.append(newFile)
-            case _ where n <= 8:
-                let newFile = File(id: "", name: "test", detail: "detail", type: "audio", date: "12-06-2019", content: "")
-                self.files.append(newFile)
-            case _ where n <= 12:
-                let newFile = File(id: "", name: "something", detail: "detail", type: "video", date: "10-06-2019", content: "")
-                self.files.append(newFile)
-            default:
-                let newFile = File(id: "", name: "else", detail: "detail", type: "note", date: "5-05-2019", content: "")
-                self.files.append(newFile)
+        let fileRef = db!.collection("user-files").whereField("userUid", isEqualTo: self.userID!)
+        
+        fileRef.addSnapshotListener { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let tagRefs = document.get("tags") as? [String]
+                    
+                    var documentTags: [String] = []
+                    
+                    let id = document.documentID
+                    let name = document.get("filename") as? String
+                    let detail = document.get("detail") as? String
+                    let type = document.get("filetype") as? String
+                    let date = document.get("dateCreated") as? String
+                    let content = document.get("content") as? String
+                    
+                    // get tags from file
+                    for tag in tagRefs! {
+                        self.db!.collection("user-tags").document(tag).getDocument { (document, error) in
+                            if let document = document, document.exists {
+                                let tagName = document.get("name") as? String
+                                documentTags.append(tagName!)
+                                
+                                for item in self.searchItems {
+                                    if documentTags.contains(item) {
+                                        self.showFiles(id: id, name: name!, detail: detail!, type: type!, date: date!, content: content!)
+                                    }
+                                }
+                            } else {
+                                print("Document does not exist")
+                            }
+                        }
+                    }                    
+                }
             }
         }
+    }
+    
+    func showFiles(id: String, name: String, detail: String, type: String, date: String, content: String) {
+        let newFile = File(id: id, name: name, detail: detail, type: type, date: date, content: content)
+        
+        self.files.append(newFile)
+        self.fileIDs.append(id)
+        self.tableView.reloadData()
     }
     
     func sortFiles(sortStyle: String) {

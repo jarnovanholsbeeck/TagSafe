@@ -11,7 +11,7 @@ import AVKit
 import Firebase
 import FirebaseStorage
 
-class AudioAlertViewController: UIViewController {
+class AudioAlertViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var fileTitle: UITextField!
@@ -124,5 +124,10 @@ class AudioAlertViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
