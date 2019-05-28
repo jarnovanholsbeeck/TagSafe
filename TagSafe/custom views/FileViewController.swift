@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 class FileViewController: UIView {
     let kCONTENT_XIB_NAME = "FileView"
@@ -14,8 +15,11 @@ class FileViewController: UIView {
     var enableSelections: Bool = false
     var selected: Bool = false
     var fileID: String!
+    var file: File!
     
     var type: String!
+    
+    var vc: UIViewController!
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var fileType: UIImageView!
@@ -28,11 +32,13 @@ class FileViewController: UIView {
         commonInit()
     }
     
-    init(frame: CGRect, file: File, selections: Bool) {
+    init(frame: CGRect, file: File, selections: Bool, vc: UIViewController) {
         super.init(frame: frame)
         
         commonInit()
         
+        self.file = file
+        self.vc = vc
         enableSelections = selections
         
         contentView.layer.borderColor = UIColor(red:0.00, green:0.48, blue:1.00, alpha:1.0).cgColor
@@ -89,7 +95,17 @@ class FileViewController: UIView {
             case "note":
                 print("NoteAlert")
             case "audio":
-                print("AudioAlert")
+                print("AudioAlert \(self.file!.content)")
+                if self.file!.content != "" {
+                    let audioURL = URL(string: self.file!.content)!
+                    let audio = AVPlayer(url: audioURL )
+                    let audioPlayer = AVPlayerViewController()
+                    audioPlayer.player = audio
+                    
+                    vc.present(audioPlayer, animated: true, completion: {
+                        audio.play()
+                    })
+                }
             default:
                 print("ImageAlert")
             }

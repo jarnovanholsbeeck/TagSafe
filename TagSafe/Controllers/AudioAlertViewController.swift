@@ -110,7 +110,7 @@ class AudioAlertViewController: UIViewController {
                 dbRef = self.db!.collection("user-files").addDocument(data: [
                     "content": downloadURL.absoluteString,
                     "dateCreated": dateCreated,
-                    "detail": self.recordingTime,
+                    "detail": self.recordingTime as Any,
                     "filename": filename,
                     "filetype": "audio",
                     "tags": self.tagIds,

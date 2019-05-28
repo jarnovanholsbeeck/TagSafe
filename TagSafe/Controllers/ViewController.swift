@@ -162,8 +162,9 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
                             let detail = data["detail"] as? String
                             let type = data["filetype"] as? String
                             let date = data["dateCreated"] as? String
+                            let content = data["content"] as? String
                             
-                            self.addFile(id: self.userID!, name: name!, detail: detail!, type: type!, date: date!)
+                            self.addFile(id: self.userID!, name: name!, detail: detail!, type: type!, date: date!, content: content!)
                         }
                     }
                 }
@@ -171,15 +172,15 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
         }
     }
     
-    func addFile(id: String,name: String, detail: String, type: String, date: String) {
+    func addFile(id: String, name: String, detail: String, type: String, date: String, content: String) {
         var scrollHeight = 0
         
         let startY = 8 + (numberOfFiles * 68)
         
         scrollHeight = startY + 68
         
-        let file = File(id: id, name: name, detail: detail, type: type, date: date, content: "")
-        let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file, selections: false)
+        let file = File(id: id, name: name, detail: detail, type: type, date: date, content: content)
+        let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file, selections: false, vc: self)
         fileScrollView.addSubview(fileView)
     
         self.fileScrollView.contentSize = CGSize(width: 343, height: scrollHeight)

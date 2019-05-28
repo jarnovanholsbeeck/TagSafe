@@ -96,7 +96,7 @@ class StoryAddViewController: UIViewController, UISearchBarDelegate {
             
             scrollHeight = startY + 68
             
-            let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: files[n], selections: true)
+            let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: files[n], selections: true, vc: self)
             
             
             if selectedFiles.contains(files[n].id) {
@@ -145,7 +145,7 @@ class StoryAddViewController: UIViewController, UISearchBarDelegate {
         
         let file = File(id: id, name: name, detail: detail, type: type, date: date, content: "")
         files.append(file)
-        let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file, selections: true)
+        let fileView = FileViewController(frame: CGRect(x: 16, y: startY, width: 343, height: 60), file: file, selections: true, vc: self)
         
         if selectedFiles.contains(id) {
             fileView.selected = true

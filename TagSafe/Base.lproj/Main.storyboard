@@ -1732,8 +1732,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0r-rN-69x">
                                 <rect key="frame" x="329" y="44" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="ZEV-h2-3zX"/>
-                                    <constraint firstAttribute="width" constant="30" id="hRq-uH-9ay"/>
+                                    <constraint firstAttribute="width" constant="30" id="Jtj-Np-UWX"/>
+                                    <constraint firstAttribute="height" constant="30" id="NDF-Me-hYE"/>
                                 </constraints>
                                 <state key="normal" image="closeicon"/>
                             </button>
@@ -1741,8 +1741,8 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30336707750000003" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1J3-3s-Dck" firstAttribute="centerY" secondItem="8LZ-kh-gs5" secondAttribute="centerY" id="3yS-zm-SPk"/>
-                            <constraint firstItem="CXE-V9-YYH" firstAttribute="trailing" secondItem="N0r-rN-69x" secondAttribute="trailing" constant="16" id="Efa-hb-HVr"/>
-                            <constraint firstItem="N0r-rN-69x" firstAttribute="top" secondItem="CXE-V9-YYH" secondAttribute="top" id="zTF-h9-cGz"/>
+                            <constraint firstItem="N0r-rN-69x" firstAttribute="trailing" secondItem="8LZ-kh-gs5" secondAttribute="trailingMargin" id="5Zy-pv-0sL"/>
+                            <constraint firstItem="N0r-rN-69x" firstAttribute="top" secondItem="CXE-V9-YYH" secondAttribute="top" id="NRC-L3-81c"/>
                             <constraint firstItem="1J3-3s-Dck" firstAttribute="centerX" secondItem="8LZ-kh-gs5" secondAttribute="centerX" id="zaa-5Z-KTd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CXE-V9-YYH"/>
@@ -1751,6 +1751,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zm6-Cy-qCI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7632.8000000000002" y="-2444.3349753694583"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3IO-0k-WWs">
+            <objects>
+                <viewController storyboardIdentifier="VideoView" id="1GV-Jd-jey" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Bq-ip-GV0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nme-RK-hSo">
+                                <rect key="frame" x="329" y="44" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="50R-De-bOy"/>
+                                    <constraint firstAttribute="height" constant="30" id="IIF-wm-OGi"/>
+                                </constraints>
+                                <state key="normal" image="closeicon"/>
+                            </button>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="CHg-8H-juZ">
+                                <rect key="frame" x="67.666666666666686" y="342" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30336707750000003" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CHg-8H-juZ" firstAttribute="centerY" secondItem="3Bq-ip-GV0" secondAttribute="centerY" id="9aX-QB-SjK"/>
+                            <constraint firstItem="CHg-8H-juZ" firstAttribute="centerX" secondItem="3Bq-ip-GV0" secondAttribute="centerX" id="Bie-0l-hCI"/>
+                            <constraint firstItem="Nme-RK-hSo" firstAttribute="trailing" secondItem="3Bq-ip-GV0" secondAttribute="trailingMargin" id="RxD-6y-f5g"/>
+                            <constraint firstItem="Nme-RK-hSo" firstAttribute="top" secondItem="9rQ-8r-Lrs" secondAttribute="top" id="nrQ-oB-NSU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9rQ-8r-Lrs"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SGn-p1-xMP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8513" y="-2444"/>
         </scene>
         <!--Audio Alert View Controller-->
         <scene sceneID="Aca-6y-AVo">
@@ -2606,10 +2641,11 @@
         <image name="take_picture" width="103.33333587646484" height="103.33333587646484"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="d1y-ge-ZE1"/>
         <segue reference="kiE-Jw-T87"/>
         <segue reference="AAN-w9-n8X"/>
         <segue reference="YcD-ey-n2E"/>
-        <segue reference="m3F-bK-bcx"/>
+        <segue reference="tWo-XN-TR5"/>
         <segue reference="Pgz-SA-yeF"/>
         <segue reference="diw-fw-vlA"/>
         <segue reference="NSe-iJ-Ql3"/>
