@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo bg" translatesAutoresizingMaskIntoConstraints="NO" id="glR-G0-UAD">
-                                <rect key="frame" x="-125" y="370" width="447" height="471"/>
+                                <rect key="frame" x="-125" y="370" width="447.00000000000011" height="471"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="447" id="Mgo-Mo-XpX"/>
                                     <constraint firstAttribute="height" constant="471" id="nrB-KZ-A8h"/>
@@ -52,13 +52,13 @@
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your tags:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPg-gf-MfJ">
-                                <rect key="frame" x="16" y="100" width="94.333333333333329" height="24.666666666666671"/>
+                                <rect key="frame" x="16" y="100" width="85.333333333333329" height="21"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.43137254901960786" green="0.43137254901960786" blue="0.43137254901960786" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="70P-Ta-XUi" customClass="TagListView" customModule="TagListView">
-                                <rect key="frame" x="16" y="132.66666666666666" width="343" height="127.99999999999997"/>
+                                <rect key="frame" x="16" y="129" width="343" height="128"/>
                                 <color key="tintColor" red="0.0" green="0.42352941179999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="8yX-Zr-NXf"/>
@@ -110,19 +110,19 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your stories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8D-06-Lpg">
-                                <rect key="frame" x="15.999999999999993" y="268.66666666666669" width="116.33333333333331" height="24.666666666666686"/>
+                                <rect key="frame" x="16.000000000000007" y="265" width="105.66666666666669" height="21"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your files:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XF8-8o-XrG">
-                                <rect key="frame" x="16" y="534.33333333333337" width="91" height="24.666666666666629"/>
+                                <rect key="frame" x="16" y="538" width="83.666666666666671" height="21"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" showsVerticalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="7ac-ue-QcO">
-                                <rect key="frame" x="0.0" y="301.33333333333331" width="375" height="224.99999999999994"/>
+                                <rect key="frame" x="0.0" y="294" width="375" height="236"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dC-iF-egZ">
                                 <rect key="frame" x="0.0" y="567" width="375" height="175"/>
@@ -187,7 +187,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tl0-by-Afz" userLabel="addButton">
-                                <rect key="frame" x="179.66666666666666" y="756" width="16" height="22"/>
+                                <rect key="frame" x="155" y="713" width="65" height="65"/>
                                 <state key="normal" image="addicon"/>
                                 <connections>
                                     <action selector="addButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kiT-1G-6Rj"/>
@@ -289,7 +289,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="tailTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sek-Ps-yQk">
-                                <rect key="frame" x="16" y="44" width="75" height="28"/>
+                                <rect key="frame" x="16" y="44" width="75" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="tu1-Uy-jiw"/>
                                 </constraints>
@@ -304,7 +304,7 @@
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by name or tags..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9KU-yr-PzZ">
-                                <rect key="frame" x="5" y="72" width="365" height="56"/>
+                                <rect key="frame" x="5" y="68" width="365" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="365" id="c3z-9S-NZe"/>
                                 </constraints>
@@ -314,13 +314,13 @@
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All files:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUW-3P-WYs">
-                                <rect key="frame" x="16" y="136" width="72" height="24.666666666666657"/>
+                                <rect key="frame" x="16" y="132" width="67.666666666666671" height="21"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lX-ft-Xfy">
-                                <rect key="frame" x="284" y="139.33333333333334" width="75" height="18"/>
+                                <rect key="frame" x="284" y="135" width="75" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="pPj-HK-dvf"/>
                                 </constraints>
@@ -335,7 +335,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xcg-UK-bLM">
-                                <rect key="frame" x="0.0" y="168.66666666666669" width="375" height="573.33333333333326"/>
+                                <rect key="frame" x="0.0" y="161" width="375" height="581"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -401,7 +401,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWG-0k-IxY" userLabel="addButton">
-                                <rect key="frame" x="179.66666666666666" y="756" width="16" height="22"/>
+                                <rect key="frame" x="155" y="713" width="65" height="65"/>
                                 <state key="normal" image="addicon"/>
                                 <connections>
                                     <action selector="addButtonClicked:" destination="Nrt-LH-3lW" eventType="touchUpInside" id="eip-SX-F6x"/>
@@ -474,7 +474,7 @@
                                 </connections>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo bg" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-HU-AHT">
-                                <rect key="frame" x="-125" y="370" width="447" height="471"/>
+                                <rect key="frame" x="-125" y="370" width="447.00000000000011" height="471"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="471" id="dDo-u3-as6"/>
                                     <constraint firstAttribute="width" constant="447" id="uz1-yH-jut"/>
@@ -484,7 +484,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="tailTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LCZ-j7-Psy">
-                                        <rect key="frame" x="8" y="52" width="75" height="28"/>
+                                        <rect key="frame" x="8" y="52" width="75" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="hA1-Na-7ds"/>
                                         </constraints>
@@ -514,7 +514,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9EW-Y4-st6">
-                                        <rect key="frame" x="132.33333333333334" y="253" width="110.33333333333334" height="35"/>
+                                        <rect key="frame" x="139.33333333333334" y="258" width="96.666666666666657" height="30"/>
                                         <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -595,7 +595,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGx-gj-ItI" userLabel="addButton">
-                                <rect key="frame" x="179.66666666666666" y="756" width="16" height="22"/>
+                                <rect key="frame" x="155" y="713" width="65" height="65"/>
                                 <state key="normal" image="addicon"/>
                                 <connections>
                                     <action selector="AddButtonClicked:" destination="FVJ-DC-C4a" eventType="touchUpInside" id="pho-1B-cQk"/>
@@ -1079,7 +1079,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="tailTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PMd-U8-Ban">
-                                <rect key="frame" x="16" y="44" width="75" height="28"/>
+                                <rect key="frame" x="16" y="44" width="75" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="tRH-7a-FN7"/>
                                 </constraints>
@@ -1094,20 +1094,20 @@
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by name or tags..." translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksv-m6-9Y9">
-                                <rect key="frame" x="5" y="72" width="365" height="56"/>
+                                <rect key="frame" x="5" y="68" width="365" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="hLQ-fc-zt2" id="9gW-TS-lYZ"/>
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Files:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hfe-8G-0uB">
-                                <rect key="frame" x="16" y="128" width="49" height="24.666666666666657"/>
+                                <rect key="frame" x="15.999999999999996" y="124" width="44.666666666666657" height="21"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Medium" family="Calibre Test" pointSize="21"/>
                                 <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxV-sf-lSF">
-                                <rect key="frame" x="284" y="131.33333333333334" width="75" height="18"/>
+                                <rect key="frame" x="284" y="127" width="75" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="guQ-yb-5CV"/>
                                 </constraints>
@@ -1122,7 +1122,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kjr-Vr-jVQ">
-                                <rect key="frame" x="0.0" y="160.66666666666669" width="375" height="581.33333333333326"/>
+                                <rect key="frame" x="0.0" y="153" width="375" height="589"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -1190,7 +1190,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIC-ZB-Qzx" userLabel="addButton">
-                                <rect key="frame" x="179.66666666666666" y="756" width="16" height="22"/>
+                                <rect key="frame" x="155" y="713" width="65" height="65"/>
                                 <state key="normal" image="addicon"/>
                                 <connections>
                                     <action selector="addButtonClicked:" destination="hLQ-fc-zt2" eventType="touchUpInside" id="Yh4-NG-hdY"/>
@@ -1457,6 +1457,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="8m0-ks-fSa" id="zzV-gn-Bn3"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EIJ-3R-mh8">
                                         <rect key="frame" x="137.66666666666666" y="332" width="100" height="34"/>
@@ -1491,6 +1494,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="8m0-ks-fSa" id="3Yi-pa-gWi"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

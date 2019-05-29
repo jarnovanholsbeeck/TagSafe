@@ -73,9 +73,9 @@ class StoryViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let detail = document.get("detail") as? String
                 let type = document.get("filetype") as? String
                 let date = document.get("dateCreated") as? String
-                let content = document.get("content") as? String
+                let content = document.get("content") as? String ?? ""
                 
-                let newFile = File(id: document.documentID, name: name!, detail: detail!, type: type!, date: date!, content: content!)
+                let newFile = File(id: document.documentID, name: name!, detail: detail!, type: type!, date: date!, content: content)
                 
                 self.files.append(newFile)
                 self.fileIDs.append(document.documentID)

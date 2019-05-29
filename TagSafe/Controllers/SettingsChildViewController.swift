@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class SettingsChildViewController: UIViewController {
+class SettingsChildViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var mainView: UIView!
@@ -82,5 +82,10 @@ class SettingsChildViewController: UIViewController {
             self.notificationView.alpha = 0
             self.privacyView.alpha = 0
         }, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
