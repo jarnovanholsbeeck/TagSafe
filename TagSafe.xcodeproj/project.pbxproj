@@ -36,8 +36,6 @@
 		C0CC1B0B229570180025532E /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC1B0A229570180025532E /* StoryViewController.swift */; };
 		C0CC1B0D22957AC30025532E /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC1B0C22957AC30025532E /* SelfSizedTableView.swift */; };
 		C0CC1B0F229584630025532E /* StoryAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC1B0E229584630025532E /* StoryAddViewController.swift */; };
-		C0D9DFF722996CD100184DF2 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C0D9DFF622996CD100184DF2 /* video.mp4 */; };
-		C0D9DFF922996FAD00184DF2 /* audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C0D9DFF822996FAD00184DF2 /* audio.mp3 */; };
 		C0EAC2CA2293F4DA005DF03E /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2C92293F4DA005DF03E /* Tag.swift */; };
 		C0EAC2CC2293FB60005DF03E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2CB2293FB60005DF03E /* SearchViewController.swift */; };
 		C0EAC2CE229435BD005DF03E /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EAC2CD229435BD005DF03E /* SearchResultViewController.swift */; };
@@ -87,11 +85,11 @@
 		C02DBBE0228F3C45009592AD /* TagSafeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TagSafeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C02DBBE4228F3C45009592AD /* TagSafeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSafeUITests.swift; sourceTree = "<group>"; };
 		C02DBBE6228F3C46009592AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C02DBBF2228F4632009592AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C02DBBF2228F4632009592AD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C03EBB89229830FE00214AF6 /* TagSelector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagSelector.xib; sourceTree = "<group>"; };
 		C03EBB8B2298311E00214AF6 /* TagSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelector.swift; sourceTree = "<group>"; };
-		C07A2E1F2292A12C0084D799 /* calibretest_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = calibretest_regular.ttf; path = ../calibretest_regular.ttf; sourceTree = "<group>"; };
-		C07A2E212292A1C70084D799 /* CalibreTest-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CalibreTest-Medium.ttf"; path = "../CalibreTest-Medium.ttf"; sourceTree = "<group>"; };
+		C07A2E1F2292A12C0084D799 /* calibretest_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = calibretest_regular.ttf; path = TagSafe/Fonts/calibretest_regular.ttf; sourceTree = "<group>"; };
+		C07A2E212292A1C70084D799 /* CalibreTest-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "CalibreTest-Medium.ttf"; path = "TagSafe/Fonts/CalibreTest-Medium.ttf"; sourceTree = "<group>"; };
 		C07A2E232292A90F0084D799 /* StoryCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCard.xib; sourceTree = "<group>"; };
 		C07A2E252292B0210084D799 /* StoryCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardController.swift; sourceTree = "<group>"; };
 		C07A2E282292DE5B0084D799 /* FileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FileView.xib; sourceTree = "<group>"; };
@@ -105,8 +103,6 @@
 		C0CC1B0A229570180025532E /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		C0CC1B0C22957AC30025532E /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
 		C0CC1B0E229584630025532E /* StoryAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryAddViewController.swift; sourceTree = "<group>"; };
-		C0D9DFF622996CD100184DF2 /* video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = video.mp4; path = ../video.mp4; sourceTree = "<group>"; };
-		C0D9DFF822996FAD00184DF2 /* audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audio.mp3; path = ../audio.mp3; sourceTree = "<group>"; };
 		C0EAC2C92293F4DA005DF03E /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		C0EAC2CB2293FB60005DF03E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C0EAC2CD229435BD005DF03E /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -156,8 +152,6 @@
 		C02DBBB5228F3C45009592AD = {
 			isa = PBXGroup;
 			children = (
-				C0D9DFF822996FAD00184DF2 /* audio.mp3 */,
-				C0D9DFF622996CD100184DF2 /* video.mp4 */,
 				C02DBBC0228F3C45009592AD /* TagSafe */,
 				C02DBBD8228F3C45009592AD /* TagSafeTests */,
 				C02DBBE3228F3C45009592AD /* TagSafeUITests */,
@@ -379,7 +373,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0D9DFF722996CD100184DF2 /* video.mp4 in Resources */,
 				C07A2E292292DE5B0084D799 /* FileView.xib in Resources */,
 				C07A2E222292A1C70084D799 /* CalibreTest-Medium.ttf in Resources */,
 				C02DBBCF228F3C45009592AD /* LaunchScreen.storyboard in Resources */,
@@ -390,7 +383,6 @@
 				C07A2E242292A90F0084D799 /* StoryCard.xib in Resources */,
 				C02DBBCC228F3C45009592AD /* Assets.xcassets in Resources */,
 				C02DBBC7228F3C45009592AD /* Main.storyboard in Resources */,
-				C0D9DFF922996FAD00184DF2 /* audio.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
