@@ -5,6 +5,17 @@
 //  Created by Jarno Van Holsbeeck on 17/05/2019.
 //  Copyright © 2019 Erasmix4. All rights reserved.
 //
+//  Pods used in this project
+//
+//  Google Firebase
+//  https://firebase.google.com
+//
+//  TagList (MIT License)
+//  https://github.com/ElaWorkshop/TagListView
+//
+//  DropDown (MIT license)
+//  https://github.com/AssistoLab/DropDown
+//
 
 import UIKit
 import Firebase
