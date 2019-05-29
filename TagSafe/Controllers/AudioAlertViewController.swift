@@ -38,9 +38,7 @@ class AudioAlertViewController: UIViewController, UITextFieldDelegate {
 
         db = Firestore.firestore()
         storage = Storage.storage()
-        
         userUID = UserDefaults.standard.string(forKey: "latestUserID")
-        
         formatter.dateFormat = "dd-MM-yyyy"
         
         self.getTags()

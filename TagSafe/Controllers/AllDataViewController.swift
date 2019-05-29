@@ -108,6 +108,8 @@ class AllDataViewController: UIViewController, UISearchBarDelegate, UITableViewD
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                self.files = []
+                self.fileIDs = []
                 for document in querySnapshot!.documents {
                     let name = document.get("filename") as? String
                     let detail = document.get("detail") as? String

@@ -35,10 +35,29 @@ class NoteAlertViewController: UIViewController, UITextFieldDelegate {
         fileTitle.text = tempTitle
         
         db = Firestore.firestore()
-        
-        formatter.dateFormat = "dd-MM-yyyy"
-        
+        formatter.dateFormat = "dd-MM-yyyy"        
         userUID = UserDefaults.standard.string(forKey: "latestUserID")
+        
+        self.getTags()
+    }
+    
+    func getTags() {
+        let tagRef = db!.collection("user-tags").whereField("userUid", isEqualTo: self.userUID!)
+        
+        tagRef.addSnapshotListener { (querySnapshot, err) in
+            if err != nil {
+                print("Error getting stories for this user.")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let tagID = document.documentID
+                    let tagName = data["name"] as? String
+                    let tagColor = data["color"] as? String
+                    let tag = Tag(id: tagID, name: tagName!, color: tagColor!)
+                    self.tags.append(tag)
+                }
+            }
+        }
     }
     
     @IBAction func deleteAction(_ sender: Any) {
@@ -51,6 +70,7 @@ class NoteAlertViewController: UIViewController, UITextFieldDelegate {
         
         var doUpload: Bool = false
         
+        
         for tag in self.tags {
             if (tagArray!.contains(tag.name!)) || (tagArray!.contains(tag.name!.lowercased())) {
                 // add existing tag
@@ -59,10 +79,12 @@ class NoteAlertViewController: UIViewController, UITextFieldDelegate {
                 doUpload = true
             } else {
                 // create and add new tag
+                
             }
         }
         
         if doUpload {
+            print("upload")
             self.uploadData()
         }
         

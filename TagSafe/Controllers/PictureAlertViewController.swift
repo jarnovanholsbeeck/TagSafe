@@ -36,9 +36,7 @@ class PictureAlertViewController: UIViewController, UITextFieldDelegate {
 
         db = Firestore.firestore()
         storage = Storage.storage()
-        
         formatter.dateFormat = "dd-MM-yyyy"
-        
         userUID = UserDefaults.standard.string(forKey: "latestUserID")
         
         self.getTags()

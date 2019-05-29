@@ -57,6 +57,13 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
         TakeNoteButton.center = AddButton.center
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if fadeScreen.alpha != 0 {
+            self.AddButton.sendActions(for: .touchUpInside)
+        }
+    }
+    
     func editSearchBar() {
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             textfield.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0)
@@ -106,6 +113,8 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
             if err != nil {
                 print("Error getting stories for this user.")
             } else {
+                var stories = self.scrollView.subviews
+                stories.removeAll()
                 for document in querysnapshot!.documents {
                     let data = document.data()
                     if let id = data["userUid"] as? String {
@@ -154,6 +163,8 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
             if err != nil {
                 print("Error getting stories for this user.")
             } else {
+                var files = self.fileScrollView.subviews
+                files.removeAll()
                 for document in querysnapshot!.documents {
                     let data = document.data()
                     if let id = data["userUid"] as? String {
@@ -163,9 +174,9 @@ class ViewController: UIViewController, TagListViewDelegate, UISearchBarDelegate
                             let detail = data["detail"] as? String
                             let type = data["filetype"] as? String
                             let date = data["dateCreated"] as? String
-                            let content = data["content"] as? String
+                            let content = data["content"] as? String ?? ""
                             
-                            self.addFile(id: self.userID!, name: name!, detail: detail!, type: type!, date: date!, content: content!)
+                            self.addFile(id: self.userID!, name: name!, detail: detail!, type: type!, date: date!, content: content)
                         }
                     }
                 }
