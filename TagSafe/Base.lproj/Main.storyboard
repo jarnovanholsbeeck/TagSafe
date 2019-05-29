@@ -823,7 +823,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ziL-fn-Jte">
-                                <rect key="frame" x="284" y="127" width="75" height="15"/>
+                                <rect key="frame" x="284" y="126.66666666666669" width="75" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="MYX-lB-24f"/>
                                 </constraints>
@@ -903,7 +903,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by name or tags..." showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU5-77-HQ8">
+                            <searchBar contentMode="redraw" ambiguous="YES" searchBarStyle="minimal" placeholder="Search by name or tags..." showsCancelButton="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU5-77-HQ8">
                                 <rect key="frame" x="5" y="44" width="365" height="56"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -917,7 +917,7 @@
                                 <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view tag="1" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vvp-xM-fed" customClass="TagListView" customModule="TagListView">
+                            <view tag="1" contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vvp-xM-fed" customClass="TagListView" customModule="TagListView">
                                 <rect key="frame" x="16" y="129" width="343" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="8bd-tl-Fgu"/>
@@ -975,7 +975,7 @@
                                 <color key="textColor" red="0.43137254899999999" green="0.43137254899999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view tag="2" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="DTe-Cz-e9E" customClass="TagListView" customModule="TagListView">
+                            <view tag="2" contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DTe-Cz-e9E" customClass="TagListView" customModule="TagListView">
                                 <rect key="frame" x="16" y="294" width="343" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="Bx7-En-Bi5"/>
@@ -1256,10 +1256,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logowhite" translatesAutoresizingMaskIntoConstraints="NO" id="yBT-vo-evx">
-                                <rect key="frame" x="125.66666666666669" y="212" width="124" height="159"/>
+                                <rect key="frame" x="179.66666666666666" y="212" width="16" height="16"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M9L-Se-NJD">
-                                <rect key="frame" x="32" y="428" width="311" height="30"/>
+                                <rect key="frame" x="32" y="285" width="311" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="311" id="kqo-A4-Edy"/>
                                 </constraints>
@@ -1271,13 +1271,13 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello there! Please sign up below to enter." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gQ-nl-Dsd">
-                                <rect key="frame" x="49.666666666666657" y="379" width="276" height="17"/>
+                                <rect key="frame" x="49.666666666666657" y="236" width="276" height="17"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-Rq-s3a">
-                                <rect key="frame" x="157.66666666666666" y="536" width="60" height="18"/>
+                                <rect key="frame" x="157.66666666666666" y="393" width="60" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="MDE-ME-ZXr"/>
                                 </constraints>
@@ -1291,7 +1291,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EUk-ZH-jl1">
-                                <rect key="frame" x="32" y="474" width="311" height="30"/>
+                                <rect key="frame" x="32" y="331" width="311" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="311" id="dXg-Ue-e7I"/>
                                 </constraints>
@@ -2542,18 +2542,18 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWD-jW-1Xw">
-                                <rect key="frame" x="167.66666666666666" y="684.33333333333337" width="40" height="45.666666666666629"/>
+                                <rect key="frame" x="179.66666666666666" y="708" width="16" height="22"/>
                                 <state key="normal" image="record_camera_tab"/>
                                 <connections>
                                     <segue destination="Z7M-3l-rRR" kind="show" id="5kf-2B-9dP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reF-K4-kH3">
-                                <rect key="frame" x="239.66666666666663" y="684.33333333333337" width="40" height="46"/>
+                                <rect key="frame" x="227.66666666666666" y="708" width="16" height="22"/>
                                 <state key="normal" image="take_not_tab_active"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNv-cO-RPV">
-                                <rect key="frame" x="95.666666666666671" y="683.66666666666663" width="40.000000000000014" height="47"/>
+                                <rect key="frame" x="131.66666666666666" y="708" width="16" height="22"/>
                                 <state key="normal" image="record_audio_tab"/>
                                 <connections>
                                     <segue destination="vlS-hF-wnr" kind="show" id="nwF-24-mvw"/>
@@ -2566,7 +2566,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dm8-40-XZt">
-                                <rect key="frame" x="16" y="130" width="343" height="521.66666666666663"/>
+                                <rect key="frame" x="16" y="130" width="343" height="546"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="CalibreTest-Regular" family="Calibre Test" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes"/>

@@ -16,7 +16,7 @@ class AudioAlertViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var fileTitle: UITextField!
     @IBOutlet weak var story: UITextField!
-    @IBOutlet weak var tagSelector: UIView!
+    @IBOutlet weak var tagSelector: TagSelector!
     
     var recordingURL: URL!
     var recordingTime: String!
@@ -28,6 +28,7 @@ class AudioAlertViewController: UIViewController, UITextFieldDelegate {
     var db: Firestore?
     var storage: Storage?
     var mediaURL: Any?
+    var userUID: String?
     
     let date = Date()
     let formatter = DateFormatter()
@@ -38,9 +39,11 @@ class AudioAlertViewController: UIViewController, UITextFieldDelegate {
         db = Firestore.firestore()
         storage = Storage.storage()
         
+        userUID = UserDefaults.standard.string(forKey: "latestUserID")
+        
         formatter.dateFormat = "dd-MM-yyyy"
         
-        print("Url in alert: \(recordingURL!)")
+        self.getTags()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +69,25 @@ class AudioAlertViewController: UIViewController, UITextFieldDelegate {
             self.alertView.frame.origin.y = self.alertView.frame.origin.y - 50
         })
     }
+    
+    func getTags() {
+        let tagRef = db!.collection("user-tags").whereField("userUid", isEqualTo: self.userUID!)
+        
+        tagRef.addSnapshotListener { (querySnapshot, err) in
+            if err != nil {
+                print("Error getting stories for this user.")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let tagID = document.documentID
+                    let tagName = data["name"] as? String
+                    let tagColor = data["color"] as? String
+                    let tag = Tag(id: tagID, name: tagName!, color: tagColor!)
+                    self.tags.append(tag)
+                }
+            }
+        }
+    }
 
     @IBAction func play(_ sender: Any) {
         if recordingURL != nil {
@@ -84,8 +106,26 @@ class AudioAlertViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveAction(_ sender: Any) {
-        // save file to firebase
-        self.uploadData()
+        let tags = self.tagSelector.txtTag.text
+        let tagArray = tags?.components(separatedBy: .whitespacesAndNewlines)
+        
+        var doUpload: Bool = false
+        
+        for tag in self.tags {
+            if (tagArray!.contains(tag.name!)) || (tagArray!.contains(tag.name!.lowercased())) {
+                // add existing tag
+                self.tagIds.append(tag.id!)
+                
+                doUpload = true
+            } else {
+                // create and add new tag
+            }
+        }
+        
+        if doUpload {
+            self.uploadData()
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     

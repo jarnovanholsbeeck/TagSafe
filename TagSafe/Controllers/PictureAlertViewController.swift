@@ -17,6 +17,8 @@ class PictureAlertViewController: UIViewController, UITextFieldDelegate {
     var db: Firestore?
     var storage: Storage?
     
+    var userUID: String?
+    
     var tags: [Tag] = []
     var selectedTags: [Tag] = []
     var tagIds: [String] = []
@@ -27,7 +29,7 @@ class PictureAlertViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pictureView: UIImageView!
     @IBOutlet weak var fileTitle: UITextField!
     @IBOutlet weak var fileStory: UITextField!
-    @IBOutlet weak var tagSelector: UIView!
+    @IBOutlet weak var tagSelector: TagSelector!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +38,58 @@ class PictureAlertViewController: UIViewController, UITextFieldDelegate {
         storage = Storage.storage()
         
         formatter.dateFormat = "dd-MM-yyyy"
+        
+        userUID = UserDefaults.standard.string(forKey: "latestUserID")
+        
+        self.getTags()
     }
+    
+    func getTags() {
+        let tagRef = db!.collection("user-tags").whereField("userUid", isEqualTo: self.userUID!)
+        
+        tagRef.addSnapshotListener { (querySnapshot, err) in
+            if err != nil {
+                print("Error getting stories for this user.")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let tagID = document.documentID
+                    let tagName = data["name"] as? String
+                    let tagColor = data["color"] as? String
+                    let tag = Tag(id: tagID, name: tagName!, color: tagColor!)
+                    self.tags.append(tag)
+                }
+            }
+        }
+    }
+
     
     @IBAction func deleteAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func saveAction(_ sender: Any) {
+        let tags = self.tagSelector.txtTag.text
+        let tagArray = tags?.components(separatedBy: .whitespacesAndNewlines)
+        
+        var doUpload: Bool = false
+        
+        for tag in self.tags {
+            if (tagArray!.contains(tag.name!)) || (tagArray!.contains(tag.name!.lowercased())) {
+                // add existing tag
+                self.tagIds.append(tag.id!)
+                
+                doUpload = true
+            } else {
+                // create and add new tag
+            }
+        }
+        
+        if doUpload {
+            self.uploadData()
+        }
+        
         self.dismiss(animated: true, completion: nil)
-        self.uploadData()
     }
     
     func uploadData() {

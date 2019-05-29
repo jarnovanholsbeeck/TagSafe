@@ -16,6 +16,8 @@ class NoteAlertViewController: UIViewController, UITextFieldDelegate {
     
     var db: Firestore?
     
+    var userUID: String?
+    
     var tags: [Tag] = []
     var selectedTags: [Tag] = []
     var tagIds: [String] = []
@@ -25,7 +27,7 @@ class NoteAlertViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var fileTitle: UITextField!
     @IBOutlet weak var fileStory: UITextField!
-    @IBOutlet weak var tagSelector: UIView!
+    @IBOutlet weak var tagSelector: TagSelector!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,8 @@ class NoteAlertViewController: UIViewController, UITextFieldDelegate {
         db = Firestore.firestore()
         
         formatter.dateFormat = "dd-MM-yyyy"
+        
+        userUID = UserDefaults.standard.string(forKey: "latestUserID")
     }
     
     @IBAction func deleteAction(_ sender: Any) {
@@ -42,8 +46,27 @@ class NoteAlertViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func saveAction(_ sender: Any) {
+        let tags = self.tagSelector.txtTag.text
+        let tagArray = tags?.components(separatedBy: .whitespacesAndNewlines)
+        
+        var doUpload: Bool = false
+        
+        for tag in self.tags {
+            if (tagArray!.contains(tag.name!)) || (tagArray!.contains(tag.name!.lowercased())) {
+                // add existing tag
+                self.tagIds.append(tag.id!)
+                
+                doUpload = true
+            } else {
+                // create and add new tag
+            }
+        }
+        
+        if doUpload {
+            self.uploadData()
+        }
+        
         self.dismiss(animated: true, completion: nil)
-        self.uploadData()
     }
     
     func uploadData() {
